@@ -1008,27 +1008,29 @@
         </div>
     </section>
 
-    <!-- Запись -->
-<section class="booking" id="booking">
-    <div class="container">
-        <div class="booking__inner">
-            <h2 class="section-title">Записаться онлайн</h2>
-            <p class="booking__subtitle">Выберите услугу и удобное время</p>
-            
-            <div style="margin: 30px 0; background: #1A1A1A; border-radius: 8px; padding: 20px;">
-                <iframe 
-                    id="JotFormIFrame-260775027505053"
-                    title="Записаться онлайн"
-                    src="https://form.jotform.com/260775027505053"
-                    frameborder="0"
-                    style="min-width:100%; max-width:100%; height:650px; border:none; border-radius: 8px; background: transparent;"
-                    scrolling="auto"
-                    allow="geolocation; microphone; camera; fullscreen; payment">
-                </iframe>
-                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-                <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260775027505053']", "https://form.jotform.com/")</script>
-            </div>
-            
+   <!-- Запись -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking__inner">
+                <h2 class="section-title">Записаться онлайн</h2>
+                <p class="booking__subtitle">Оставьте контакты — мы перезвоним и подберём удобное время</p>
+                <form class="booking__form" id="bookingForm" method="POST" action="send.php">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <select name="service" required>
+                        <option value="" disabled selected>Выберите услугу</option>
+                        <option>Мужская стрижка</option>
+                        <option>Стрижка бороды</option>
+                        <option>Мужская стрижка + стрижка бороды</option>
+                        <option>Детская стрижка</option>
+                        <option>Бритьё головы шейвером</option>
+                        <option>Королевское бритьё</option>
+                        <option>Тонирование седины</option>
+                        <option>Тонирование бороды</option>
+                    </select>
+                    <input type="date" name="date" required>
+                    <button type="submit" class="btn btn--large">Отправить заявку</button>
+                </form>
             <p class="booking__note">Или позвоните нам: <a href="tel:+79263032076">+7 (926) 303-20-76</a></p>
         </div>
     </div>
