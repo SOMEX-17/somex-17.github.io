@@ -1343,7 +1343,7 @@
                 card.setAttribute('onclick', `openMasterWithData(${i}, "${masterNames[i]}", ${masterExps[i]}, "${masterSpecs[i]}")`);
                 card.innerHTML = `
                     <div class="master-card__photo">
-                        <img src="images/${masterNames[i].toLowerCase()}.jpg" alt="${masterNames[i]}" onerror="this.src='images/avatar-placeholder.jpg'">
+                        <img src="images/${masterNames[i].toLowerCase()}.jpg" alt="${masterNames[i]}" onerror="this.src='images/logo.jpg'">
                     </div>
                     <h3>${masterNames[i]}</h3>
                     <p>${masterSpecs[i].substring(0, 50)}${masterSpecs[i].length > 50 ? '...' : ''}</p>
