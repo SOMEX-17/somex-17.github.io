@@ -242,7 +242,7 @@
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            filter: grayscale(100%);
+            /* цветное фото — убрали grayscale */
         }
 
         .hero__image img {
@@ -328,7 +328,7 @@
             color: var(--gold);
         }
 
-        /* ========== МАСТЕРА (2 РЯДА, 8 ВИДИМЫХ) ========== */
+        /* ========== МАСТЕРА (горизонтальная прокрутка) ========== */
         .masters {
             padding: 100px 0;
             background: #0A0A0A;
@@ -358,14 +358,13 @@
         }
 
         .masters-carousel {
-            display: grid;
-            grid-template-columns: repeat(24, 280px);
+            display: flex;
             gap: 30px;
             padding: 10px 60px;
         }
 
         .master-card {
-            width: 280px;
+            flex: 0 0 280px;
             background: var(--card);
             border-radius: 12px;
             padding: 25px;
@@ -420,246 +419,7 @@
             }
         }
 
-        /* ========== МОДАЛЬНОЕ ОКНО МАСТЕРА ========== */
-        .master-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .master-modal-overlay.open {
-            display: flex;
-        }
-
-        .master-modal {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            animation: modalIn 0.3s ease;
-        }
-
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-            transition: color 0.3s;
-        }
-
-        .modal-close:hover {
-            color: var(--gold);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 24px 24px 16px;
-            flex-shrink: 0;
-        }
-
-        .modal-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            flex-shrink: 0;
-        }
-
-        .modal-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        .modal-exp {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-top: 4px;
-        }
-
-        .modal-section {
-            padding: 0 24px 20px;
-            flex-shrink: 0;
-        }
-
-        .modal-section h4 {
-            color: var(--gold);
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .modal-section p {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Заголовок отзывов с рейтингом */
-        .reviews-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
-        }
-
-        .reviews-header h4 {
-            margin-bottom: 0;
-        }
-
-        .rating-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(200, 170, 110, 0.15);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .rating-stars {
-            color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        .rating-value {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Блок с одним отзывом и скрулбаром */
-        .reviews-container {
-            max-height: 150px;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
-
-        /* Чёрный скрулбар для отзывов */
-        .reviews-container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .reviews-container::-webkit-scrollbar-track {
-            background: #1A1A1A;
-            border-radius: 10px;
-        }
-
-        .reviews-container::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-
-        .review {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-        }
-
-        .review:last-child {
-            margin-bottom: 0;
-        }
-
-        .review-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .review-author {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text);
-        }
-
-        .review-stars {
-            color: var(--gold);
-            font-size: 12px;
-        }
-
-        .review-text {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Карта в модалке */
-        .modal-map {
-            height: 180px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .modal-map iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .modal-cta {
-            display: block;
-            margin: 0 24px 24px;
-            text-align: center;
-            background: var(--gold);
-            color: #0A0A0A;
-            font-weight: 600;
-            padding: 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .modal-cta:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--gold-glow);
-        }
-
-        /* ========== ГАЛЕРЕЯ ========== */
+        /* ========== ГАЛЕРЕЯ (горизонтальная прокрутка на мобильных) ========== */
         .gallery {
             padding: 100px 0;
             background: #0F0F0F;
@@ -669,6 +429,36 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+        }
+
+        /* На мобильных — горизонтальная прокрутка */
+        @media (max-width: 768px) {
+            .gallery__grid {
+                display: flex;
+                overflow-x: auto;
+                gap: 20px;
+                padding: 10px 20px;
+                scroll-snap-type: x mandatory;
+            }
+            
+            .gallery__grid::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .gallery__grid::-webkit-scrollbar-track {
+                background: #1A1A1A;
+                border-radius: 10px;
+            }
+
+            .gallery__grid::-webkit-scrollbar-thumb {
+                background: var(--gold);
+                border-radius: 10px;
+            }
+            
+            .gallery-item {
+                flex: 0 0 280px;
+                scroll-snap-align: start;
+            }
         }
 
         .gallery-item {
@@ -946,6 +736,245 @@
             color: var(--gold);
         }
 
+        /* ========== МОДАЛЬНОЕ ОКНО МАСТЕРА ========== */
+        .master-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .master-modal-overlay.open {
+            display: flex;
+        }
+
+        .master-modal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 24px 16px;
+            flex-shrink: 0;
+        }
+
+        .modal-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .modal-exp {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .modal-section {
+            padding: 0 24px 20px;
+            flex-shrink: 0;
+        }
+
+        .modal-section h4 {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-section p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Заголовок отзывов с рейтингом */
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .reviews-header h4 {
+            margin-bottom: 0;
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(200, 170, 110, 0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .rating-stars {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .rating-value {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Блок с одним отзывом и скрулбаром */
+        .reviews-container {
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        /* Чёрный скрулбар для отзывов с золотым ползунком */
+        .reviews-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .reviews-container::-webkit-scrollbar-track {
+            background: #1A1A1A;
+            border-radius: 10px;
+        }
+
+        .reviews-container::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .review {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .review:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 12px;
+        }
+
+        .review-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Карта в модалке */
+        .modal-map {
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .modal-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .modal-cta {
+            display: block;
+            margin: 0 24px 24px;
+            text-align: center;
+            background: var(--gold);
+            color: #0A0A0A;
+            font-weight: 600;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .modal-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--gold-glow);
+        }
+
         /* ========== АДАПТИВНОСТЬ ========== */
         @media (max-width: 1200px) {
             .hero__title { font-size: 56px; }
@@ -958,7 +987,6 @@
             .section-title { font-size: 42px; }
             .hero__inner { gap: 40px; }
             .services__grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery__grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 900px) {
@@ -992,7 +1020,7 @@
             .btn--large { width: 100%; text-align: center; padding: 14px 20px; }
             .services, .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
             .section-title { font-size: 32px; margin-bottom: 40px; }
-            .services__grid, .gallery__grid { grid-template-columns: 1fr; gap: 25px; }
+            .services__grid { grid-template-columns: 1fr; gap: 25px; }
             .service-card { padding: 30px 20px; text-align: center; }
             .service-card__icon { font-size: 40px; }
             .service-card h3 { font-size: 22px; }
@@ -1118,7 +1146,7 @@
         </div>
     </section>
 
-    <!-- Мастера (24 мастера, скрулбар чёрный, золотой ползунок) -->
+    <!-- Мастера -->
     <section class="masters" id="masters">
         <div class="container">
             <h2 class="section-title">Наши мастера</h2>
