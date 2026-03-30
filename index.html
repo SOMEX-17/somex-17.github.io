@@ -242,7 +242,6 @@
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            /* цветное фото — убрали grayscale */
         }
 
         .hero__image img {
@@ -340,6 +339,7 @@
             overflow-x: auto;
             overflow-y: visible;
             padding: 20px 0;
+            scroll-behavior: smooth;
         }
 
         /* Чёрный скрулбар для карусели мастеров */
@@ -423,45 +423,32 @@
         .gallery {
             padding: 100px 0;
             background: #0F0F0F;
+            overflow-x: auto;
         }
 
         .gallery__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: flex;
             gap: 30px;
+            padding: 10px 60px;
         }
 
-        /* На мобильных — горизонтальная прокрутка */
-        @media (max-width: 768px) {
-            .gallery__grid {
-                display: flex;
-                overflow-x: auto;
-                gap: 20px;
-                padding: 10px 20px;
-                scroll-snap-type: x mandatory;
-            }
-            
-            .gallery__grid::-webkit-scrollbar {
-                height: 6px;
-            }
+        /* Чёрный скрулбар для галереи */
+        .gallery::-webkit-scrollbar {
+            height: 6px;
+        }
 
-            .gallery__grid::-webkit-scrollbar-track {
-                background: #1A1A1A;
-                border-radius: 10px;
-            }
+        .gallery::-webkit-scrollbar-track {
+            background: #1A1A1A;
+            border-radius: 10px;
+        }
 
-            .gallery__grid::-webkit-scrollbar-thumb {
-                background: var(--gold);
-                border-radius: 10px;
-            }
-            
-            .gallery-item {
-                flex: 0 0 280px;
-                scroll-snap-align: start;
-            }
+        .gallery::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
         }
 
         .gallery-item {
+            flex: 0 0 350px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -471,6 +458,15 @@
 
         .gallery-item:hover {
             transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .gallery__grid {
+                padding: 10px 20px;
+            }
+            .gallery-item {
+                flex: 0 0 280px;
+            }
         }
 
         .before-after {
@@ -881,9 +877,9 @@
             font-size: 14px;
         }
 
-        /* Блок с одним отзывом и скрулбаром */
+        /* Блок с отзывами и вертикальным скрулбаром */
         .reviews-container {
-            max-height: 150px;
+            max-height: 200px;
             overflow-y: auto;
             padding-right: 8px;
         }
@@ -939,9 +935,9 @@
             margin: 0;
         }
 
-        /* Карта в модалке */
+        /* Карта в модалке (уменьшена на 30%) */
         .modal-map {
-            height: 180px;
+            height: 126px;
             border-radius: 12px;
             overflow: hidden;
             margin-top: 10px;
@@ -1163,20 +1159,56 @@
             <div class="gallery__grid">
                 <div class="gallery-item">
                     <div class="before-after">
-                        <img src="images/logo.jpg" alt="До" class="before">
-                        <img src="images/logo.jpg" alt="После" class="after">
+                        <img src="images/stubble-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/stubble-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="before-after">
-                        <img src="images/logo.jpg" alt="До" class="before">
-                        <img src="images/logo.jpg" alt="После" class="after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="before-after">
-                        <img src="images/logo.jpg" alt="До" class="before">
-                        <img src="images/logo.jpg" alt="После" class="after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/fade-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/fade-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
                     </div>
                 </div>
             </div>
@@ -1191,10 +1223,10 @@
         <div class="slider-container">
             <div class="slider">
                 <div class="slides">
-                    <div class="slide"><img src="images/logo.jpg" alt="Интерьер 1"></div>
-                    <div class="slide"><img src="images/logo.jpg" alt="Интерьер 2"></div>
-                    <div class="slide"><img src="images/logo.jpg" alt="Интерьер 3"></div>
-                    <div class="slide"><img src="images/logo.jpg" alt="Интерьер 4"></div>
+                    <div class="slide"><img src="images/barbershop-1.jpg" alt="Интерьер 1" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-2.jpg" alt="Интерьер 2" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-3.jpg" alt="Интерьер 3" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-4.jpg" alt="Интерьер 4" onerror="this.src='images/logo.jpg'"></div>
                 </div>
                 <button class="slider-btn prev">❮</button>
                 <button class="slider-btn next">❯</button>
@@ -1285,7 +1317,7 @@
                 <div class="reviews-header">
                     <h4>Отзывы клиентов</h4>
                     <div class="rating-badge">
-                        <span class="rating-stars" id="ratingStars">★★★★★</span>
+                        <span class="rating-stars" id="ratingStars">★</span>
                         <span class="rating-value" id="ratingValue">5.0</span>
                     </div>
                 </div>
@@ -1340,11 +1372,11 @@
 
         const masterExps = [15, 10, 6, 5, 7, 8, 4, 6, 9, 5, 3, 7, 4, 6, 5, 8, 4, 7, 6, 5, 9, 4, 7, 5];
 
-        // Все отзывы
+        // 5 отзывов для каждого мастера (все 5 звёзд)
         const allReviews = [
             { author: "Алексей", rating: 5, text: "Отличный мастер! Всегда доволен результатом." },
             { author: "Дмитрий", rating: 5, text: "Профессионал своего дела. Рекомендую!" },
-            { author: "Иван", rating: 4, text: "Хороший подход к клиенту, приду ещё." },
+            { author: "Иван", rating: 5, text: "Хороший подход к клиенту, приду ещё." },
             { author: "Михаил", rating: 5, text: "Очень аккуратно и быстро. Супер!" },
             { author: "Андрей", rating: 5, text: "Лучший барбер в городе!" }
         ];
@@ -1379,7 +1411,10 @@
 
         function openMasterWithData(index, name, exp, spec) {
             const modal = document.getElementById('masterModal');
-            document.getElementById('modalAvatar').src = `images/${name.toLowerCase()}.jpg`;
+            // Исправлено: фото теперь загружается правильно
+            const imgElement = document.querySelector(`.master-card:nth-child(${index + 1}) .master-card__photo img`);
+            const imgSrc = imgElement ? imgElement.src : `images/logo.jpg`;
+            document.getElementById('modalAvatar').src = imgSrc;
             document.getElementById('modalName').textContent = name;
             document.getElementById('modalExp').textContent = `⏱ Стаж: ${exp} лет`;
             document.getElementById('modalSpec').textContent = spec;
@@ -1387,30 +1422,25 @@
             // Общий рейтинг
             const avgRating = calculateAverageRating();
             document.getElementById('ratingValue').textContent = avgRating;
-            const fullStars = Math.floor(avgRating);
-            const hasHalfStar = avgRating % 1 >= 0.5;
-            let starsHtml = '';
-            for (let i = 0; i < fullStars; i++) starsHtml += '★';
-            if (hasHalfStar) starsHtml += '½';
-            for (let i = starsHtml.length; i < 5; i++) starsHtml += '☆';
-            document.getElementById('ratingStars').innerHTML = starsHtml;
             
-            // Показываем только последний отзыв (свежий)
-            const lastReview = allReviews[allReviews.length - 1];
-            let stars = '';
-            for (let i = 0; i < 5; i++) {
-                stars += i < lastReview.rating ? '★' : '☆';
-            }
             
-            const reviewsHtml = `
-                <div class="review">
-                    <div class="review-top">
-                        <span class="review-author">${lastReview.author}</span>
-                        <span class="review-stars">${stars}</span>
+            // Показываем все 5 отзывов (скролбар для листания)
+            let reviewsHtml = '';
+            for (let review of allReviews) {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < review.rating ? '★' : '☆';
+                }
+                reviewsHtml += `
+                    <div class="review">
+                        <div class="review-top">
+                            <span class="review-author">${review.author}</span>
+                            <span class="review-stars">${stars}</span>
+                        </div>
+                        <p class="review-text">${review.text}</p>
                     </div>
-                    <p class="review-text">${lastReview.text}</p>
-                </div>
-            `;
+                `;
+            }
             
             document.getElementById('modalReviews').innerHTML = reviewsHtml;
             
