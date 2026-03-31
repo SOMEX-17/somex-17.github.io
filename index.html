@@ -3,1080 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ТОП БАРБЕРС | 💈 Мужское пространство</title>
+    <meta name="description" content="ТОП БАРБЕРС — премиальный барбершоп в Москве. Мужские стрижки, бритьё и уход за бородой от топ-мастеров. Записывайтесь онлайн!">
+    <meta name="keywords" content="барбершоп Москва, мужская стрижка, уход за бородой, барбер">
+    
+    <meta property="og:title" content="ТОП БАРБЕРС | 💈 Мужское пространство">
+    <meta property="og:description" content="Премиальный барбершоп в Москве. Стрижки, бритьё, уход за бородой от топ-мастеров.">
+    <meta property="og:image" content="https://somex-17.github.io/images/og-image.jpg">
+    <meta property="og:url" content="https://somex-17.github.io/">
+    <meta property="og:type" content="business.business">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ТОП БАРБЕРС | 💈 Мужское пространство">
+    
+    <link rel="canonical" href="https://somex-17.github.io/">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ========== ОСНОВНЫЕ СТИЛИ ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0A0A;
-            color: #E5E5E5;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 60px;
-        }
-
-        /* ========== ЦВЕТОВАЯ СХЕМА ========== */
-        :root {
-            --gold: #C8AA6E;
-            --gold-light: #D4B484;
-            --gold-glow: rgba(200, 170, 110, 0.3);
-            --bg: #0A0A0A;
-            --card: #111111;
-            --text: #E5E5E5;
-            --text-muted: #A0A0A0;
-            --border: rgba(200, 170, 110, 0.2);
-        }
-
-        /* ========== АНИМАЦИИ ========== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card,
-        .master-card,
-        .about__content,
-        .gallery-item,
-        .slide {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        
-        /* ========== ШАПКА ========== */
-        .header {
-            position: sticky;
-            top: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-        }
-
-        .header__inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: color 0.3s;
-            color: var(--gold);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .logo:hover {
-            color: var(--gold-light);
-        }
-
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav a:hover {
-            color: var(--gold);
-        }
-
-        /* Бургер-меню */
-        .burger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 22px;
-            cursor: pointer;
-            z-index: 101;
-        }
-
-        .burger span {
-            width: 100%;
-            height: 2px;
-            background: var(--gold);
-            transition: all 0.3s;
-            border-radius: 2px;
-        }
-
-        /* ========== КНОПКИ ========== */
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--gold);
-            color: #0A0A0A;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .btn:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--gold-glow);
-        }
-
-        .btn--small {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-
-        .btn--large {
-            padding: 14px 36px;
-            font-size: 16px;
-        }
-
-        .btn--outline {
-            background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-        }
-
-        .btn--outline:hover {
-            background: var(--gold);
-            color: #0A0A0A;
-        }
-
-        /* ========== ГЛАВНЫЙ ЭКРАН ========== */
-        .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="%23C8AA6E" stroke-width="1"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23C8AA6E" stroke-width="1"/></svg>');
-            background-size: 60px 60px;
-            pointer-events: none;
-        }
-
-        .hero__inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
-
-        .hero__content {
-            flex: 1;
-            max-width: 600px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero__title {
-            font-family: 'Playfair Display', serif;
-            font-size: 64px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--gold);
-            text-shadow: 0 2px 10px var(--gold-glow);
-        }
-
-        .hero__text {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .hero__buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .hero__image {
-            flex: 1;
-            max-width: 500px;
-            height: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .hero__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ========== ЗАГОЛОВКИ СЕКЦИЙ (по центру) ========== */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: var(--gold);
-            position: relative;
-            text-align: center;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-        }
-
-        /* ========== УСЛУГИ ========== */
-        .services {
-            padding: 100px 0;
-            background: #0F0F0F;
-        }
-
-        .services__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            padding: 40px 30px;
-            background: var(--card);
-            border-radius: 8px;
-            transition: all 0.3s;
-            border: 1px solid rgba(200, 170, 110, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px var(--gold-glow);
-        }
-
-        .service-card__icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .service-card__price {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        /* ========== МАСТЕРА (горизонтальная прокрутка) ========== */
-        .masters {
-            padding: 100px 0;
-            background: #0A0A0A;
-            overflow: hidden;
-        }
-
-        .masters-carousel-container {
-            position: relative;
-            overflow-x: auto;
-            overflow-y: visible;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Чёрный скрулбар для карусели мастеров */
-        .masters-carousel-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .masters-carousel-container::-webkit-scrollbar-track {
-            background: #1A1A1A;
-            border-radius: 10px;
-        }
-
-        .masters-carousel-container::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-
-        .masters-carousel {
-            display: flex;
-            gap: 30px;
-            padding: 10px 60px;
-        }
-
-        .master-card {
-            flex: 0 0 280px;
-            background: var(--card);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid rgba(200, 170, 110, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .master-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px var(--gold-glow);
-        }
-
-        .master-card__photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            overflow: hidden;
-            border: 3px solid var(--gold);
-            transition: all 0.3s;
-        }
-
-        .master-card:hover .master-card__photo {
-            border-color: var(--gold-light);
-            box-shadow: 0 0 15px var(--gold-glow);
-        }
-
-        .master-card__photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .master-card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        .master-card p {
-            color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 768px) {
-            .masters-carousel {
-                padding: 10px 20px;
-            }
-        }
-
-        /* ========== ГАЛЕРЕЯ (горизонтальная прокрутка на мобильных) ========== */
-        .gallery {
-            padding: 100px 0;
-            background: #0F0F0F;
-            overflow-x: auto;
-        }
-
-        .gallery__grid {
-            display: flex;
-            gap: 30px;
-            padding: 10px 60px;
-        }
-
-        /* Чёрный скрулбар для галереи */
-        .gallery::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .gallery::-webkit-scrollbar-track {
-            background: #1A1A1A;
-            border-radius: 10px;
-        }
-
-        .gallery::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-
-        .gallery-item {
-            flex: 0 0 350px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .gallery__grid {
-                padding: 10px 20px;
-            }
-            .gallery-item {
-                flex: 0 0 280px;
-            }
-        }
-
-        .before-after {
-            position: relative;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-        }
-
-        .before-after img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-
-        .before-after .after {
-            opacity: 0;
-        }
-
-        .before-after:hover .after {
-            opacity: 1;
-        }
-
-        .before-after:hover .before {
-            opacity: 0;
-        }
-
-        .badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(200, 170, 110, 0.9);
-            color: #0A0A0A;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* ========== СЛАЙДЕР ========== */
-        .slider-section {
-            padding: 100px 0;
-            background: #0A0A0A;
-        }
-
-        .slider-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .slide {
-            min-width: 100%;
-            aspect-ratio: 16/9;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(200, 170, 110, 0.8);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-            color: #0A0A0A;
-        }
-
-        .slider-btn:hover {
-            background: var(--gold);
-            box-shadow: 0 0 15px var(--gold-glow);
-        }
-
-        .prev { left: 20px; }
-        .next { right: 20px; }
-
-        .dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--gold);
-            box-shadow: 0 0 8px var(--gold-glow);
-        }
-
-        /* ========== О НАС ========== */
-        .about {
-            padding: 100px 0;
-            background: #0F0F0F;
-        }
-
-        .about__inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about__content p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .about__stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat__number {
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat__text {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .about__image {
-            height: 500px;
-            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        /* ========== КОНТАКТЫ ========== */
-        .contacts {
-            padding: 100px 0;
-            background: #0F0F0F;
-        }
-
-        .contacts__inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contacts__info p {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--text-muted);
-        }
-
-        .contacts__info a {
-            color: var(--text);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .contacts__info a:hover {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
-
-        .contacts__social {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .contacts__social a {
-            color: var(--gold);
-            font-weight: 600;
-            text-decoration: none;
-            border: 1px solid var(--gold);
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .contacts__social a:hover {
-            background: var(--gold);
-            color: #0A0A0A;
-            box-shadow: 0 5px 15px var(--gold-glow);
-        }
-
-        .contacts__map {
-            height: 400px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .contacts__map iframe {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* ========== ФУТЕР ========== */
-        .footer {
-            padding: 40px 0;
-            background: #0A0A0A;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer__inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer__copy {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .footer__policy a {
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer__policy a:hover {
-            color: var(--gold);
-        }
-
-        /* ========== МОДАЛЬНОЕ ОКНО МАСТЕРА ========== */
-        .master-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .master-modal-overlay.open {
-            display: flex;
-        }
-
-        .master-modal {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            animation: modalIn 0.3s ease;
-        }
-
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-            transition: color 0.3s;
-        }
-
-        .modal-close:hover {
-            color: var(--gold);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 24px 24px 16px;
-            flex-shrink: 0;
-        }
-
-        .modal-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            flex-shrink: 0;
-        }
-
-        .modal-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        .modal-exp {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-top: 4px;
-        }
-
-        .modal-section {
-            padding: 0 24px 20px;
-            flex-shrink: 0;
-        }
-
-        .modal-section h4 {
-            color: var(--gold);
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .modal-section p {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Заголовок отзывов с рейтингом */
-        .reviews-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
-        }
-
-        .reviews-header h4 {
-            margin-bottom: 0;
-        }
-
-        .rating-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(200, 170, 110, 0.15);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .rating-stars {
-            color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        .rating-value {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Блок с отзывами и вертикальным скрулбаром */
-        .reviews-container {
-            max-height: 100px;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
-
-        /* Чёрный скрулбар для отзывов с золотым ползунком */
-        .reviews-container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .reviews-container::-webkit-scrollbar-track {
-            background: #1A1A1A;
-            border-radius: 10px;
-        }
-
-        .reviews-container::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-
-        .review {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-        }
-
-        .review:last-child {
-            margin-bottom: 0;
-        }
-
-        .review-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .review-author {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text);
-        }
-
-        .review-stars {
-            color: var(--gold);
-            font-size: 12px;
-        }
-
-        .review-text {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Карта в модалке (уменьшена на 30%) */
-        .modal-map {
-            height: 126px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .modal-map iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .modal-cta {
-            display: block;
-            margin: 0 24px 24px;
-            text-align: center;
-            background: var(--gold);
-            color: #0A0A0A;
-            font-weight: 600;
-            padding: 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .modal-cta:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--gold-glow);
-        }
-
-        /* ========== АДАПТИВНОСТЬ ========== */
-        @media (max-width: 1200px) {
-            .hero__title { font-size: 56px; }
-            .hero__image { max-width: 400px; height: 500px; }
-            .logo { font-size: 22px; }
-        }
-
-        @media (max-width: 1024px) {
-            .hero__title { font-size: 48px; }
-            .section-title { font-size: 42px; }
-            .hero__inner { gap: 40px; }
-            .services__grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 900px) {
-            .hero__inner { flex-direction: column; }
-            .hero__image { max-width: 100%; height: 400px; }
-            .container { padding: 0 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .header__inner { flex-direction: row; justify-content: space-between; height: 70px; padding: 0; }
-            .burger { display: flex; }
-            .burger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
-            .burger.active span:nth-child(2) { opacity: 0; }
-            .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-            .nav {
-                position: fixed; top: 70px; left: -100%; width: 80%; max-width: 300px;
-                height: calc(100vh - 70px); background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(10px); flex-direction: column; padding: 40px 30px;
-                gap: 25px; transition: left 0.3s ease; z-index: 99;
-                border-right: 1px solid var(--border);
-            }
-            .nav.active { left: 0; }
-            .nav a { font-size: 18px; padding: 10px 0; white-space: normal; }
-            .header .btn--small { display: none; }
-            .hero { padding: 60px 0; }
-            .hero__title { font-size: 38px; }
-            .hero__text { font-size: 16px; }
-            .hero__image { height: 320px; }
-            .hero__buttons { flex-direction: column; gap: 15px; }
-            .btn--large { width: 100%; text-align: center; padding: 14px 20px; }
-            .services, .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
-            .section-title { font-size: 32px; margin-bottom: 40px; }
-            .services__grid { grid-template-columns: 1fr; gap: 25px; }
-            .service-card { padding: 30px 20px; text-align: center; }
-            .service-card__icon { font-size: 40px; }
-            .service-card h3 { font-size: 22px; }
-            .before-after .after { opacity: 0; }
-            .before-after.active .after { opacity: 1; }
-            .before-after.active .before { opacity: 0; }
-            .badge { font-size: 12px; padding: 6px 12px; bottom: 12px; left: 12px; }
-            .slider-container { padding: 0 10px; }
-            .slider-btn { width: 40px; height: 40px; font-size: 18px; }
-            .prev { left: 10px; }
-            .next { right: 10px; }
-            .dots { bottom: 12px; }
-            .dot { width: 8px; height: 8px; }
-            .about__inner { grid-template-columns: 1fr; gap: 40px; }
-            .about__stats { grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
-            .stat__number { font-size: 28px; }
-            .stat__text { font-size: 12px; }
-            .about__image { height: 300px; }
-            .contacts__inner { grid-template-columns: 1fr; gap: 40px; }
-            .contacts__info p { font-size: 16px; }
-            .contacts__social { justify-content: center; }
-            .contacts__map { height: 300px; }
-            .footer__inner { flex-direction: column; gap: 15px; text-align: center; }
-            .footer__copy, .footer__policy a { font-size: 12px; }
-        }
-
-        @media (max-width: 480px) {
-            .container { padding: 0 16px; }
-            .hero__title { font-size: 32px; }
-            .section-title { font-size: 28px; }
-            .logo { font-size: 18px; }
-            .burger { width: 26px; height: 18px; }
-            .nav { width: 85%; padding: 30px 20px; }
-            .nav a { font-size: 16px; }
-            .hero__image { height: 260px; }
-            .about__stats { grid-template-columns: 1fr; text-align: center; gap: 20px; }
-            .stat__number { font-size: 32px; }
-            .btn { padding: 10px 20px; font-size: 14px; }
-        }
-
-        @media (min-width: 769px) {
-            .burger { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>ТОП БАРБЕРС | 💈 Мужское пространство</title>
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header__inner">
-                <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                <a href="#" class="logo" aria-label="ТОП БАРБЕРС - главная">
                     ТОП БАРБЕРС | 💈<br>
                     <span>Мужское пространство</span>
                 </a>
-                <div class="burger">
+                <div class="burger" aria-label="Открыть меню" role="button" tabindex="0">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <nav class="nav">
+                <nav class="nav" role="navigation" aria-label="Главное меню">
                     <a href="#services">Услуги</a>
                     <a href="#masters">Мастера</a>
                     <a href="#gallery">Работы</a>
@@ -1085,157 +43,159 @@
                     <a href="#about">О нас</a>
                     <a href="#contacts">Контакты</a>
                 </nav>
-                <button class="btn btn--small" onclick="document.getElementById('masters').scrollIntoView({behavior: 'smooth'})">Записаться</button>
+                <button class="btn btn--small" aria-label="Открыть раздел мастеров для записи">Записаться</button>
             </div>
         </div>
     </header>
 
-    <!-- Главный экран -->
-    <section class="hero">
+    <section class="hero" role="main">
         <div class="container">
             <div class="hero__inner">
                 <div class="hero__content">
                     <h1 class="hero__title">Твой стиль —<br>наша работа</h1>
                     <p class="hero__text">Мужские стрижки, бритьё и уход за бородой от топ мастеров. За плечами наших мастеров огромный опыт и искренняя любовь к своему делу — это залог безупречного результата.</p>
                     <div class="hero__buttons">
-                        <button class="btn btn--large" onclick="document.getElementById('masters').scrollIntoView({behavior: 'smooth'})">Записаться онлайн</button>
-                        <a href="#services" class="btn btn--outline">Наши услуги</a>
+                        <button class="btn btn--large" aria-label="Записаться онлайн к мастеру">Записаться онлайн</button>
+                        <a href="#services" class="btn btn--outline" aria-label="Перейти к услугам">Наши услуги</a>
                     </div>
                 </div>
                 <div class="hero__image">
-                    <img src="images/sako.jpg" alt="Барбершоп">
+                    <img src="images/sako.jpg" alt="Барбер делает стрижку клиенту" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Услуги -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
             <div class="services__grid">
-                <div class="service-card">
-                    <div class="service-card__icon">✂️</div>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">✂️</div>
                     <h3>Мужская стрижка</h3>
                     <p>Классические и современные стрижки любой сложности.</p>
                     <div class="service-card__price">от 2800 ₽</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card__icon">🧔</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">🧔</div>
                     <h3>Стрижка бороды</h3>
                     <p>Моделирование, укладка, уход. Придадим форму.</p>
                     <div class="service-card__price">от 1700 ₽</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card__icon">🪒</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">🪒</div>
                     <h3>Королевское бритьё</h3>
                     <p>Горячее полотенце, масло, пена — классика.</p>
                     <div class="service-card__price">2200 ₽</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card__icon">💈</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">💈</div>
                     <h3>Стрижка + борода</h3>
                     <p>Сочетание мужской стрижки и стрижки бороды.</p>
                     <div class="service-card__price">4500 ₽</div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Мастера -->
     <section class="masters" id="masters">
         <div class="container">
             <h2 class="section-title">Наши мастера</h2>
-            <div class="masters-carousel-container">
+            <div class="masters-carousel-container" role="region" aria-label="Карусель с мастерами">
                 <div class="masters-carousel" id="mastersCarousel"></div>
             </div>
         </div>
     </section>
 
-    <!-- Галерея работ (До/После) -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" role="region" aria-label="Галерея работ - до и после">
         <div class="container">
             <h2 class="section-title">Наши работы</h2>
             <div class="gallery__grid">
-                <div class="gallery-item">
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/stubble-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/stubble-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/stubble-before.jpg" alt="До: работа с щетиной" class="before" loading="lazy">
+                        <img src="images/stubble-after.jpg" alt="После: профессиональная работа" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                 <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                 <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
                     </div>
-                </div>
-                <div class="gallery-item">
+                </article>
+                <article class="gallery-item">
                     <div class="before-after">
-                        <img src="images/fade-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                        <img src="images/fade-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                        <img src="images/fade-before.jpg" alt="До: фейд стрижка" class="before" loading="lazy">
+                        <img src="images/fade-after.jpg" alt="После: фейд стрижка" class="after" loading="lazy">
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Слайдер с фото барбершопа -->
     <section class="slider-section" id="slider">
         <div class="container">
             <h2 class="section-title">Атмосфера</h2>
         </div>
-        <div class="slider-container">
+        <div class="slider-container" role="region" aria-label="Слайдер с фото барбершопа">
             <div class="slider">
                 <div class="slides">
-                    <div class="slide"><img src="images/barbershop-1.jpg" alt="Интерьер 1" onerror="this.src='images/logo.jpg'"></div>
-                    <div class="slide"><img src="images/barbershop-2.jpg" alt="Интерьер 2" onerror="this.src='images/logo.jpg'"></div>
-                    <div class="slide"><img src="images/barbershop-3.jpg" alt="Интерьер 3" onerror="this.src='images/logo.jpg'"></div>
-                    <div class="slide"><img src="images/barbershop-4.jpg" alt="Интерьер 4" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide">
+                        <img src="images/barbershop-1.jpg" alt="Интерьер барбершопа - рабочие места" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-2.jpg" alt="Интерьер барбершопа - зона ожидания" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-3.jpg" alt="Интерьер барбершопа - дизайн" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-4.jpg" alt="Интерьер барбершопа - общий вид" loading="lazy">
+                    </div>
                 </div>
-                <button class="slider-btn prev">❮</button>
-                <button class="slider-btn next">❯</button>
-                <div class="dots"></div>
+                <button class="slider-btn prev" aria-label="Предыдущий слайд">❮</button>
+                <button class="slider-btn next" aria-label="Следующий слайд">❯</button>
+                <div class="dots" role="tablist" aria-label="Точки навигации слайдера"></div>
             </div>
         </div>
     </section>
 
-    <!-- О нас -->
     <section class="about" id="about">
         <div class="container">
             <div class="about__inner">
@@ -1243,10 +203,12 @@
                     <h2 class="section-title">О нас</h2>
                     <p>ТОП БАРБЕРС — это пространство для мужчин, которые ценят качество и стиль. Где БАРБЕРЫ не имеют право на ошибку. Мы работаем только с мастерами высшей категории — топ‑барберы с подтверждённой экспертизой.</p>
                     <p>Каждый из них прошёл строгий отбор:</p>
-                    <p>* многолетнее обучение и регулярные курсы повышения квалификации;</p>
-                    <p>* успешное прохождение аттестации «тайным покупателем»;</p>
-                    <p>* формирование собственной базы постоянных клиентов;</p>
-                    <p>* демонстрация выдающихся навыков в сложных техниках.</p>
+                    <ul style="margin-left: 20px; color: var(--text-muted);">
+                        <li>Многолетнее обучение и регулярные курсы повышения квалификации</li>
+                        <li>Успешное прохождение аттестации «тайным покупателем»</li>
+                        <li>Формирование собственной базы постоянных клиентов</li>
+                        <li>Демонстрация выдающихся навыков в сложных техниках</li>
+                    </ul>
                     <div class="about__stats">
                         <div class="stat">
                             <div class="stat__number">10+</div>
@@ -1267,7 +229,6 @@
         </div>
     </section>
 
-    <!-- Контакты с картой -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
@@ -1278,36 +239,34 @@
                     <p>📞 <a href="tel:+79263032076">+7 (926) 303-20-76</a></p>
                     <p>✉️ <a href="mailto:info@topbarbers.ru">info@topbarbers.ru</a></p>
                     <div class="contacts__social">
-                        <a href="https://t.me/s_a_k_o_17" target="_blank">📱 Telegram</a>
-                        <a href="#">📸 Instagram</a>
-                        <a href="#">📘 VK</a>
+                        <a href="https://t.me/s_a_k_o_17" target="_blank" rel="noopener noreferrer" aria-label="Наш Telegram канал">📱 Telegram</a>
+                        <a href="https://instagram.com/topbarbers" target="_blank" rel="noopener noreferrer" aria-label="Наш Instagram профиль">📸 Instagram</a>
+                        <a href="https://vk.com/topbarbers" target="_blank" rel="noopener noreferrer" aria-label="Наша страница ВКонтакте">📘 VK</a>
                     </div>
                 </div>
-                <div class="contacts__map" id="mainMap">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5c6a5b8b0f3c9e8d7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+                <div class="contacts__map" role="region" aria-label="Карта с адресом барбершопа">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5c6a5b8b0f3c9e8d7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f&source=constructor" width="100%" height="100%" frameborder="0" title="Карта Яндекс"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__copy">© 2025 ТОП БАРБЕРС. Все права защищены.</div>
                 <div class="footer__policy">
-                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Модальное окно мастера -->
-    <div class="master-modal-overlay" id="masterModal" onclick="if(event.target===this) closeMaster()">
+    <div class="master-modal-overlay" id="masterModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
         <div class="master-modal">
-            <button class="modal-close" onclick="closeMaster()">×</button>
+            <button class="modal-close" aria-label="Закрыть модальное окно">×</button>
             <div class="modal-header">
-                <div class="modal-avatar"><img id="modalAvatar" src="" alt=""></div>
+                <div class="modal-avatar"><img id="modalAvatar" src="" alt="Фото мастера"></div>
                 <div>
                     <div class="modal-name" id="modalName"></div>
                     <div class="modal-exp" id="modalExp"></div>
@@ -1321,7 +280,7 @@
                 <div class="reviews-header">
                     <h4>Отзывы клиентов</h4>
                     <div class="rating-badge">
-                        <span class="rating-stars" id="ratingStars">★</span>
+                        <span class="rating-stars" id="ratingStars">★★★★★</span>
                         <span class="rating-value" id="ratingValue">5.0</span>
                     </div>
                 </div>
@@ -1331,259 +290,13 @@
                 <h4>Локация</h4>
                 <p id="modalAddress">г. Москва, ул. Мытная, 27</p>
                 <div class="modal-map">
-                    <iframe id="modalMap" src="https://yandex.ru/map-widget/v1/?ll=37.618423%2C55.751244&z=17&l=map&pt=37.618423%2C55.751244" width="100%" height="100%" frameborder="0"></iframe>
+                    <iframe id="modalMap" src="https://yandex.ru/map-widget/v1/?ll=37.618423%2C55.751244&z=17&l=map&pt=37.618423%2C55.751244" width="100%" height="100%" frameborder="0" title="Карта мастера"></iframe>
                 </div>
             </div>
-            <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener">Записаться</a>
+            <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener noreferrer">Записаться</a>
         </div>
     </div>
 
-    <script>
-        // 24 мастера
-        const masterNames = [
-            "Ашот", "Армен", "Сако", "Эдуард", "Сати", "Сергей", 
-            "Дима", "Алексей", "Владимир", "Сергей", "Константин", "Михаил",
-            "Егор", "Никита", "Илья", "Антон", "Роман", "Андрей",
-            "Олег", "Стас", "Вадим", "Григорий", "Филипп", "Даниил"
-        ];
-        
-        const masterSpecs = [
-            "Классические мужские стрижки, укладка",
-            "Моделирование бороды, современные стрижки",
-            "Fade-стрижки, креативные образы",
-            "Королевское бритьё, уход за бородой",
-            "Спортивные стрижки, окрашивание",
-            "Премиальный сервис, работа с длинными волосами",
-            "Детские стрижки, семейные залы",
-            "Текстурные стрижки, укладки",
-            "Бритьё головы, камуфляж седины",
-            "Мужской маникюр, уход за руками",
-            "SPA-программы для лица",
-            "Коррекция бровей, восковая депиляция",
-            "Стрижки машинкой, фейды",
-            "Вечерние причёски, укладки",
-            "Креативное окрашивание",
-            "Работа с азиатскими волосами",
-            "Кудрявые волосы, стайлинг",
-            "Мужские укладки, wax",
-            "Традиционное бритьё опасной бритвой",
-            "Экспресс-услуги, мужской перерыв",
-            "Премиум-класс, работа со знаменитостями",
-            "Обучение стажёров, наставник",
-            "Мастер-международник, конкурсы",
-            "Лучший барбер года"
-        ];
-
-        const masterExps = [15, 10, 6, 5, 7, 8, 4, 6, 9, 5, 3, 7, 4, 6, 5, 8, 4, 7, 6, 5, 9, 4, 7, 5];
-
-        // 5 отзывов для каждого мастера (все 5 звёзд)
-        const allReviews = [
-            { author: "Алексей", rating: 5, text: "Отличный мастер! Всегда доволен результатом." },
-            { author: "Дмитрий", rating: 5, text: "Профессионал своего дела. Рекомендую!" },
-            { author: "Иван", rating: 5, text: "Хороший подход к клиенту, приду ещё." },
-            { author: "Михаил", rating: 5, text: "Очень аккуратно и быстро. Супер!" },
-            { author: "Андрей", rating: 5, text: "Лучший барбер в городе!" }
-        ];
-
-        // Функция для вычисления общего рейтинга
-        function calculateAverageRating() {
-            let sum = 0;
-            for (let review of allReviews) {
-                sum += review.rating;
-            }
-            return (sum / allReviews.length).toFixed(1);
-        }
-
-        function generateMasters() {
-            const carousel = document.getElementById('mastersCarousel');
-            carousel.innerHTML = '';
-            
-            for (let i = 0; i < masterNames.length; i++) {
-                const card = document.createElement('div');
-                card.className = 'master-card';
-                card.setAttribute('onclick', `openMasterWithData(${i}, "${masterNames[i]}", ${masterExps[i]}, "${masterSpecs[i]}")`);
-                card.innerHTML = `
-                    <div class="master-card__photo">
-                        <img src="images/${masterNames[i].toLowerCase()}.jpg" alt="${masterNames[i]}" onerror="this.src='images/logo.jpg'">
-                    </div>
-                    <h3>${masterNames[i]}</h3>
-                    <p>${masterSpecs[i].substring(0, 50)}${masterSpecs[i].length > 50 ? '...' : ''}</p>
-                `;
-                carousel.appendChild(card);
-            }
-        }
-
-        function openMasterWithData(index, name, exp, spec) {
-            const modal = document.getElementById('masterModal');
-            // Исправлено: фото теперь загружается правильно
-            const imgElement = document.querySelector(`.master-card:nth-child(${index + 1}) .master-card__photo img`);
-            const imgSrc = imgElement ? imgElement.src : `images/logo.jpg`;
-            document.getElementById('modalAvatar').src = imgSrc;
-            document.getElementById('modalName').textContent = name;
-            document.getElementById('modalExp').textContent = `⏱ Стаж: ${exp} лет`;
-            document.getElementById('modalSpec').textContent = spec;
-            
-            // Общий рейтинг
-            const avgRating = calculateAverageRating();
-            document.getElementById('ratingValue').textContent = avgRating;
-            
-            
-            // Показываем все 5 отзывов (скролбар для листания)
-            let reviewsHtml = '';
-            for (let review of allReviews) {
-                let stars = '';
-                for (let i = 0; i < 5; i++) {
-                    stars += i < review.rating ? '★' : '☆';
-                }
-                reviewsHtml += `
-                    <div class="review">
-                        <div class="review-top">
-                            <span class="review-author">${review.author}</span>
-                            <span class="review-stars">${stars}</span>
-                        </div>
-                        <p class="review-text">${review.text}</p>
-                    </div>
-                `;
-            }
-            
-            document.getElementById('modalReviews').innerHTML = reviewsHtml;
-            
-            // Ссылка на запись
-            const cta = document.getElementById('modalCta');
-            cta.href = "https://n1048823.yclients.com";
-            cta.textContent = `Записаться к ${name}`;
-            
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMaster() {
-            document.getElementById('masterModal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeMaster();
-        });
-
-        // Бургер-меню
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('.nav');
-        
-        if (burger && nav) {
-            burger.addEventListener('click', () => {
-                burger.classList.toggle('active');
-                nav.classList.toggle('active');
-                document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-            });
-
-            nav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    burger.classList.remove('active');
-                    nav.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Для мобильных: галерея before/after по клику
-        if (window.innerWidth <= 768) {
-            const beforeAfterItems = document.querySelectorAll('.before-after');
-            beforeAfterItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                });
-            });
-        }
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                burger?.classList.remove('active');
-                nav?.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Слайдер
-        const slider = document.querySelector('.slides');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        const dotsContainer = document.querySelector('.dots');
-        let currentSlide = 0;
-        let slidesCount = 0;
-        let dots = [];
-
-        if (slider && prevBtn && nextBtn && dotsContainer) {
-            slidesCount = slider.children.length;
-            
-            for (let i = 0; i < slidesCount; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-                dots.push(dot);
-            }
-
-            function updateSlider() {
-                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentSlide);
-                });
-            }
-
-            function goToSlide(index) {
-                currentSlide = index;
-                updateSlider();
-            }
-
-            prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slidesCount;
-                updateSlider();
-            });
-
-            let startX = 0;
-            let isDragging = false;
-            
-            slider.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-            });
-
-            slider.addEventListener('touchend', (e) => {
-                if (!isDragging) return;
-                const endX = e.changedTouches[0].clientX;
-                const diff = endX - startX;
-
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
-                    } else {
-                        currentSlide = (currentSlide + 1) % slidesCount;
-                    }
-                    updateSlider();
-                }
-                isDragging = false;
-            });
-        }
-
-        // Обработка клика по "Показать на карте" в хедере
-        document.querySelectorAll('.nav a').forEach(link => {
-            if (link.getAttribute('href') === '#contacts') {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
-                });
-            }
-        });
-
-        // Генерируем мастеров при загрузке
-        generateMasters();
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
