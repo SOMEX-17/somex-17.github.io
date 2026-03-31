@@ -1,27 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your optimized description here">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="SOMEX-17">
-    <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <script defer src="scripts/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="ТОП БАРБЕРС — премиальный барбершоп в Москве. Мужские стрижки, бритьё и уход за бородой от топ-мастеров. Записывайтесь онлайн!">
+    <meta name="keywords" content="барбершоп Москва, мужская стрижка, уход за бородой, барбер">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="ТОП БАРБЕРС | 💈 Мужское пространство">
+    <meta property="og:description" content="Премиальный барбершоп в Москве. Стрижки, бритьё, уход за бородой от топ-мастеров.">
+    <meta property="og:image" content="https://somex-17.github.io/images/og-image.jpg">
+    <meta property="og:url" content="https://somex-17.github.io/">
+    <meta property="og:type" content="business.business">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ТОП БАРБЕРС | 💈 Мужское пространство">
+    <meta name="twitter:description" content="Премиальный барбершоп в Москве">
+    
+    <link rel="canonical" href="https://somex-17.github.io/">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>ТОП БАРБЕРС | 💈 Мужское пространство</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Your Website</h1>
+    <!-- Шапка -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" class="logo" aria-label="ТОП БАРБЕРС - главная">
+                    ТОП БАРБЕРС | 💈<br>
+                    <span>Мужское пространство</span>
+                </a>
+                <div class="burger" aria-label="Открыть меню" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="nav" role="navigation" aria-label="Главное меню">
+                    <a href="#services">Услуги</a>
+                    <a href="#masters">Мастера</a>
+                    <a href="#gallery">Работы</a>
+                    <a href="#slider">Атмосфера</a>
+                    <a href="#contacts">Показать на карте</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <button class="btn btn--small" aria-label="О��крыть раздел мастеров для записи">Записаться</button>
+            </div>
+        </div>
     </header>
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>This is a clean HTML structure without inline styles and scripts.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 SOMEX-17. All rights reserved.</p>
+
+    <!-- Главный экран -->
+    <section class="hero" role="main">
+        <div class="container">
+            <div class="hero__inner">
+                <div class="hero__content">
+                    <h1 class="hero__title">Твой стиль —<br>наша работа</h1>
+                    <p class="hero__text">Мужские стрижки, бритьё и уход за бородой от топ мастеров. За плечами наших мастеров огромный опыт и искренняя любовь к своему делу — это залог безупречного результата.</p>
+                    <div class="hero__buttons">
+                        <button class="btn btn--large" aria-label="Записаться онлайн к мастеру">Записаться онлайн</button>
+                        <a href="#services" class="btn btn--outline" aria-label="Перейти к услугам">Наши услуги</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="images/sako.jpg" alt="Барбер делает стрижку клиенту" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services__grid">
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">✂️</div>
+                    <h3>Мужская стрижка</h3>
+                    <p>Классические и современные стрижки любой сложности.</p>
+                    <div class="service-card__price">от 2800 ₽</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">🧔</div>
+                    <h3>Стрижка бороды</h3>
+                    <p>Моделирование, укладка, уход. Придадим форму.</p>
+                    <div class="service-card__price">от 1700 ₽</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">🪒</div>
+                    <h3>Королевское бритьё</h3>
+                    <p>Горячее полотенце, масло, пена — классика.</p>
+                    <div class="service-card__price">2200 ₽</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true">💈</div>
+                    <h3>Стрижка + борода</h3>
+                    <p>Сочетание мужской стрижки и стрижки бороды.</p>
+                    <div class="service-card__price">4500 ₽</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мастера -->
+    <section class="masters" id="masters">
+        <div class="container">
+            <h2 class="section-title">Наши мастера</h2>
+            <div class="masters-carousel-container" role="region" aria-label="Карусель с мастерами">
+                <div class="masters-carousel" id="mastersCarousel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея работ -->
+    <section class="gallery" id="gallery" role="region" aria-label="Галерея работ - до и после">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="gallery__grid">
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/stubble-before.jpg" alt="До: работа с щетиной" class="before" loading="lazy">
+                        <img src="images/stubble-after.jpg" alt="После: профессиональная работа" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До: стрижка волос" class="before" loading="lazy">
+                        <img src="images/haircut-after.jpg" alt="После: стрижка волос" class="after" loading="lazy">
+                    </div>
+                </article>
+                <article class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/fade-before.jpg" alt="До: фейд стрижка" class="before" loading="lazy">
+                        <img src="images/fade-after.jpg" alt="После: фейд стрижка" class="after" loading="lazy">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайдер -->
+    <section class="slider-section" id="slider">
+        <div class="container">
+            <h2 class="section-title">Атмосфера</h2>
+        </div>
+        <div class="slider-container" role="region" aria-label="Слайдер с фото барбершопа">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="images/barbershop-1.jpg" alt="Интерьер барбершопа - рабочие места" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-2.jpg" alt="Интерьер барбершопа - зона ожидания" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-3.jpg" alt="Интерьер барбершопа - дизайн" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="images/barbershop-4.jpg" alt="Интерьер барбершопа - общий вид" loading="lazy">
+                    </div>
+                </div>
+                <button class="slider-btn prev" aria-label="Предыдущий слайд">❮</button>
+                <button class="slider-btn next" aria-label="Следующий слайд">❯</button>
+                <div class="dots" role="tablist" aria-label="Точки навигации слайдера"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__inner">
+                <div class="about__content">
+                    <h2 class="section-title">О нас</h2>
+                    <p>ТОП БАРБЕРС — это пространство для мужчин, которые ценят качество и стиль. Где БАРБЕРЫ не имеют право на ошибку. Мы работаем только с мастерами высшей категории — топ‑барберы с подтверждённой экспертизой.</p>
+                    <p>Каждый из них прошёл строгий отбор:</p>
+                    <ul style="margin-left: 20px; color: var(--text-muted);">
+                        <li>Многолетнее обучение и регулярные курсы повышения квалификации</li>
+                        <li>Успешное прохождение аттестации «тайным покупателем»</li>
+                        <li>Формирование собственной базы постоянных клиентов</li>
+                        <li>Демонстрация выдающихся навыков в сложных техниках</li>
+                    </ul>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <div class="stat__number">10+</div>
+                            <div class="stat__text">лет опыта</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">5000+</div>
+                            <div class="stat__text">довольных клиентов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">24</div>
+                            <div class="stat__text">мастера</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts__inner">
+                <div class="contacts__info">
+                    <p>📍 ул. Мытная, 27, Москва</p>
+                    <p>🕒 Ежедневно с 10:00 до 22:00</p>
+                    <p>📞 <a href="tel:+79263032076">+7 (926) 303-20-76</a></p>
+                    <p>✉️ <a href="mailto:info@topbarbers.ru">info@topbarbers.ru</a></p>
+                    <div class="contacts__social">
+                        <a href="https://t.me/s_a_k_o_17" target="_blank" rel="noopener noreferrer" aria-label="Наш Telegram канал">📱 Telegram</a>
+                        <a href="https://instagram.com/topbarbers" target="_blank" rel="noopener noreferrer" aria-label="Наш Instagram профиль">📸 Instagram</a>
+                        <a href="https://vk.com/topbarbers" target="_blank" rel="noopener noreferrer" aria-label="Наша страница ВКонтакте">📘 VK</a>
+                    </div>
+                </div>
+                <div class="contacts__map" role="region" aria-label="Карта с адресом барбершопа">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5c6a5b8b0f3c9e8d7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f&source=constructor" width="100%" height="100%" frameborder="0" title="Карта Яндекс"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copy">© 2025 ТОП БАРБЕРС. Все права защищены.</div>
+                <div class="footer__policy">
+                    <a href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Модальное окно мастера -->
+    <div class="master-modal-overlay" id="masterModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+        <div class="master-modal">
+            <button class="modal-close" aria-label="Закрыть модальное окно">×</button>
+            <div class="modal-header">
+                <div class="modal-avatar"><img id="modalAvatar" src="" alt="Фото мастера"></div>
+                <div>
+                    <div class="modal-name" id="modalName"></div>
+                    <div class="modal-exp" id="modalExp"></div>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h4>Специализация</h4>
+                <p id="modalSpec"></p>
+            </div>
+            <div class="modal-section">
+                <div class="reviews-header">
+                    <h4>Отзывы клиентов</h4>
+                    <div class="rating-badge">
+                        <span class="rating-stars" id="ratingStars">★★★★★</span>
+                        <span class="rating-value" id="ratingValue">5.0</span>
+                    </div>
+                </div>
+                <div class="reviews-container" id="modalReviews"></div>
+            </div>
+            <div class="modal-section">
+                <h4>Локация</h4>
+                <p id="modalAddress">г. Москва, ул. Мытная, 27</p>
+                <div class="modal-map">
+                    <iframe id="modalMap" src="https://yandex.ru/map-widget/v1/?ll=37.618423%2C55.751244&z=17&l=map&pt=37.618423%2C55.751244" width="100%" height="100%" frameborder="0" title="Карта мастера"></iframe>
+                </div>
+            </div>
+            <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener noreferrer">Записаться</a>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
