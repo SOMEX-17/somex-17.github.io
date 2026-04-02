@@ -413,6 +413,14 @@
             line-height: 1.4;
         }
 
+        .master-card__loc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.35;
+            opacity: 0.9;
+        }
+
         @media (max-width: 768px) {
             .masters-carousel {
                 padding: 10px 20px;
@@ -701,6 +709,59 @@
         .contacts__map iframe {
             width: 100%;
             height: 100%;
+            border: 0;
+        }
+
+        #mainYandexMap {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 8px;
+        }
+
+        .modal-locations {
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .modal-locations.has-multiple {
+            display: flex;
+        }
+
+        .modal-location-btn {
+            flex: 1 1 auto;
+            min-width: 140px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1.35;
+            text-align: left;
+            transition: border-color 0.2s, color 0.2s;
+            font-family: inherit;
+        }
+
+        .modal-location-btn:hover {
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .modal-location-btn.is-active {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(200, 170, 110, 0.12);
+        }
+
+        .modal-address-active {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
 
         /* ========== ФУТЕР ========== */
@@ -1081,7 +1142,7 @@
                     <a href="#masters">Мастера</a>
                     <a href="#gallery">Работы</a>
                     <a href="#slider">Атмосфера</a>
-                    <a href="#contacts">Показать на карте</a>
+                    <a href="#mastersMap">Показать на карте</a>
                     <a href="#about">О нас</a>
                     <a href="#contacts">Контакты</a>
                 </nav>
@@ -1096,7 +1157,7 @@
             <div class="hero__inner">
                 <div class="hero__content">
                     <h1 class="hero__title">Твой стиль —<br>наша работа</h1>
-                    <p class="hero__text">Мужские стрижки, бритьё и уход за бородой от топ мастеров. За плечами наших мастеров огромный опыт и искренняя любовь к своему делу — это залог безупречного результата.</p>
+                    <p class="hero__text">Агрегатор топ‑барберов: стрижка, бритьё и уход на выбранной вами локации. Каждый мастер — с проверенным опытом; адреса приёма — на интерактивной карте.</p>
                     <div class="hero__buttons">
                         <button class="btn btn--large" onclick="document.getElementById('masters').scrollIntoView({behavior: 'smooth'})">Записаться онлайн</button>
                         <a href="#services" class="btn btn--outline">Наши услуги</a>
@@ -1241,7 +1302,7 @@
             <div class="about__inner">
                 <div class="about__content">
                     <h2 class="section-title">О нас</h2>
-                    <p>ТОП БАРБЕРС — это пространство для мужчин, которые ценят качество и стиль. Где БАРБЕРЫ не имеют право на ошибку. Мы работаем только с мастерами высшей категории — топ‑барберы с подтверждённой экспертизой.</p>
+                    <p>ТОП БАРБЕРС — агрегатор проверенных топ‑барберов: каждый мастер работает в своих локациях, а вы выбираете удобный адрес на карте. Мы отбираем только специалистов высшей категории с подтверждённой экспертизой.</p>
                     <p>Каждый из них прошёл строгий отбор:</p>
                     <p>* многолетнее обучение и регулярные курсы повышения квалификации;</p>
                     <p>* успешное прохождение аттестации «тайным покупателем»;</p>
@@ -1270,12 +1331,13 @@
     <!-- Контакты с картой -->
     <section class="contacts" id="contacts">
         <div class="container">
-            <h2 class="section-title">Контакты</h2>
+            <h2 class="section-title">Контакты и карта</h2>
+            <p class="section-subtitle">Все мастера и их точки приёма на одной карте. Нажмите на метку — откроется профиль. У части барберов несколько адресов.</p>
             <div class="contacts__inner">
                 <div class="contacts__info">
-                    <p>📍 ул. Мытная, 27, Москва</p>
-                    <p>🕒 Ежедневно с 10:00 до 22:00</p>
-                    <p>📞 <a href="tel:+79263032076">+7 (926) 303-20-76</a></p>
+                    <p>📍 Мастера в разных районах — ищите на карте справа</p>
+                    <p>🕒 Часы работы зависят от локации (уточняйте у мастера)</p>
+                    <p>📞 Служба поддержки: <a href="tel:+79263032076">+7 (926) 303-20-76</a></p>
                     <p>✉️ <a href="mailto:info@topbarbers.ru">info@topbarbers.ru</a></p>
                     <div class="contacts__social">
                         <a href="https://t.me/s_a_k_o_17" target="_blank">📱 Telegram</a>
@@ -1283,8 +1345,8 @@
                         <a href="#">📘 VK</a>
                     </div>
                 </div>
-                <div class="contacts__map" id="mainMap">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5c6a5b8b0f3c9e8d7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+                <div class="contacts__map" id="mastersMap" aria-label="Карта мастеров ТОП БАРБЕРС">
+                    <div id="mainYandexMap"></div>
                 </div>
             </div>
         </div>
@@ -1294,7 +1356,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <div class="footer__copy">© 2025 ТОП БАРБЕРС. Все права защищены.</div>
+                <div class="footer__copy">© 2026 ТОП БАРБЕРС. Все права защищены.</div>
                 <div class="footer__policy">
                     <a href="#">Политика конфиденциальности</a>
                 </div>
@@ -1328,131 +1390,239 @@
                 <div class="reviews-container" id="modalReviews"></div>
             </div>
             <div class="modal-section">
-                <h4>Локация</h4>
-                <p id="modalAddress">г. Москва, ул. Мытная, 27</p>
+                <h4>Локации мастера</h4>
+                <div class="modal-locations" id="modalLocations"></div>
+                <p class="modal-address-active" id="modalAddress"></p>
                 <div class="modal-map">
-                    <iframe id="modalMap" src="https://yandex.ru/map-widget/v1/?ll=37.618423%2C55.751244&z=17&l=map&pt=37.618423%2C55.751244" width="100%" height="100%" frameborder="0"></iframe>
+                    <iframe id="modalMap" title="Карта" width="100%" height="100%" frameborder="0" loading="lazy"></iframe>
                 </div>
             </div>
             <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener">Записаться</a>
         </div>
     </div>
 
+    <!-- API Яндекс.Карт: при ошибке загрузки сработает запасной iframe в initSalonMap. Ключ: https://developer.tech.yandex.ru/ -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script>
-        // 24 мастера
-        const masterNames = [
-            "Ашот", "Армен", "Сако", "Эдуард", "Сати", "Сергей", 
-            "Дима", "Алексей", "Владимир", "Сергей", "Константин", "Михаил",
-            "Егор", "Никита", "Илья", "Антон", "Роман", "Андрей",
-            "Олег", "Стас", "Вадим", "Григорий", "Филипп", "Даниил"
-        ];
-        
-        const masterSpecs = [
-            "Классические мужские стрижки, укладка",
-            "Моделирование бороды, современные стрижки",
-            "Fade-стрижки, креативные образы",
-            "Королевское бритьё, уход за бородой",
-            "Спортивные стрижки, окрашивание",
-            "Премиальный сервис, работа с длинными волосами",
-            "Детские стрижки, семейные залы",
-            "Текстурные стрижки, укладки",
-            "Бритьё головы, камуфляж седины",
-            "Мужской маникюр, уход за руками",
-            "SPA-программы для лица",
-            "Коррекция бровей, восковая депиляция",
-            "Стрижки машинкой, фейды",
-            "Вечерние причёски, укладки",
-            "Креативное окрашивание",
-            "Работа с азиатскими волосами",
-            "Кудрявые волосы, стайлинг",
-            "Мужские укладки, wax",
-            "Традиционное бритьё опасной бритвой",
-            "Экспресс-услуги, мужской перерыв",
-            "Премиум-класс, работа со знаменитостями",
-            "Обучение стажёров, наставник",
-            "Мастер-международник, конкурсы",
-            "Лучший барбер года"
+        /**
+         * АГРЕГАТОР: каждый объект — мастер, поле locations — одна или несколько точек приёма.
+         * Добавь мастера = новый объект в MASTERS с массивом locations: { title?, address, lat, lon }.
+         * photo — опционально, иначе имя в нижнем регистре (для файла images/…jpg).
+         */
+        const MASTERS = [
+            { name: 'Ашот', spec: 'Классические мужские стрижки, укладка', exp: 15, locations: [{ title: 'Кабинет на Таганке', address: 'Москва, Нижняя Радищевская ул., 15с2', lat: 55.7421, lon: 37.6552 }] },
+            { name: 'Армен', spec: 'Моделирование бороды, современные стрижки', exp: 10, locations: [{ title: 'Студия', address: 'Москва, 1-й Тверской-Ямской пер., 11', lat: 55.7712, lon: 37.5984 }] },
+            { name: 'Сако', spec: 'Fade-стрижки, креативные образы', exp: 6, locations: [{ title: 'Основная', address: 'Москва, ул. Большая Дмитровка, 7/5', lat: 55.7604, lon: 37.5989 }, { title: 'Выезд / второй кабинет', address: 'Москва, Патриаршие пруды, 6', lat: 55.7415, lon: 37.5900 }] },
+            { name: 'Эдуард', spec: 'Королевское бритьё, уход за бородой', exp: 5, locations: [{ title: 'Барбер-студия', address: 'Москва, Староконюшенный пер., 39', lat: 55.7448, lon: 37.5927 }] },
+            { name: 'Сати', spec: 'Спортивные стрижки, окрашивание', exp: 7, locations: [{ title: 'Точка у м. Павелецкая', address: 'Москва, Павелецкая наб., 2/1', lat: 55.7290, lon: 37.6410 }] },
+            { name: 'Сергей', spec: 'Премиальный сервис, работа с длинными волосами', exp: 8, photo: 'сергей', locations: [{ title: 'Центр', address: 'Москва, ул. Никольская, 10', lat: 55.7558, lon: 37.6245 }] },
+            { name: 'Дима', spec: 'Детские стрижки, семейные залы', exp: 4, locations: [{ title: 'Семейная студия', address: 'Москва, Ленинский пр-т, 37', lat: 55.7066, lon: 37.5834 }] },
+            { name: 'Алексей', spec: 'Текстурные стрижки, укладки', exp: 6, locations: [{ title: 'Кунцево', address: 'Москва, ул. Рублёвское ш., 28к1', lat: 55.7306, lon: 37.4129 }] },
+            { name: 'Владимир', spec: 'Бритьё головы, камуфляж седины', exp: 9, locations: [{ title: 'Марьина Роща', address: 'Москва, ул. Сущёвский Вал, 43', lat: 55.7936, lon: 37.6044 }] },
+            { name: 'Сергей', spec: 'Мужской маникюр, уход за руками', exp: 5, photo: 'сергей2', locations: [{ title: 'Сокол', address: 'Москва, Ленинградский пр-т, 77к1', lat: 55.8040, lon: 37.5172 }, { title: 'Второй адрес', address: 'Москва, Ходынский б-р, 4', lat: 55.7906, lon: 37.5343 }] },
+            { name: 'Константин', spec: 'SPA-программы для лица', exp: 3, locations: [{ title: 'Студия', address: 'Москва, Проспект Мира, 26', lat: 55.7796, lon: 37.6318 }] },
+            { name: 'Михаил', spec: 'Коррекция бровей, восковая депиляция', exp: 7, locations: [{ title: 'Арбат', address: 'Москва, Новый Арбат, 15', lat: 55.7522, lon: 37.5930 }] },
+            { name: 'Егор', spec: 'Стрижки машинкой, фейды', exp: 4, locations: [{ title: 'ТЦ, 3 этаж', address: 'Москва, Каширское ш., 61', lat: 55.6534, lon: 37.6458 }] },
+            { name: 'Никита', spec: 'Вечерние причёски, укладки', exp: 6, locations: [{ title: 'Студия', address: 'Москва, ул. Тверская, 18', lat: 55.7628, lon: 37.6030 }] },
+            { name: 'Илья', spec: 'Креативное окрашивание', exp: 5, locations: [{ title: 'Бауманская', address: 'Москва, Бауманская ул., 33/2', lat: 55.7728, lon: 37.6794 }] },
+            { name: 'Антон', spec: 'Работа с азиатскими волосами', exp: 8, locations: [{ title: 'Раменки', address: 'Москва, Мичуринский пр-т, 56', lat: 55.6900, lon: 37.4978 }] },
+            { name: 'Роман', spec: 'Кудрявые волосы, стайлинг', exp: 4, locations: [{ title: 'Студия', address: 'Москва, ул. Покровка, 2/1', lat: 55.7574, lon: 37.6456 }] },
+            { name: 'Андрей', spec: 'Мужские укладки, wax', exp: 7, locations: [{ title: 'Одинцово', address: 'Московская обл., Одинцово, Молодёжная ул., 10', lat: 55.6710, lon: 37.2634 }] },
+            { name: 'Олег', spec: 'Традиционное бритьё опасной бритвой', exp: 6, locations: [{ title: 'Мытищи', address: 'Московская обл., Мытищи, ул. Лётная, 21', lat: 55.9104, lon: 37.7365 }] },
+            { name: 'Стас', spec: 'Экспресс-услуги, мужской перерыв', exp: 5, locations: [{ title: 'Митино', address: 'Москва, Митинская ул., 28', lat: 55.8450, lon: 37.3610 }] },
+            { name: 'Вадим', spec: 'Премиум-класс, работа со знаменитостями', exp: 9, locations: [{ title: 'Премиум-студия', address: 'Москва, Остоженка, 22', lat: 55.7410, lon: 37.5834 }] },
+            { name: 'Григорий', spec: 'Обучение стажёров, наставник', exp: 4, locations: [{ title: 'Школа / практика', address: 'Москва, ВДНХ, пр-т Мира, 119', lat: 55.8265, lon: 37.6377 }] },
+            { name: 'Филипп', spec: 'Мастер-международник, конкурсы', exp: 7, locations: [{ title: 'Студия', address: 'Москва, Саввинская наб., 9', lat: 55.7297, lon: 37.5626 }] },
+            { name: 'Даниил', spec: 'Лучший барбер года', exp: 5, locations: [{ title: 'Флагман', address: 'Москва, ул. Большая Полянка, 3/9с1', lat: 55.7376, lon: 37.6184 }] }
         ];
 
-        const masterExps = [15, 10, 6, 5, 7, 8, 4, 6, 9, 5, 3, 7, 4, 6, 5, 8, 4, 7, 6, 5, 9, 4, 7, 5];
+        function mapCenterFromAllLocations() {
+            let sLat = 0;
+            let sLon = 0;
+            let n = 0;
+            MASTERS.forEach(function (m) {
+                m.locations.forEach(function (l) {
+                    sLat += l.lat;
+                    sLon += l.lon;
+                    n += 1;
+                });
+            });
+            if (!n) return { lat: 55.75, lon: 37.62 };
+            return { lat: sLat / n, lon: sLon / n };
+        }
 
-        // 5 отзывов для каждого мастера (все 5 звёзд)
+        function masterPhotoFile(master, index) {
+            if (master.photo) return master.photo;
+            if (master.name === 'Сергей' && index === 9) return 'сергей2';
+            return master.name.toLowerCase();
+        }
+
         const allReviews = [
-            { author: "Алексей", rating: 5, text: "Отличный мастер! Всегда доволен результатом." },
-            { author: "Дмитрий", rating: 5, text: "Профессионал своего дела. Рекомендую!" },
-            { author: "Иван", rating: 5, text: "Хороший подход к клиенту, приду ещё." },
-            { author: "Михаил", rating: 5, text: "Очень аккуратно и быстро. Супер!" },
-            { author: "Андрей", rating: 5, text: "Лучший барбер в городе!" }
+            { author: 'Алексей', rating: 5, text: 'Отличный мастер! Всегда доволен результатом.' },
+            { author: 'Дмитрий', rating: 5, text: 'Профессионал своего дела. Рекомендую!' },
+            { author: 'Иван', rating: 5, text: 'Хороший подход к клиенту, приду ещё.' },
+            { author: 'Михаил', rating: 5, text: 'Очень аккуратно и быстро. Супер!' },
+            { author: 'Андрей', rating: 5, text: 'Лучший барбер в городе!' }
         ];
 
-        // Функция для вычисления общего рейтинга
+        function yandexEmbedUrl(lon, lat, zoom) {
+            const z = zoom || 17;
+            const ll = encodeURIComponent(`${lon},${lat}`);
+            const pt = encodeURIComponent(`${lon},${lat},pm2rdm`);
+            return `https://yandex.ru/map-widget/v1/?ll=${ll}&z=${z}&l=map&pt=${pt}`;
+        }
+
+        function yandexEmbedAllMastersUrl() {
+            const pts = [];
+            MASTERS.forEach(function (m) {
+                m.locations.forEach(function (l) {
+                    pts.push(l.lon + ',' + l.lat + ',pm2rdm');
+                });
+            });
+            const c = mapCenterFromAllLocations();
+            const pt = pts.join('~');
+            return 'https://yandex.ru/map-widget/v1/?ll=' + c.lon + '%2C' + c.lat + '&z=10&l=map&pt=' + encodeURIComponent(pt);
+        }
+
         function calculateAverageRating() {
-            let sum = 0;
-            for (let review of allReviews) {
-                sum += review.rating;
-            }
+            const sum = allReviews.reduce((s, r) => s + r.rating, 0);
             return (sum / allReviews.length).toFixed(1);
+        }
+
+        function initSalonMap() {
+            const el = document.getElementById('mainYandexMap');
+            if (!el) return;
+
+            if (typeof ymaps === 'undefined') {
+                el.innerHTML = `<iframe src="${yandexEmbedAllMastersUrl()}" width="100%" height="100%" title="Карта мастеров"></iframe>`;
+                return;
+            }
+
+            ymaps.ready(function () {
+                try {
+                    const center = mapCenterFromAllLocations();
+                    const map = new ymaps.Map('mainYandexMap', {
+                        center: [center.lat, center.lon],
+                        zoom: 10,
+                        controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
+                    });
+
+                    MASTERS.forEach(function (m, mi) {
+                        m.locations.forEach(function (l, li) {
+                            const hint = l.title ? m.name + ' · ' + l.title : m.name;
+                            const placemark = new ymaps.Placemark([l.lat, l.lon], {
+                                hintContent: hint
+                            }, { hasBalloon: false });
+
+                            placemark.events.add('click', function () {
+                                openMaster(mi, li);
+                            });
+                            map.geoObjects.add(placemark);
+                        });
+                    });
+
+                    try {
+                        map.setBounds(map.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 36 });
+                    } catch (e1) { /* центр по умолчанию */ }
+                } catch (e2) {
+                    el.innerHTML = '<iframe src="' + yandexEmbedAllMastersUrl() + '" width="100%" height="100%" title="Карта мастеров"></iframe>';
+                }
+            });
         }
 
         function generateMasters() {
             const carousel = document.getElementById('mastersCarousel');
             carousel.innerHTML = '';
-            
-            for (let i = 0; i < masterNames.length; i++) {
+
+            MASTERS.forEach(function (master, i) {
                 const card = document.createElement('div');
                 card.className = 'master-card';
-                card.setAttribute('onclick', `openMasterWithData(${i}, "${masterNames[i]}", ${masterExps[i]}, "${masterSpecs[i]}")`);
-                card.innerHTML = `
-                    <div class="master-card__photo">
-                        <img src="images/${masterNames[i].toLowerCase()}.jpg" alt="${masterNames[i]}" onerror="this.src='images/logo.jpg'">
-                    </div>
-                    <h3>${masterNames[i]}</h3>
-                    <p>${masterSpecs[i].substring(0, 50)}${masterSpecs[i].length > 50 ? '...' : ''}</p>
-                `;
+                card.addEventListener('click', function () {
+                    openMaster(i, 0);
+                });
+                const shortSpec = master.spec.length > 50 ? master.spec.slice(0, 50) + '…' : master.spec;
+                const first = master.locations[0];
+                let locLine = '';
+                if (first) {
+                    locLine = (first.title ? first.title + ': ' : '📍 ') + first.address;
+                    if (master.locations.length > 1) {
+                        locLine += ' · +' + (master.locations.length - 1) + ' точ.';
+                    }
+                    if (locLine.length > 56) locLine = locLine.slice(0, 56) + '…';
+                }
+                const imgFile = masterPhotoFile(master, i);
+                card.innerHTML =
+                    '<div class="master-card__photo">' +
+                    '<img src="images/' + imgFile + '.jpg" alt="' + master.name + '" onerror="this.src=\'images/logo.jpg\'">' +
+                    '</div>' +
+                    '<h3>' + master.name + '</h3>' +
+                    '<p>' + shortSpec + '</p>' +
+                    (locLine ? '<p class="master-card__loc">' + locLine + '</p>' : '');
                 carousel.appendChild(card);
-            }
+            });
         }
 
-        function openMasterWithData(index, name, exp, spec) {
+        function openMaster(masterIndex, locationIndex) {
             const modal = document.getElementById('masterModal');
-            // Исправлено: фото теперь загружается правильно
-            const imgElement = document.querySelector(`.master-card:nth-child(${index + 1}) .master-card__photo img`);
-            const imgSrc = imgElement ? imgElement.src : `images/logo.jpg`;
+            const m = MASTERS[masterIndex];
+            if (!m || !m.locations || !m.locations.length) return;
+
+            let li = locationIndex == null ? 0 : locationIndex;
+            if (li < 0 || li >= m.locations.length) li = 0;
+            const loc = m.locations[li];
+
+            const imgElement = document.querySelector('#mastersCarousel .master-card:nth-child(' + (masterIndex + 1) + ') .master-card__photo img');
+            const imgSrc = imgElement ? imgElement.src : 'images/logo.jpg';
+
             document.getElementById('modalAvatar').src = imgSrc;
-            document.getElementById('modalName').textContent = name;
-            document.getElementById('modalExp').textContent = `⏱ Стаж: ${exp} лет`;
-            document.getElementById('modalSpec').textContent = spec;
-            
-            // Общий рейтинг
-            const avgRating = calculateAverageRating();
-            document.getElementById('ratingValue').textContent = avgRating;
-            
-            
-            // Показываем все 5 отзывов (скролбар для листания)
+            document.getElementById('modalName').textContent = m.name;
+            document.getElementById('modalExp').textContent = '⏱ Стаж: ' + m.exp + ' лет';
+            document.getElementById('modalSpec').textContent = m.spec;
+            document.getElementById('modalAddress').textContent = (loc.title ? loc.title + ' — ' : '') + loc.address;
+            document.getElementById('ratingValue').textContent = calculateAverageRating();
+
             let reviewsHtml = '';
-            for (let review of allReviews) {
+            allReviews.forEach(function (review) {
                 let stars = '';
-                for (let i = 0; i < 5; i++) {
-                    stars += i < review.rating ? '★' : '☆';
+                for (let s = 0; s < 5; s++) {
+                    stars += s < review.rating ? '★' : '☆';
                 }
-                reviewsHtml += `
-                    <div class="review">
-                        <div class="review-top">
-                            <span class="review-author">${review.author}</span>
-                            <span class="review-stars">${stars}</span>
-                        </div>
-                        <p class="review-text">${review.text}</p>
-                    </div>
-                `;
-            }
-            
+                reviewsHtml +=
+                    '<div class="review">' +
+                    '<div class="review-top">' +
+                    '<span class="review-author">' + review.author + '</span>' +
+                    '<span class="review-stars">' + stars + '</span>' +
+                    '</div>' +
+                    '<p class="review-text">' + review.text + '</p>' +
+                    '</div>';
+            });
             document.getElementById('modalReviews').innerHTML = reviewsHtml;
-            
-            // Ссылка на запись
+
+            const locWrap = document.getElementById('modalLocations');
+            locWrap.innerHTML = '';
+            if (m.locations.length > 1) {
+                locWrap.classList.add('has-multiple');
+                m.locations.forEach(function (l, idx) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'modal-location-btn' + (idx === li ? ' is-active' : '');
+                    btn.textContent = (l.title || 'Точка ' + (idx + 1)) + ': ' + l.address;
+                    btn.addEventListener('click', function () {
+                        openMaster(masterIndex, idx);
+                    });
+                    locWrap.appendChild(btn);
+                });
+            } else {
+                locWrap.classList.remove('has-multiple');
+            }
+
+            const modalIframe = document.getElementById('modalMap');
+            modalIframe.src = yandexEmbedUrl(loc.lon, loc.lat, 16) + '&_=' + Date.now();
+
             const cta = document.getElementById('modalCta');
-            cta.href = "https://n1048823.yclients.com";
-            cta.textContent = `Записаться к ${name}`;
-            
+            cta.href = 'https://n1048823.yclients.com';
+            cta.textContent = 'Записаться к ' + m.name;
+
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -1572,18 +1742,24 @@
             });
         }
 
-        // Обработка клика по "Показать на карте" в хедере
-        document.querySelectorAll('.nav a').forEach(link => {
-            if (link.getAttribute('href') === '#contacts') {
-                link.addEventListener('click', (e) => {
+        document.querySelectorAll('.nav a').forEach(function (link) {
+            const href = link.getAttribute('href');
+            if (href === '#contacts') {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
                 });
             }
+            if (href === '#mastersMap') {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.getElementById('mastersMap').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
         });
 
-        // Генерируем мастеров при загрузке
         generateMasters();
+        initSalonMap();
     </script>
 </body>
 </html>
