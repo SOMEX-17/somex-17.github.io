@@ -4,20 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ТОП БАРБЕРС | 💈 Мужское пространство</title>
-    
-    <!-- SEO мета-теги -->
-    <meta name="description" content="Мужские стрижки, бритьё и уход за бородой в Москве. Топ-барберы с опытом от 10 лет. Современный барбершоп в центре города. Запишись онлайн!">
-    <meta name="keywords" content="барбершоп, мужская стрижка, стрижка бороды, бритьё, барбер, мужской парикмахер, Москва, Мытная">
-    <meta name="author" content="ТОП БАРБЕРС">
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="ТОП БАРБЕРС | Мужское пространство">
-    <meta property="og:description" content="Мужские стрижки, бритьё и уход за бородой от топ-мастеров. Современный барбершоп в Москве.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ========== ОСНОВНЫЕ СТИЛИ ========== */
         * {
             margin: 0;
             padding: 0;
@@ -38,6 +27,7 @@
             padding: 0 60px;
         }
 
+        /* ========== ЦВЕТОВАЯ СХЕМА ========== */
         :root {
             --gold: #C8AA6E;
             --gold-light: #D4B484;
@@ -49,20 +39,16 @@
             --border: rgba(200, 170, 110, 0.2);
         }
 
+        /* ========== АНИМАЦИИ ========== */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .service-card,
@@ -78,6 +64,7 @@
         .service-card:nth-child(3) { animation-delay: 0.3s; }
         .service-card:nth-child(4) { animation-delay: 0.4s; }
         
+        /* ========== ШАПКА ========== */
         .header {
             position: sticky;
             top: 0;
@@ -106,15 +93,6 @@
             white-space: nowrap;
         }
 
-        .logo span {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: normal;
-            color: var(--text-muted);
-            display: block;
-        }
-
         .logo:hover {
             color: var(--gold-light);
         }
@@ -137,6 +115,7 @@
             color: var(--gold);
         }
 
+        /* Бургер-меню */
         .burger {
             display: none;
             flex-direction: column;
@@ -155,6 +134,7 @@
             border-radius: 2px;
         }
 
+        /* ========== КНОПКИ ========== */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -177,18 +157,28 @@
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
-        .btn--small { padding: 8px 20px; font-size: 14px; }
-        .btn--large { padding: 14px 36px; font-size: 16px; }
+        .btn--small {
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+
+        .btn--large {
+            padding: 14px 36px;
+            font-size: 16px;
+        }
+
         .btn--outline {
             background: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
         }
+
         .btn--outline:hover {
             background: var(--gold);
             color: #0A0A0A;
         }
 
+        /* ========== ГЛАВНЫЙ ЭКРАН ========== */
         .hero {
             padding: 100px 0;
             background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
@@ -199,7 +189,10 @@
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="%23C8AA6E" stroke-width="1"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23C8AA6E" stroke-width="1"/></svg>');
             background-size: 60px 60px;
             pointer-events: none;
@@ -212,7 +205,13 @@
             gap: 60px;
         }
 
-        .hero__content { flex: 1; max-width: 600px; position: relative; z-index: 2; }
+        .hero__content {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
         .hero__title {
             font-family: 'Playfair Display', serif;
             font-size: 64px;
@@ -222,11 +221,36 @@
             color: var(--gold);
             text-shadow: 0 2px 10px var(--gold-glow);
         }
-        .hero__text { font-size: 18px; color: var(--text-muted); margin-bottom: 30px; }
-        .hero__buttons { display: flex; gap: 20px; flex-wrap: wrap; }
-        .hero__image { flex: 1; max-width: 500px; height: 600px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .hero__image img { width: 100%; height: 100%; object-fit: cover; }
 
+        .hero__text {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero__buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero__image {
+            flex: 1;
+            max-width: 500px;
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== ЗАГОЛОВКИ СЕКЦИЙ (по центру) ========== */
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
@@ -236,6 +260,7 @@
             position: relative;
             text-align: center;
         }
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -247,12 +272,24 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
-        .services { padding: 100px 0; background: #0F0F0F; }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* ========== УСЛУГИ ========== */
+        .services {
+            padding: 100px 0;
+            background: #0F0F0F;
+        }
+
         .services__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
+
         .service-card {
             padding: 40px 30px;
             background: var(--card);
@@ -260,17 +297,43 @@
             transition: all 0.3s;
             border: 1px solid rgba(200, 170, 110, 0.1);
         }
+
         .service-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: 0 10px 30px var(--gold-glow);
         }
-        .service-card__icon { font-size: 48px; margin-bottom: 20px; color: var(--gold); }
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: var(--text); }
-        .service-card p { color: var(--text-muted); margin-bottom: 20px; }
-        .service-card__price { font-size: 22px; font-weight: 700; color: var(--gold); }
 
-        .masters { padding: 100px 0; background: #0A0A0A; overflow: hidden; }
+        .service-card__icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .service-card__price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* ========== МАСТЕРА (горизонтальная прокрутка) ========== */
+        .masters {
+            padding: 100px 0;
+            background: #0A0A0A;
+            overflow: hidden;
+        }
+
         .masters-carousel-container {
             position: relative;
             overflow-x: auto;
@@ -278,14 +341,28 @@
             padding: 20px 0;
             scroll-behavior: smooth;
         }
-        .masters-carousel-container::-webkit-scrollbar { height: 6px; }
-        .masters-carousel-container::-webkit-scrollbar-track { background: #1A1A1A; border-radius: 10px; }
-        .masters-carousel-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* Чёрный скрулбар для карусели мастеров */
+        .masters-carousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .masters-carousel-container::-webkit-scrollbar-track {
+            background: #1A1A1A;
+            border-radius: 10px;
+        }
+
+        .masters-carousel-container::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
         .masters-carousel {
             display: flex;
             gap: 30px;
             padding: 10px 60px;
         }
+
         .master-card {
             flex: 0 0 280px;
             background: var(--card);
@@ -296,11 +373,13 @@
             transition: all 0.3s;
             cursor: pointer;
         }
+
         .master-card:hover {
             border-color: var(--gold);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px var(--gold-glow);
         }
+
         .master-card__photo {
             width: 160px;
             height: 160px;
@@ -310,76 +389,64 @@
             border: 3px solid var(--gold);
             transition: all 0.3s;
         }
-        .master-card:hover .master-card__photo { border-color: var(--gold-light); box-shadow: 0 0 15px var(--gold-glow); }
-        .master-card__photo img { width: 100%; height: 100%; object-fit: cover; }
-        .master-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text); }
-        .master-card p { color: var(--text-muted); font-size: 13px; line-height: 1.4; }
-        .master-card__locations {
-            margin-top: 10px;
-            font-size: 10px;
-            color: var(--gold);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6px;
-        }
-        .master-card__location-badge {
-            background: rgba(200, 170, 110, 0.15);
-            padding: 3px 8px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 10px;
-        }
-        .master-card__location-badge:hover {
-            background: rgba(200, 170, 110, 0.4);
+
+        .master-card:hover .master-card__photo {
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px var(--gold-glow);
         }
 
-        /* Галерея со стрелками - без скроллбара */
+        .master-card__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .master-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .master-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .masters-carousel {
+                padding: 10px 20px;
+            }
+        }
+
+        /* ========== ГАЛЕРЕЯ (горизонтальная прокрутка на мобильных) ========== */
         .gallery {
             padding: 100px 0;
             background: #0F0F0F;
-            position: relative;
+            overflow-x: auto;
         }
-        .gallery-wrapper {
-            position: relative;
-            max-width: 100%;
-            overflow: hidden;
-        }
+
         .gallery__grid {
             display: flex;
             gap: 30px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
             padding: 10px 60px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
-        .gallery__grid::-webkit-scrollbar {
-            display: none;
+
+        /* Чёрный скрулбар для галереи */
+        .gallery::-webkit-scrollbar {
+            height: 6px;
         }
-        .gallery-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(200, 170, 110, 0.8);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-            color: #0A0A0A;
+
+        .gallery::-webkit-scrollbar-track {
+            background: #1A1A1A;
+            border-radius: 10px;
         }
-        .gallery-btn:hover {
+
+        .gallery::-webkit-scrollbar-thumb {
             background: var(--gold);
-            box-shadow: 0 0 15px var(--gold-glow);
+            border-radius: 10px;
         }
-        .gallery-btn-prev { left: 10px; }
-        .gallery-btn-next { right: 10px; }
-        
+
         .gallery-item {
             flex: 0 0 350px;
             border-radius: 8px;
@@ -388,12 +455,26 @@
             transition: transform 0.3s;
             cursor: pointer;
         }
-        .gallery-item:hover { transform: translateY(-5px); }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .gallery__grid {
+                padding: 10px 20px;
+            }
+            .gallery-item {
+                flex: 0 0 280px;
+            }
+        }
+
         .before-after {
             position: relative;
             aspect-ratio: 1/1;
             overflow: hidden;
         }
+
         .before-after img {
             position: absolute;
             width: 100%;
@@ -401,9 +482,19 @@
             object-fit: cover;
             transition: opacity 0.3s;
         }
-        .before-after .after { opacity: 0; }
-        .before-after:hover .after { opacity: 1; }
-        .before-after:hover .before { opacity: 0; }
+
+        .before-after .after {
+            opacity: 0;
+        }
+
+        .before-after:hover .after {
+            opacity: 1;
+        }
+
+        .before-after:hover .before {
+            opacity: 0;
+        }
+
         .badge {
             position: absolute;
             bottom: 20px;
@@ -418,121 +509,42 @@
             pointer-events: none;
         }
 
-        /* Карта мастеров - Яндекс.Карта с маркерами */
-        .masters-map {
+        /* ========== СЛАЙДЕР ========== */
+        .slider-section {
             padding: 100px 0;
             background: #0A0A0A;
         }
-        .map-container {
-            margin-top: 40px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 500px;
-            border: 0;
-            display: block;
-        }
-        .map-legend {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--card);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .legend-marker {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gold);
-            box-shadow: 0 0 5px var(--gold-glow);
-        }
-        .location-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .location-item {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .location-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .location-item h4 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-        .location-item .address {
-            color: var(--text-muted);
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-        .location-item .masters-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
-        }
-        .location-item .master-name {
-            background: rgba(200, 170, 110, 0.15);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--gold);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .location-item .master-name:hover {
-            background: var(--gold);
-            color: #0A0A0A;
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .slider-section { padding: 100px 0; background: #0A0A0A; }
-        .slider-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .slider {
             position: relative;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             border: 1px solid var(--border);
-            background: #1A1A1A;
-            min-height: 400px;
+        }
+
+        .slides {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: transform 0.5s ease;
         }
-        .slides { display: flex; transition: transform 0.5s ease; width: 100%; }
-        .slide { min-width: 100%; aspect-ratio: 16/9; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slider-placeholder {
-            position: absolute;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 18px;
-            z-index: 1;
+
+        .slide {
+            min-width: 100%;
+            aspect-ratio: 16/9;
         }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -548,9 +560,15 @@
             transition: all 0.3s;
             color: #0A0A0A;
         }
-        .slider-btn:hover { background: var(--gold); box-shadow: 0 0 15px var(--gold-glow); }
+
+        .slider-btn:hover {
+            background: var(--gold);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
         .prev { left: 20px; }
         .next { right: 20px; }
+
         .dots {
             position: absolute;
             bottom: 20px;
@@ -560,6 +578,7 @@
             gap: 10px;
             z-index: 10;
         }
+
         .dot {
             width: 12px;
             height: 12px;
@@ -568,60 +587,94 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .dot.active { background: var(--gold); box-shadow: 0 0 8px var(--gold-glow); }
 
-        .about { padding: 100px 0; background: #0F0F0F; }
+        .dot.active {
+            background: var(--gold);
+            box-shadow: 0 0 8px var(--gold-glow);
+        }
+
+        /* ========== О НАС ========== */
+        .about {
+            padding: 100px 0;
+            background: #0F0F0F;
+        }
+
         .about__inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
-        .about__content p { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+
+        .about__content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
         .about__stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
-        .stat__number { font-size: 42px; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
-        .stat__text { color: var(--text-muted); font-size: 14px; }
-        .about__image {
-            height: 500px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .about__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .stat__number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
         }
 
-        .contacts { padding: 100px 0; background: #0F0F0F; scroll-margin-top: 80px; }
+        .stat__text {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .about__image {
+            height: 500px;
+            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* ========== КОНТАКТЫ ========== */
+        .contacts {
+            padding: 100px 0;
+            background: #0F0F0F;
+        }
+
         .contacts__inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
         }
-        .contacts__info p { font-size: 18px; margin-bottom: 15px; color: var(--text-muted); }
+
+        .contacts__info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
         .contacts__info a {
             color: var(--text);
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: all 0.3s;
         }
-        .contacts__info a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+        .contacts__info a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
         .contacts__social {
             display: flex;
             gap: 20px;
             margin-top: 30px;
             flex-wrap: wrap;
         }
+
         .contacts__social a {
             color: var(--gold);
             font-weight: 600;
@@ -631,20 +684,55 @@
             border-radius: 4px;
             transition: all 0.3s;
         }
+
         .contacts__social a:hover {
             background: var(--gold);
             color: #0A0A0A;
             box-shadow: 0 5px 15px var(--gold-glow);
         }
-        .contacts__map { height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-        .contacts__map iframe { width: 100%; height: 100%; border: 0; }
 
-        .footer { padding: 40px 0; background: #0A0A0A; border-top: 1px solid var(--border); }
-        .footer__inner { display: flex; justify-content: space-between; align-items: center; }
-        .footer__copy { color: #666; font-size: 14px; }
-        .footer__policy a { color: #666; text-decoration: none; font-size: 14px; transition: color 0.3s; }
-        .footer__policy a:hover { color: var(--gold); }
+        .contacts__map {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
 
+        .contacts__map iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========== ФУТЕР ========== */
+        .footer {
+            padding: 40px 0;
+            background: #0A0A0A;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer__copy {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer__policy a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer__policy a:hover {
+            color: var(--gold);
+        }
+
+        /* ========== МОДАЛЬНОЕ ОКНО МАСТЕРА ========== */
         .master-modal-overlay {
             display: none;
             position: fixed;
@@ -655,7 +743,11 @@
             justify-content: center;
             align-items: center;
         }
-        .master-modal-overlay.open { display: flex; }
+
+        .master-modal-overlay.open {
+            display: flex;
+        }
+
         .master-modal {
             background: var(--card);
             border: 1px solid var(--border);
@@ -668,10 +760,18 @@
             position: relative;
             animation: modalIn 0.3s ease;
         }
+
         @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
+
         .modal-close {
             position: absolute;
             top: 16px;
@@ -682,8 +782,13 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 10;
+            transition: color 0.3s;
         }
-        .modal-close:hover { color: var(--gold); }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
         .modal-header {
             display: flex;
             align-items: center;
@@ -691,19 +796,66 @@
             padding: 24px 24px 16px;
             flex-shrink: 0;
         }
-        .modal-avatar { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); flex-shrink: 0; }
-        .modal-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .modal-name { font-size: 28px; font-weight: 700; color: var(--gold); }
-        .modal-exp { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
-        .modal-section { padding: 0 24px 20px; flex-shrink: 0; }
-        .modal-section h4 { color: var(--gold); font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-        .modal-section p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+
+        .modal-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .modal-exp {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .modal-section {
+            padding: 0 24px 20px;
+            flex-shrink: 0;
+        }
+
+        .modal-section h4 {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-section p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Заголовок отзывов с рейтингом */
         .reviews-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 12px;
         }
+
+        .reviews-header h4 {
+            margin-bottom: 0;
+        }
+
         .rating-badge {
             display: flex;
             align-items: center;
@@ -712,16 +864,41 @@
             padding: 4px 10px;
             border-radius: 20px;
         }
-        .rating-stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
-        .rating-value { color: var(--gold); font-weight: 600; font-size: 14px; }
+
+        .rating-stars {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .rating-value {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Блок с отзывами и вертикальным скрулбаром */
         .reviews-container {
             max-height: 100px;
             overflow-y: auto;
             padding-right: 8px;
         }
-        .reviews-container::-webkit-scrollbar { width: 6px; }
-        .reviews-container::-webkit-scrollbar-track { background: #1A1A1A; border-radius: 10px; }
-        .reviews-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* Чёрный скрулбар для отзывов с золотым ползунком */
+        .reviews-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .reviews-container::-webkit-scrollbar-track {
+            background: #1A1A1A;
+            border-radius: 10px;
+        }
+
+        .reviews-container::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
         .review {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border);
@@ -729,32 +906,50 @@
             padding: 12px;
             margin-bottom: 12px;
         }
-        .review:last-child { margin-bottom: 0; }
-        .review-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .review-author { font-weight: 600; font-size: 14px; color: var(--text); }
-        .review-stars { color: var(--gold); font-size: 12px; }
-        .review-text { font-size: 13px; color: var(--text-muted); margin: 0; }
-        .modal-map { height: 126px; border-radius: 12px; overflow: hidden; margin-top: 10px; border: 1px solid var(--border); }
-        .modal-map iframe { width: 100%; height: 100%; border: 0; }
-        .modal-locations {
+
+        .review:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-top {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
         }
-        .modal-location-btn {
-            background: rgba(200, 170, 110, 0.15);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+
+        .review-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .review-stars {
             color: var(--gold);
-            cursor: pointer;
-            transition: all 0.2s;
+            font-size: 12px;
         }
-        .modal-location-btn:hover {
-            background: var(--gold);
-            color: #0A0A0A;
+
+        .review-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
         }
+
+        /* Карта в модалке (уменьшена на 30%) */
+        .modal-map {
+            height: 126px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .modal-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .modal-cta {
             display: block;
             margin: 0 24px 24px;
@@ -769,24 +964,36 @@
             font-size: 16px;
             flex-shrink: 0;
         }
+
         .modal-cta:hover {
             background: var(--gold-light);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
+        /* ========== АДАПТИВНОСТЬ ========== */
+        @media (max-width: 1200px) {
+            .hero__title { font-size: 56px; }
+            .hero__image { max-width: 400px; height: 500px; }
+            .logo { font-size: 22px; }
+        }
+
         @media (max-width: 1024px) {
             .hero__title { font-size: 48px; }
+            .section-title { font-size: 42px; }
+            .hero__inner { gap: 40px; }
             .services__grid { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 900px) {
             .hero__inner { flex-direction: column; }
             .hero__image { max-width: 100%; height: 400px; }
             .container { padding: 0 40px; }
         }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .logo span { display: none; }
+            .header__inner { flex-direction: row; justify-content: space-between; height: 70px; padding: 0; }
             .burger { display: flex; }
             .burger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
             .burger.active span:nth-child(2) { opacity: 0; }
@@ -799,36 +1006,64 @@
                 border-right: 1px solid var(--border);
             }
             .nav.active { left: 0; }
+            .nav a { font-size: 18px; padding: 10px 0; white-space: normal; }
             .header .btn--small { display: none; }
+            .hero { padding: 60px 0; }
             .hero__title { font-size: 38px; }
-            .services__grid { grid-template-columns: 1fr; }
-            .masters-carousel { padding: 10px 20px; }
-            .gallery__grid { padding: 10px 20px; }
-            .gallery-item { flex: 0 0 280px; }
-            .gallery-btn { width: 40px; height: 40px; font-size: 18px; }
-            .gallery-btn-prev { left: 5px; }
-            .gallery-btn-next { right: 5px; }
+            .hero__text { font-size: 16px; }
+            .hero__image { height: 320px; }
+            .hero__buttons { flex-direction: column; gap: 15px; }
+            .btn--large { width: 100%; text-align: center; padding: 14px 20px; }
+            .services, .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
+            .section-title { font-size: 32px; margin-bottom: 40px; }
+            .services__grid { grid-template-columns: 1fr; gap: 25px; }
+            .service-card { padding: 30px 20px; text-align: center; }
+            .service-card__icon { font-size: 40px; }
+            .service-card h3 { font-size: 22px; }
             .before-after .after { opacity: 0; }
             .before-after.active .after { opacity: 1; }
             .before-after.active .before { opacity: 0; }
+            .badge { font-size: 12px; padding: 6px 12px; bottom: 12px; left: 12px; }
+            .slider-container { padding: 0 10px; }
             .slider-btn { width: 40px; height: 40px; font-size: 18px; }
             .prev { left: 10px; }
             .next { right: 10px; }
-            .about__inner { grid-template-columns: 1fr; }
-            .contacts__inner { grid-template-columns: 1fr; }
+            .dots { bottom: 12px; }
+            .dot { width: 8px; height: 8px; }
+            .about__inner { grid-template-columns: 1fr; gap: 40px; }
+            .about__stats { grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+            .stat__number { font-size: 28px; }
+            .stat__text { font-size: 12px; }
+            .about__image { height: 300px; }
+            .contacts__inner { grid-template-columns: 1fr; gap: 40px; }
+            .contacts__info p { font-size: 16px; }
+            .contacts__social { justify-content: center; }
+            .contacts__map { height: 300px; }
             .footer__inner { flex-direction: column; gap: 15px; text-align: center; }
-            .map-container iframe { height: 350px; }
+            .footer__copy, .footer__policy a { font-size: 12px; }
         }
+
         @media (max-width: 480px) {
+            .container { padding: 0 16px; }
             .hero__title { font-size: 32px; }
             .section-title { font-size: 28px; }
+            .logo { font-size: 18px; }
+            .burger { width: 26px; height: 18px; }
+            .nav { width: 85%; padding: 30px 20px; }
+            .nav a { font-size: 16px; }
+            .hero__image { height: 260px; }
+            .about__stats { grid-template-columns: 1fr; text-align: center; gap: 20px; }
+            .stat__number { font-size: 32px; }
+            .btn { padding: 10px 20px; font-size: 14px; }
         }
+
         @media (min-width: 769px) {
             .burger { display: none; }
         }
     </style>
 </head>
 <body>
+    <!-- Шапка -->
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -846,7 +1081,7 @@
                     <a href="#masters">Мастера</a>
                     <a href="#gallery">Работы</a>
                     <a href="#slider">Атмосфера</a>
-                    <a href="#masters-map">Показать на карте</a>
+                    <a href="#contacts">Показать на карте</a>
                     <a href="#about">О нас</a>
                     <a href="#contacts">Контакты</a>
                 </nav>
@@ -855,6 +1090,7 @@
         </div>
     </header>
 
+    <!-- Главный экран -->
     <section class="hero">
         <div class="container">
             <div class="hero__inner">
@@ -867,24 +1103,46 @@
                     </div>
                 </div>
                 <div class="hero__image">
-                    <img src="images/sako.jpg" alt="Интерьер барбершопа ТОП БАРБЕРС" onerror="this.src='images/logo.jpg'">
+                    <img src="images/sako.jpg" alt="Барбершоп">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Услуги -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
             <div class="services__grid">
-                <div class="service-card"><div class="service-card__icon">✂️</div><h3>Мужская стрижка</h3><p>Классические и современные стрижки любой сложности.</p><div class="service-card__price">от 2800 ₽</div></div>
-                <div class="service-card"><div class="service-card__icon">🧔</div><h3>Стрижка бороды</h3><p>Моделирование, укладка, уход. Придадим форму.</p><div class="service-card__price">от 1700 ₽</div></div>
-                <div class="service-card"><div class="service-card__icon">🪒</div><h3>Королевское бритьё</h3><p>Горячее полотенце, масло, пена — классика.</p><div class="service-card__price">2200 ₽</div></div>
-                <div class="service-card"><div class="service-card__icon">💈</div><h3>Стрижка + борода</h3><p>Сочетание мужской стрижки и стрижки бороды.</p><div class="service-card__price">4500 ₽</div></div>
+                <div class="service-card">
+                    <div class="service-card__icon">✂️</div>
+                    <h3>Мужская стрижка</h3>
+                    <p>Классические и современные стрижки любой сложности.</p>
+                    <div class="service-card__price">от 2800 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🧔</div>
+                    <h3>Стрижка бороды</h3>
+                    <p>Моделирование, укладка, уход. Придадим форму.</p>
+                    <div class="service-card__price">от 1700 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🪒</div>
+                    <h3>Королевское бритьё</h3>
+                    <p>Горячее полотенце, масло, пена — классика.</p>
+                    <div class="service-card__price">2200 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">💈</div>
+                    <h3>Стрижка + борода</h3>
+                    <p>Сочетание мужской стрижки и стрижки бороды.</p>
+                    <div class="service-card__price">4500 ₽</div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Мастера -->
     <section class="masters" id="masters">
         <div class="container">
             <h2 class="section-title">Наши мастера</h2>
@@ -894,23 +1152,82 @@
         </div>
     </section>
 
+    <!-- Галерея работ (До/После) -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Наши работы</h2>
-            <div class="gallery-wrapper">
-                <button class="gallery-btn gallery-btn-prev" id="galleryPrev">❮</button>
-                <div class="gallery__grid" id="galleryGrid"></div>
-                <button class="gallery-btn gallery-btn-next" id="galleryNext">❯</button>
+            <div class="gallery__grid">
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/stubble-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/stubble-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                 <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <img src="images/fade-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
+                        <img src="images/fade-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Слайдер с фото барбершопа -->
     <section class="slider-section" id="slider">
-        <div class="container"><h2 class="section-title">Атмосфера</h2></div>
+        <div class="container">
+            <h2 class="section-title">Атмосфера</h2>
+        </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="slider-placeholder" id="sliderPlaceholder">📸 Фотографии загружаются...</div>
-                <div class="slides" id="sliderSlides"></div>
+                <div class="slides">
+                    <div class="slide"><img src="images/barbershop-1.jpg" alt="Интерьер 1" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-2.jpg" alt="Интерьер 2" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-3.jpg" alt="Интерьер 3" onerror="this.src='images/logo.jpg'"></div>
+                    <div class="slide"><img src="images/barbershop-4.jpg" alt="Интерьер 4" onerror="this.src='images/logo.jpg'"></div>
+                </div>
                 <button class="slider-btn prev">❮</button>
                 <button class="slider-btn next">❯</button>
                 <div class="dots"></div>
@@ -918,21 +1235,7 @@
         </div>
     </section>
 
-    <!-- Раздел "Показать на карте" - Яндекс.Карта со всеми локациями -->
-    <section class="masters-map" id="masters-map">
-        <div class="container">
-            <h2 class="section-title">Показать на карте</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 20px;">Все локации наших мастеров на карте</p>
-            <div class="map-container" id="mapContainer">
-                <iframe id="yandexMap" src="https://yandex.ru/map-widget/v1/?ll=37.617,55.755&z=11&l=map" width="100%" height="500" frameborder="0"></iframe>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-marker"></div><span>Локации мастеров</span></div>
-            </div>
-            <div class="location-list" id="locationList"></div>
-        </div>
-    </section>
-
+    <!-- О нас -->
     <section class="about" id="about">
         <div class="container">
             <div class="about__inner">
@@ -945,16 +1248,26 @@
                     <p>* формирование собственной базы постоянных клиентов;</p>
                     <p>* демонстрация выдающихся навыков в сложных техниках.</p>
                     <div class="about__stats">
-                        <div class="stat"><div class="stat__number">10+</div><div class="stat__text">лет опыта</div></div>
-                        <div class="stat"><div class="stat__number">5000+</div><div class="stat__text">довольных клиентов</div></div>
-                        <div class="stat"><div class="stat__number">24</div><div class="stat__text">мастера</div></div>
+                        <div class="stat">
+                            <div class="stat__number">10+</div>
+                            <div class="stat__text">лет опыта</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">5000+</div>
+                            <div class="stat__text">довольных клиентов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">24</div>
+                            <div class="stat__text">мастера</div>
+                        </div>
                     </div>
                 </div>
-                <div class="about__image"><img src="images/logo.jpg" alt="Логотип ТОП БАРБЕРС" onerror="this.src='images/logo.jpg'"></div>
+                <div class="about__image"></div>
             </div>
         </div>
     </section>
 
+    <!-- Контакты с картой -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
@@ -977,144 +1290,108 @@
         </div>
     </section>
 
+    <!-- Футер -->
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__copy">© 2025 ТОП БАРБЕРС. Все права защищены.</div>
-                <div class="footer__policy"><a href="#">Политика конфиденциальности</a></div>
+                <div class="footer__policy">
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Модальное окно мастера -->
     <div class="master-modal-overlay" id="masterModal" onclick="if(event.target===this) closeMaster()">
         <div class="master-modal">
             <button class="modal-close" onclick="closeMaster()">×</button>
             <div class="modal-header">
                 <div class="modal-avatar"><img id="modalAvatar" src="" alt=""></div>
-                <div><div class="modal-name" id="modalName"></div><div class="modal-exp" id="modalExp"></div></div>
+                <div>
+                    <div class="modal-name" id="modalName"></div>
+                    <div class="modal-exp" id="modalExp"></div>
+                </div>
             </div>
-            <div class="modal-section"><h4>Специализация</h4><p id="modalSpec"></p></div>
             <div class="modal-section">
-                <div class="reviews-header"><h4>Отзывы клиентов</h4><div class="rating-badge"><span class="rating-stars" id="ratingStars">★★★★★</span><span class="rating-value" id="ratingValue">5.0</span></div></div>
+                <h4>Специализация</h4>
+                <p id="modalSpec"></p>
+            </div>
+            <div class="modal-section">
+                <div class="reviews-header">
+                    <h4>Отзывы клиентов</h4>
+                    <div class="rating-badge">
+                        <span class="rating-stars" id="ratingStars">★</span>
+                        <span class="rating-value" id="ratingValue">5.0</span>
+                    </div>
+                </div>
                 <div class="reviews-container" id="modalReviews"></div>
             </div>
             <div class="modal-section">
-                <h4>Локации мастера</h4>
-                <div id="modalLocations" class="modal-locations"></div>
-                <div class="modal-map" id="modalMapContainer">
-                    <iframe id="modalMap" src="" width="100%" height="126" frameborder="0"></iframe>
+                <h4>Локация</h4>
+                <p id="modalAddress">г. Москва, ул. Мытная, 27</p>
+                <div class="modal-map">
+                    <iframe id="modalMap" src="https://yandex.ru/map-widget/v1/?ll=37.618423%2C55.751244&z=17&l=map&pt=37.618423%2C55.751244" width="100%" height="100%" frameborder="0"></iframe>
                 </div>
             </div>
-            <a class="modal-cta" id="modalCta" href="#" target="_blank">Записаться</a>
+            <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener">Записаться</a>
         </div>
     </div>
 
     <script>
-        // Данные мастеров
-        const masterNames = ["Ашот","Армен","Сако","Эдуард","Сати","Сергей","Дима","Алексей","Владимир","Сергей","Константин","Михаил","Егор","Никита","Илья","Антон","Роман","Андрей","Олег","Стас","Вадим","Григорий","Филипп","Даниил"];
+        // 24 мастера
+        const masterNames = [
+            "Ашот", "Армен", "Сако", "Эдуард", "Сати", "Сергей", 
+            "Дима", "Алексей", "Владимир", "Сергей", "Константин", "Михаил",
+            "Егор", "Никита", "Илья", "Антон", "Роман", "Андрей",
+            "Олег", "Стас", "Вадим", "Григорий", "Филипп", "Даниил"
+        ];
         
         const masterSpecs = [
-            "Классические мужские стрижки, укладка","Моделирование бороды, современные стрижки","Fade-стрижки, креативные образы","Королевское бритьё, уход за бородой","Спортивные стрижки, окрашивание","Премиальный сервис, работа с длинными волосами","Детские стрижки, семейные залы","Текстурные стрижки, укладки","Бритьё головы, камуфляж седины","Мужской маникюр, уход за руками","SPA-программы для лица","Коррекция бровей, восковая депиляция","Стрижки машинкой, фейды","Вечерние причёски, укладки","Креативное окрашивание","Работа с азиатскими волосами","Кудрявые волосы, стайлинг","Мужские укладки, wax","Традиционное бритьё опасной бритвой","Экспресс-услуги, мужской перерыв","Премиум-класс, работа со знаменитостями","Обучение стажёров, наставник","Мастер-международник, конкурсы","Лучший барбер года"
+            "Классические мужские стрижки, укладка",
+            "Моделирование бороды, современные стрижки",
+            "Fade-стрижки, креативные образы",
+            "Королевское бритьё, уход за бородой",
+            "Спортивные стрижки, окрашивание",
+            "Премиальный сервис, работа с длинными волосами",
+            "Детские стрижки, семейные залы",
+            "Текстурные стрижки, укладки",
+            "Бритьё головы, камуфляж седины",
+            "Мужской маникюр, уход за руками",
+            "SPA-программы для лица",
+            "Коррекция бровей, восковая депиляция",
+            "Стрижки машинкой, фейды",
+            "Вечерние причёски, укладки",
+            "Креативное окрашивание",
+            "Работа с азиатскими волосами",
+            "Кудрявые волосы, стайлинг",
+            "Мужские укладки, wax",
+            "Традиционное бритьё опасной бритвой",
+            "Экспресс-услуги, мужской перерыв",
+            "Премиум-класс, работа со знаменитостями",
+            "Обучение стажёров, наставник",
+            "Мастер-международник, конкурсы",
+            "Лучший барбер года"
         ];
 
-        const masterExps = [15,10,6,5,7,8,4,6,9,5,3,7,4,6,5,8,4,7,6,5,9,4,7,5];
-        
-        // У каждого мастера может быть несколько локаций
-        const masterLocations = [
-            [{ address: "ул. Мытная, 27, Москва", lat: "55.751244", lon: "37.618423" }],
-            [{ address: "ул. Мытная, 27, Москва", lat: "55.751244", lon: "37.618423" }],
-            [{ address: "ул. Мытная, 27, Москва", lat: "55.751244", lon: "37.618423" }],
-            [{ address: "ул. Мытная, 27, Москва", lat: "55.751244", lon: "37.618423" }],
-            [{ address: "ул. Тверская, 15, Москва", lat: "55.757000", lon: "37.607000" }],
-            [{ address: "ул. Тверская, 15, Москва", lat: "55.757000", lon: "37.607000" }],
-            [{ address: "ул. Тверская, 15, Москва", lat: "55.757000", lon: "37.607000" }],
-            [{ address: "ул. Тверская, 15, Москва", lat: "55.757000", lon: "37.607000" }],
-            [{ address: "Кутузовский пр-т, 32, Москва", lat: "55.739000", lon: "37.532000" }],
-            [{ address: "Кутузовский пр-т, 32, Москва", lat: "55.739000", lon: "37.532000" }],
-            [{ address: "Кутузовский пр-т, 32, Москва", lat: "55.739000", lon: "37.532000" }],
-            [{ address: "Кутузовский пр-т, 32, Москва", lat: "55.739000", lon: "37.532000" }],
-            [{ address: "ул. Арбат, 20, Москва", lat: "55.752000", lon: "37.600000" }],
-            [{ address: "ул. Арбат, 20, Москва", lat: "55.752000", lon: "37.600000" }],
-            [{ address: "ул. Арбат, 20, Москва", lat: "55.752000", lon: "37.600000" }],
-            [{ address: "ул. Арбат, 20, Москва", lat: "55.752000", lon: "37.600000" }],
-            [{ address: "Ленинский пр-т, 45, Москва", lat: "55.707000", lon: "37.577000" }],
-            [{ address: "Ленинский пр-т, 45, Москва", lat: "55.707000", lon: "37.577000" }],
-            [{ address: "Ленинский пр-т, 45, Москва", lat: "55.707000", lon: "37.577000" }],
-            [{ address: "Ленинский пр-т, 45, Москва", lat: "55.707000", lon: "37.577000" }],
-            [{ address: "пр-т Мира, 50, Москва", lat: "55.780000", lon: "37.632000" }],
-            [{ address: "пр-т Мира, 50, Москва", lat: "55.780000", lon: "37.632000" }],
-            [{ address: "пр-т Мира, 50, Москва", lat: "55.780000", lon: "37.632000" }],
-            [{ address: "пр-т Мира, 50, Москва", lat: "55.780000", lon: "37.632000" }]
+        const masterExps = [15, 10, 6, 5, 7, 8, 4, 6, 9, 5, 3, 7, 4, 6, 5, 8, 4, 7, 6, 5, 9, 4, 7, 5];
+
+        // 5 отзывов для каждого мастера (все 5 звёзд)
+        const allReviews = [
+            { author: "Алексей", rating: 5, text: "Отличный мастер! Всегда доволен результатом." },
+            { author: "Дмитрий", rating: 5, text: "Профессионал своего дела. Рекомендую!" },
+            { author: "Иван", rating: 5, text: "Хороший подход к клиенту, приду ещё." },
+            { author: "Михаил", rating: 5, text: "Очень аккуратно и быстро. Супер!" },
+            { author: "Андрей", rating: 5, text: "Лучший барбер в городе!" }
         ];
-        
-        // Пример: добавляем вторую локацию для первого мастера (Ашот)
-        masterLocations[0].push({ address: "ул. Новый Арбат, 10, Москва", lat: "55.753000", lon: "37.590000" });
-        
-        // Группируем все уникальные локации для карты
-        function getAllUniqueLocations() {
-            const locationsMap = new Map();
-            for (let i = 0; i < masterNames.length; i++) {
-                for (const loc of masterLocations[i]) {
-                    const key = `${loc.lat},${loc.lon}`;
-                    if (!locationsMap.has(key)) {
-                        locationsMap.set(key, {
-                            address: loc.address,
-                            lat: loc.lat,
-                            lon: loc.lon,
-                            masters: []
-                        });
-                    }
-                    locationsMap.get(key).masters.push({ name: masterNames[i], index: i });
-                }
-            }
-            return Array.from(locationsMap.values());
-        }
-        
-        // Функция для обновления карты (центрирование на локации)
-        function centerMapOnLocation(lat, lon, address) {
-            const mapIframe = document.getElementById('yandexMap');
-            if (mapIframe) {
-                const newSrc = `https://yandex.ru/map-widget/v1/?ll=${lon},${lat}&z=16&l=map&pt=${lon},${lat},pm2dgl`;
-                mapIframe.src = newSrc;
-            }
-            // Плавный скролл к карте
-            document.getElementById('masters-map').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Уведомление
-            showNotification(`📍 ${address}`);
-        }
-        
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed; bottom: 20px; right: 20px; background: var(--gold); 
-                color: #0A0A0A; padding: 12px 24px; border-radius: 8px; 
-                font-weight: 600; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                animation: fadeInUp 0.3s ease;
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                setTimeout(() => notification.remove(), 300);
-            }, 2500);
-        }
 
-        function getStarsHtml(rating) {
-            let stars = '';
-            for (let i = 0; i < 5; i++) stars += i < rating ? '★' : '☆';
-            return stars;
-        }
-
-        function generateUniqueReviews(masterName, spec) {
-            const texts = [
-                `${masterName} — настоящий профессионал! Сделал идеальную стрижку!`,
-                `Очень доволен работой ${masterName}. ${spec.split(',')[0]} на высшем уровне!`,
-                `Отличный мастер! ${masterName} учёл все пожелания. Результат превзошёл ожидания.`,
-                `Профессионал своего дела. ${masterName} даёт дельные советы по уходу. 5 звёзд!`,
-                `Лучший барбер! ${masterName} создал образ, который мне очень идёт. Спасибо!`
-            ];
-            const authors = ["Алексей", "Дмитрий", "Иван", "Михаил", "Андрей"];
-            return texts.map((text, i) => ({ author: authors[i], rating: 5, text: text }));
+        // Функция для вычисления общего рейтинга
+        function calculateAverageRating() {
+            let sum = 0;
+            for (let review of allReviews) {
+                sum += review.rating;
+            }
+            return (sum / allReviews.length).toFixed(1);
         }
 
         function generateMasters() {
@@ -1124,148 +1401,82 @@
             for (let i = 0; i < masterNames.length; i++) {
                 const card = document.createElement('div');
                 card.className = 'master-card';
-                card.setAttribute('onclick', `openMasterModal(${i})`);
-                const locationsHtml = masterLocations[i].map((loc, idx) => 
-                    `<span class="master-card__location-badge" onclick="event.stopPropagation(); centerMapOnLocation('${loc.lat}', '${loc.lon}', '${loc.address}')">📍 ${loc.address.split(',')[0]}</span>`
-                ).join('');
+                card.setAttribute('onclick', `openMasterWithData(${i}, "${masterNames[i]}", ${masterExps[i]}, "${masterSpecs[i]}")`);
                 card.innerHTML = `
                     <div class="master-card__photo">
                         <img src="images/${masterNames[i].toLowerCase()}.jpg" alt="${masterNames[i]}" onerror="this.src='images/logo.jpg'">
                     </div>
                     <h3>${masterNames[i]}</h3>
                     <p>${masterSpecs[i].substring(0, 50)}${masterSpecs[i].length > 50 ? '...' : ''}</p>
-                    <div class="master-card__locations">${locationsHtml}</div>
                 `;
                 carousel.appendChild(card);
             }
         }
 
-        function generateLocationList() {
-            const container = document.getElementById('locationList');
-            const locations = getAllUniqueLocations();
-            container.innerHTML = locations.map(loc => `
-                <div class="location-item" onclick="centerMapOnLocation('${loc.lat}', '${loc.lon}', '${loc.address}')">
-                    <h4>📍 ${loc.address.split(',')[0]}</h4>
-                    <div class="address">${loc.address}</div>
-                    <div class="masters-list">
-                        ${loc.masters.map(m => `<span class="master-name" onclick="event.stopPropagation(); openMasterModal(${m.index})">${m.name}</span>`).join('')}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function generateGallery() {
-            const galleryGrid = document.getElementById('galleryGrid');
-            const items = [];
-            for (let i = 0; i < 9; i++) {
-                items.push(`
-                    <div class="gallery-item">
-                        <div class="before-after">
-                            <img src="images/haircut-before.jpg" alt="До" class="before" onerror="this.src='images/logo.jpg'">
-                            <img src="images/haircut-after.jpg" alt="После" class="after" onerror="this.src='images/logo.jpg'">
-                            <div class="badge">До / После</div>
-                        </div>
-                    </div>
-                `);
-            }
-            galleryGrid.innerHTML = items.join('');
-            
-            document.getElementById('galleryPrev')?.addEventListener('click', () => {
-                galleryGrid.scrollBy({ left: -380, behavior: 'smooth' });
-            });
-            document.getElementById('galleryNext')?.addEventListener('click', () => {
-                galleryGrid.scrollBy({ left: 380, behavior: 'smooth' });
-            });
-        }
-
-        function buildSlider() {
-            const slidesContainer = document.getElementById('sliderSlides');
-            const placeholder = document.getElementById('sliderPlaceholder');
-            const slides = ['barbershop-1','barbershop-2','barbershop-3','barbershop-4'];
-            slidesContainer.innerHTML = slides.map(s => `<div class="slide"><img src="images/${s}.jpg" alt="Интерьер" onerror="this.style.display='none'"></div>`).join('');
-            
-            setTimeout(() => {
-                const imgs = slidesContainer.querySelectorAll('img');
-                let loaded = false;
-                imgs.forEach(img => { if (img.complete && img.naturalWidth > 0) loaded = true; });
-                if (loaded && placeholder) placeholder.style.display = 'none';
-                else if (placeholder) placeholder.innerHTML = '📸 Фотографии скоро появятся...';
-            }, 500);
-            
-            const slider = document.querySelector('.slides');
-            const prev = document.querySelector('.prev');
-            const next = document.querySelector('.next');
-            const dotsContainer = document.querySelector('.dots');
-            let current = 0, count = slides.length, dots = [];
-            
-            if (slider && prev && next && dotsContainer && count > 0) {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i < count; i++) {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goTo(i));
-                    dotsContainer.appendChild(dot);
-                    dots.push(dot);
-                }
-                function goTo(i) { current = i; update(); }
-                function update() {
-                    slider.style.transform = `translateX(-${current * 100}%)`;
-                    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-                }
-                prev.addEventListener('click', () => { current = (current - 1 + count) % count; update(); });
-                next.addEventListener('click', () => { current = (current + 1) % count; update(); });
-            }
-        }
-
-        window.openMasterModal = function(index) {
+        function openMasterWithData(index, name, exp, spec) {
             const modal = document.getElementById('masterModal');
-            const img = document.querySelector(`.master-card:nth-child(${index + 1}) .master-card__photo img`);
-            document.getElementById('modalAvatar').src = img ? img.src : 'images/logo.jpg';
-            document.getElementById('modalName').textContent = masterNames[index];
-            document.getElementById('modalExp').textContent = `⏱ Стаж: ${masterExps[index]} лет`;
-            document.getElementById('modalSpec').textContent = masterSpecs[index];
+            // Исправлено: фото теперь загружается правильно
+            const imgElement = document.querySelector(`.master-card:nth-child(${index + 1}) .master-card__photo img`);
+            const imgSrc = imgElement ? imgElement.src : `images/logo.jpg`;
+            document.getElementById('modalAvatar').src = imgSrc;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalExp').textContent = `⏱ Стаж: ${exp} лет`;
+            document.getElementById('modalSpec').textContent = spec;
             
-            // Показываем все локации мастера
-            const locationsContainer = document.getElementById('modalLocations');
-            locationsContainer.innerHTML = masterLocations[index].map((loc, idx) => `
-                <span class="modal-location-btn" onclick="centerMapOnLocation('${loc.lat}', '${loc.lon}', '${loc.address}'); document.getElementById('masterModal').classList.remove('open'); document.body.style.overflow = '';">📍 ${loc.address}</span>
-            `).join('');
+            // Общий рейтинг
+            const avgRating = calculateAverageRating();
+            document.getElementById('ratingValue').textContent = avgRating;
             
-            // Показываем первую локацию на карте в модалке
-            const firstLoc = masterLocations[index][0];
-            document.getElementById('modalMap').src = `https://yandex.ru/map-widget/v1/?ll=${firstLoc.lon},${firstLoc.lat}&z=16&l=map&pt=${firstLoc.lon},${firstLoc.lat},pm2dgl`;
             
-            const reviews = generateUniqueReviews(masterNames[index], masterSpecs[index]);
-            document.getElementById('ratingStars').innerHTML = getStarsHtml(5);
-            document.getElementById('ratingValue').textContent = '5.0';
-            document.getElementById('modalReviews').innerHTML = reviews.map(r => `
-                <div class="review">
-                    <div class="review-top"><span class="review-author">${r.author}</span><span class="review-stars">${getStarsHtml(r.rating)}</span></div>
-                    <p class="review-text">${r.text}</p>
-                </div>
-            `).join('');
-            document.getElementById('modalCta').href = "https://n1048823.yclients.com";
-            document.getElementById('modalCta').textContent = `Записаться к ${masterNames[index]}`;
+            // Показываем все 5 отзывов (скролбар для листания)
+            let reviewsHtml = '';
+            for (let review of allReviews) {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < review.rating ? '★' : '☆';
+                }
+                reviewsHtml += `
+                    <div class="review">
+                        <div class="review-top">
+                            <span class="review-author">${review.author}</span>
+                            <span class="review-stars">${stars}</span>
+                        </div>
+                        <p class="review-text">${review.text}</p>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('modalReviews').innerHTML = reviewsHtml;
+            
+            // Ссылка на запись
+            const cta = document.getElementById('modalCta');
+            cta.href = "https://n1048823.yclients.com";
+            cta.textContent = `Записаться к ${name}`;
             
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
-        };
+        }
 
         function closeMaster() {
             document.getElementById('masterModal').classList.remove('open');
             document.body.style.overflow = '';
         }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMaster(); });
 
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMaster();
+        });
+
+        // Бургер-меню
         const burger = document.querySelector('.burger');
         const nav = document.querySelector('.nav');
+        
         if (burger && nav) {
             burger.addEventListener('click', () => {
                 burger.classList.toggle('active');
                 nav.classList.toggle('active');
                 document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
             });
+
             nav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     burger.classList.remove('active');
@@ -1275,9 +1486,13 @@
             });
         }
 
+        // Для мобильных: галерея before/after по клику
         if (window.innerWidth <= 768) {
-            document.querySelectorAll('.before-after').forEach(el => {
-                el.addEventListener('click', function() { this.classList.toggle('active'); });
+            const beforeAfterItems = document.querySelectorAll('.before-after');
+            beforeAfterItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
             });
         }
 
@@ -1289,34 +1504,86 @@
             }
         });
 
-        function initScrollAnimation() {
-            const elements = document.querySelectorAll('.service-card, .master-card, .gallery-item, .about__content, .contacts__info, .contacts__map, .location-item');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            elements.forEach(el => { el.classList.add('scroll-animate'); observer.observe(el); });
-        }
+        // Слайдер
+        const slider = document.querySelector('.slides');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const dotsContainer = document.querySelector('.dots');
+        let currentSlide = 0;
+        let slidesCount = 0;
+        let dots = [];
 
-        // Создаем карту со всеми маркерами
-        function buildMapWithAllMarkers() {
-            const locations = getAllUniqueLocations();
-            if (locations.length === 0) return;
+        if (slider && prevBtn && nextBtn && dotsContainer) {
+            slidesCount = slider.children.length;
             
-            // Собираем все координаты для отображения на карте
-            const points = locations.map(loc => `${loc.lon},${loc.lat},pm2dgl`).join('~');
-            const mapIframe = document.getElementById('yandexMap');
-            if (mapIframe && points) {
-                const mapSrc = `https://yandex.ru/map-widget/v1/?ll=37.617,55.755&z=11&l=map&pt=${points}`;
-                mapIframe.src = mapSrc;
+            for (let i = 0; i < slidesCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+                dots.push(dot);
             }
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
+                updateSlider();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slidesCount;
+                updateSlider();
+            });
+
+            let startX = 0;
+            let isDragging = false;
+            
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                const endX = e.changedTouches[0].clientX;
+                const diff = endX - startX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
+                    } else {
+                        currentSlide = (currentSlide + 1) % slidesCount;
+                    }
+                    updateSlider();
+                }
+                isDragging = false;
+            });
         }
 
+        // Обработка клика по "Показать на карте" в хедере
+        document.querySelectorAll('.nav a').forEach(link => {
+            if (link.getAttribute('href') === '#contacts') {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+
+        // Генерируем мастеров при загрузке
         generateMasters();
-        generateLocationList();
-        generateGallery();
-        buildSlider();
-        buildMapWithAllMarkers();
-        initScrollAnimation();
     </script>
 </body>
 </html>
