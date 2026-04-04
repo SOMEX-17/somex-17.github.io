@@ -1127,7 +1127,8 @@
             <div class="hero__inner">
                 <div class="hero__content">
                     <h1 class="hero__title">Твой стиль —<br>наша работа</h1>
-                    <p class="hero__text">Агрегатор топ‑барберов: стрижка, бритьё и уход на выбранной вами локации. Каждый мастер — с проверенным опытом; адреса приёма — на интерактивной карте.</p>
+                    <p class="hero__text">Агрегатор Топ‑Барберов: проверенные мастера барберинга высшей категории на одной карте. Выбирай мастера по расположению, отзывам и рейтингу. 
+Качество, которому доверяют. Твой образ — наша репутация. Стиль без компромиссов.</p>
                     <div class="hero__buttons">
                         <button class="btn btn--large" onclick="document.getElementById('masters').scrollIntoView({behavior: 'smooth'})">Записаться онлайн</button>
                         <a href="#services" class="btn btn--outline">Наши услуги</a>
@@ -1267,7 +1268,8 @@
             <div class="about__inner">
                 <div class="about__content">
                     <h2 class="section-title">О нас</h2>
-                    <p>ТОП БАРБЕРС — агрегатор проверенных топ‑барберов: каждый мастер работает в своих локациях, а вы выбираете удобный адрес на карте. Мы отбираем только специалистов высшей категории с подтверждённой экспертизой.</p>
+                    <p>ТОП БАРБЕРС — это пространство для мужчин, которые ценят качество и стиль. Где БАРБЕРЫ не имеют право на ошибку.
+У нас работают мастера только высшей категории, топ‑барберы с подтверждённой экспертизой.
                     <p>Каждый из них прошёл строгий отбор:</p>
                     <p>* многолетнее обучение и регулярные курсы повышения квалификации;</p>
                     <p>* успешное прохождение аттестации «тайным покупателем»;</p>
@@ -1380,7 +1382,7 @@
                 photo: "sako",  // имя файла в папке images/ (без .jpg)
                 yclients_link: "https://n678636.yclients.com/ru/company/123456/record/master/1",
                 locations: [
-                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717320, lon:  37.623007 },
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717300, lon:  37.623037 },
                     { title: "Адресс2", address: "Одинцово, мкр.Клубничное поле, 3", lat: 55.678397, lon: 37.234845 }
                 ],
                 reviews: [
@@ -1399,7 +1401,7 @@
                 photo: "ashot",
                 yclients_link: "https://n678631.yclients.com/ru/company/123456/record/master/2",
                 locations: [
-                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717464, lon:  37.623014 }
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717315, lon:  37.623002 }
                 ],
                 reviews: [
                     { author: "Карен", rating: 5, text: "Ашот - лучший по бороде! Сделал форму идеальной." },
@@ -1435,7 +1437,7 @@
                 photo: "eduard",
                 yclients_link: "https://n1048823.yclients.com/ru/company/123456/record/master/4",
                 locations: [
-                    { title: "Адресс1", address: "Москва, Новопесчаная д4, к1", lat: 55.801749, lon: 37.516808 }
+                    { title: "Адресс1", address: "Москва, Новопесчаная д4, к1", lat: 55.801779, lon: 37.516808 }
                 ],
                 reviews: [
                     { author: "Олег", rating: 5, text: "Эдуард - мастер с золотыми руками. Королевское бритьё - это что-то невероятное!" },
@@ -1453,7 +1455,7 @@
                 photo: "sati",
                 yclients_link: "https://n678637.yclients.com/ru/company/123456/record/master/5",
                 locations: [
-                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717011, lon:  37.623690 }
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717333, lon:  37.6230010 }
                 ],
                 reviews: [
                     { author: "Андрей", rating: 5, text: "Сати - отличный мастер по окрашиванию. Результат супер!" },
@@ -1471,7 +1473,7 @@
                 photo: "sati",
                 yclients_link: "https://n678638.yclients.com/ru/company/123456/record/master/5",
                 locations: [
-                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717011, lon:  37.623690 }
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717325, lon:  37.6230013 }
                 ],
                 reviews: [
                     { author: "Андрей", rating: 5, text: "Сергей - отличный мастер. Результат супер!" },
@@ -1596,7 +1598,7 @@
             document.getElementById('modalMap').src = yandexEmbedUrl(loc.lon, loc.lat, 16);
             const cta = document.getElementById('modalCta');
             cta.href = master.yclients_link || 'https://n1048823.yclients.com';
-            cta.textContent = `✂️ Записаться к ${master.name}`;
+            cta.textContent = `Записаться к ${master.name}`;
             
             document.getElementById('masterModal').classList.add('open');
             document.body.style.overflow = 'hidden';
