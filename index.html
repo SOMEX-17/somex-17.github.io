@@ -27,7 +27,6 @@
             padding: 0 60px;
         }
 
-        /* ========== ЦВЕТОВАЯ СХЕМА ========== */
         :root {
             --gold: #C8AA6E;
             --gold-light: #D4B484;
@@ -39,7 +38,6 @@
             --border: rgba(200, 170, 110, 0.2);
         }
 
-        /* ========== АНИМАЦИИ ========== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -64,7 +62,6 @@
         .service-card:nth-child(3) { animation-delay: 0.3s; }
         .service-card:nth-child(4) { animation-delay: 0.4s; }
         
-        /* ========== ШАПКА ========== */
         .header {
             position: sticky;
             top: 0;
@@ -115,7 +112,6 @@
             color: var(--gold);
         }
 
-        /* Бургер-меню */
         .burger {
             display: none;
             flex-direction: column;
@@ -134,7 +130,6 @@
             border-radius: 2px;
         }
 
-        /* ========== КНОПКИ ========== */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -178,7 +173,6 @@
             color: #0A0A0A;
         }
 
-        /* ========== ГЛАВНЫЙ ЭКРАН ========== */
         .hero {
             padding: 100px 0;
             background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
@@ -250,7 +244,6 @@
             object-fit: cover;
         }
 
-        /* ========== ЗАГОЛОВКИ СЕКЦИЙ (по центру) ========== */
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
@@ -272,13 +265,6 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-        }
-
-        /* ========== УСЛУГИ ========== */
         .services {
             padding: 100px 0;
             background: #0F0F0F;
@@ -327,7 +313,6 @@
             color: var(--gold);
         }
 
-        /* ========== МАСТЕРА (горизонтальная прокрутка) ========== */
         .masters {
             padding: 100px 0;
             background: #0A0A0A;
@@ -342,7 +327,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Чёрный скрулбар для карусели мастеров */
         .masters-carousel-container::-webkit-scrollbar {
             height: 6px;
         }
@@ -427,7 +411,6 @@
             }
         }
 
-        /* ========== ГАЛЕРЕЯ (горизонтальная прокрутка на мобильных) ========== */
         .gallery {
             padding: 100px 0;
             background: #0F0F0F;
@@ -440,7 +423,6 @@
             padding: 10px 60px;
         }
 
-        /* Чёрный скрулбар для галереи */
         .gallery::-webkit-scrollbar {
             height: 6px;
         }
@@ -517,7 +499,6 @@
             pointer-events: none;
         }
 
-        /* ========== СЛАЙДЕР ========== */
         .slider-section {
             padding: 100px 0;
             background: #0A0A0A;
@@ -601,7 +582,6 @@
             box-shadow: 0 0 8px var(--gold-glow);
         }
 
-        /* ========== О НАС ========== */
         .about {
             padding: 100px 0;
             background: #0F0F0F;
@@ -646,7 +626,6 @@
             border: 1px solid var(--border);
         }
 
-        /* ========== КОНТАКТЫ ========== */
         .contacts {
             padding: 100px 0;
             background: #0F0F0F;
@@ -764,7 +743,6 @@
             margin-bottom: 10px;
         }
 
-        /* ========== ФУТЕР ========== */
         .footer {
             padding: 40px 0;
             background: #0A0A0A;
@@ -793,7 +771,6 @@
             color: var(--gold);
         }
 
-        /* ========== МОДАЛЬНОЕ ОКНО МАСТЕРА ========== */
         .master-modal-overlay {
             display: none;
             position: fixed;
@@ -905,7 +882,6 @@
             line-height: 1.6;
         }
 
-        /* Заголовок отзывов с рейтингом */
         .reviews-header {
             display: flex;
             justify-content: space-between;
@@ -938,14 +914,12 @@
             font-size: 14px;
         }
 
-        /* Блок с отзывами и вертикальным скрулбаром */
         .reviews-container {
             max-height: 100px;
             overflow-y: auto;
             padding-right: 8px;
         }
 
-        /* Чёрный скрулбар для отзывов с золотым ползунком */
         .reviews-container::-webkit-scrollbar {
             width: 6px;
         }
@@ -996,7 +970,6 @@
             margin: 0;
         }
 
-        /* Карта в модалке (уменьшена на 30%) */
         .modal-map {
             height: 126px;
             border-radius: 12px;
@@ -1032,7 +1005,6 @@
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
-        /* ========== АДАПТИВНОСТЬ ========== */
         @media (max-width: 1200px) {
             .hero__title { font-size: 56px; }
             .hero__image { max-width: 400px; height: 500px; }
@@ -1124,7 +1096,6 @@
     </style>
 </head>
 <body>
-    <!-- Шапка -->
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -1151,7 +1122,6 @@
         </div>
     </header>
 
-    <!-- Главный экран -->
     <section class="hero">
         <div class="container">
             <div class="hero__inner">
@@ -1170,7 +1140,6 @@
         </div>
     </section>
 
-    <!-- Услуги -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
@@ -1203,7 +1172,6 @@
         </div>
     </section>
 
-    <!-- Мастера -->
     <section class="masters" id="masters">
         <div class="container">
             <h2 class="section-title">Наши мастера</h2>
@@ -1213,7 +1181,6 @@
         </div>
     </section>
 
-    <!-- Галерея работ (До/После) -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Наши работы</h2>
@@ -1276,7 +1243,6 @@
         </div>
     </section>
 
-    <!-- Слайдер с фото барбершопа -->
     <section class="slider-section" id="slider">
         <div class="container">
             <h2 class="section-title">Атмосфера</h2>
@@ -1296,7 +1262,6 @@
         </div>
     </section>
 
-    <!-- О нас -->
     <section class="about" id="about">
         <div class="container">
             <div class="about__inner">
@@ -1318,8 +1283,8 @@
                             <div class="stat__text">довольных клиентов</div>
                         </div>
                         <div class="stat">
-                            <div class="stat__number">24</div>
-                            <div class="stat__text">мастера</div>
+                            <div class="stat__number" id="mastersCount">0</div>
+                            <div class="stat__text">мастеров</div>
                         </div>
                     </div>
                 </div>
@@ -1328,7 +1293,6 @@
         </div>
     </section>
 
-    <!-- Контакты с картой -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты и карта</h2>
@@ -1352,7 +1316,6 @@
         </div>
     </section>
 
-    <!-- Футер -->
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
@@ -1364,7 +1327,6 @@
         </div>
     </footer>
 
-    <!-- Модальное окно мастера -->
     <div class="master-modal-overlay" id="masterModal" onclick="if(event.target===this) closeMaster()">
         <div class="master-modal">
             <button class="modal-close" onclick="closeMaster()">×</button>
@@ -1401,229 +1363,242 @@
         </div>
     </div>
 
-    <!-- API Яндекс.Карт: при ошибке загрузки сработает запасной iframe в initSalonMap. Ключ: https://developer.tech.yandex.ru/ -->
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script>
-        /**
-         * АГРЕГАТОР: каждый объект — мастер, поле locations — одна или несколько точек приёма.
-         * Добавь мастера = новый объект в MASTERS с массивом locations: { title?, address, lat, lon }.
-         * photo — опционально, иначе имя в нижнем регистре (для файла images/…jpg).
-         */
+        // ============================================================
+        // 🔥 ЕДИНСТВЕННОЕ МЕСТО ДЛЯ РЕДАКТИРОВАНИЯ ДАННЫХ МАСТЕРОВ 🔥
+        // ============================================================
+        // Чтобы добавить/изменить/удалить мастера — работайте ТОЛЬКО здесь!
+        // ============================================================
+        
         const MASTERS = [
-            { name: 'Ашот', spec: 'Классические мужские стрижки, укладка', exp: 15, locations: [{ title: 'Кабинет на Таганке', address: 'Москва, Нижняя Радищевская ул., 15с2', lat: 55.7421, lon: 37.6552 }] },
-            { name: 'Армен', spec: 'Моделирование бороды, современные стрижки', exp: 10, locations: [{ title: 'Студия', address: 'Москва, 1-й Тверской-Ямской пер., 11', lat: 55.7712, lon: 37.5984 }] },
-            { name: 'Сако', spec: 'Fade-стрижки, креативные образы', exp: 6, locations: [{ title: 'Основная', address: 'Москва, ул. Большая Дмитровка, 7/5', lat: 55.7604, lon: 37.5989 }, { title: 'Выезд / второй кабинет', address: 'Москва, Патриаршие пруды, 6', lat: 55.7415, lon: 37.5900 }] },
-            { name: 'Эдуард', spec: 'Королевское бритьё, уход за бородой', exp: 5, locations: [{ title: 'Барбер-студия', address: 'Москва, Староконюшенный пер., 39', lat: 55.7448, lon: 37.5927 }] },
-            { name: 'Сати', spec: 'Спортивные стрижки, окрашивание', exp: 7, locations: [{ title: 'Точка у м. Павелецкая', address: 'Москва, Павелецкая наб., 2/1', lat: 55.7290, lon: 37.6410 }] },
-            { name: 'Сергей', spec: 'Премиальный сервис, работа с длинными волосами', exp: 8, photo: 'сергей', locations: [{ title: 'Центр', address: 'Москва, ул. Никольская, 10', lat: 55.7558, lon: 37.6245 }] },
-            { name: 'Дима', spec: 'Детские стрижки, семейные залы', exp: 4, locations: [{ title: 'Семейная студия', address: 'Москва, Ленинский пр-т, 37', lat: 55.7066, lon: 37.5834 }] },
-            { name: 'Алексей', spec: 'Текстурные стрижки, укладки', exp: 6, locations: [{ title: 'Кунцево', address: 'Москва, ул. Рублёвское ш., 28к1', lat: 55.7306, lon: 37.4129 }] },
-            { name: 'Владимир', spec: 'Бритьё головы, камуфляж седины', exp: 9, locations: [{ title: 'Марьина Роща', address: 'Москва, ул. Сущёвский Вал, 43', lat: 55.7936, lon: 37.6044 }] },
-            { name: 'Сергей', spec: 'Мужской маникюр, уход за руками', exp: 5, photo: 'сергей2', locations: [{ title: 'Сокол', address: 'Москва, Ленинградский пр-т, 77к1', lat: 55.8040, lon: 37.5172 }, { title: 'Второй адрес', address: 'Москва, Ходынский б-р, 4', lat: 55.7906, lon: 37.5343 }] },
-            { name: 'Константин', spec: 'SPA-программы для лица', exp: 3, locations: [{ title: 'Студия', address: 'Москва, Проспект Мира, 26', lat: 55.7796, lon: 37.6318 }] },
-            { name: 'Михаил', spec: 'Коррекция бровей, восковая депиляция', exp: 7, locations: [{ title: 'Арбат', address: 'Москва, Новый Арбат, 15', lat: 55.7522, lon: 37.5930 }] },
-            { name: 'Егор', spec: 'Стрижки машинкой, фейды', exp: 4, locations: [{ title: 'ТЦ, 3 этаж', address: 'Москва, Каширское ш., 61', lat: 55.6534, lon: 37.6458 }] },
-            { name: 'Никита', spec: 'Вечерние причёски, укладки', exp: 6, locations: [{ title: 'Студия', address: 'Москва, ул. Тверская, 18', lat: 55.7628, lon: 37.6030 }] },
-            { name: 'Илья', spec: 'Креативное окрашивание', exp: 5, locations: [{ title: 'Бауманская', address: 'Москва, Бауманская ул., 33/2', lat: 55.7728, lon: 37.6794 }] },
-            { name: 'Антон', spec: 'Работа с азиатскими волосами', exp: 8, locations: [{ title: 'Раменки', address: 'Москва, Мичуринский пр-т, 56', lat: 55.6900, lon: 37.4978 }] },
-            { name: 'Роман', spec: 'Кудрявые волосы, стайлинг', exp: 4, locations: [{ title: 'Студия', address: 'Москва, ул. Покровка, 2/1', lat: 55.7574, lon: 37.6456 }] },
-            { name: 'Андрей', spec: 'Мужские укладки, wax', exp: 7, locations: [{ title: 'Одинцово', address: 'Московская обл., Одинцово, Молодёжная ул., 10', lat: 55.6710, lon: 37.2634 }] },
-            { name: 'Олег', spec: 'Традиционное бритьё опасной бритвой', exp: 6, locations: [{ title: 'Мытищи', address: 'Московская обл., Мытищи, ул. Лётная, 21', lat: 55.9104, lon: 37.7365 }] },
-            { name: 'Стас', spec: 'Экспресс-услуги, мужской перерыв', exp: 5, locations: [{ title: 'Митино', address: 'Москва, Митинская ул., 28', lat: 55.8450, lon: 37.3610 }] },
-            { name: 'Вадим', spec: 'Премиум-класс, работа со знаменитостями', exp: 9, locations: [{ title: 'Премиум-студия', address: 'Москва, Остоженка, 22', lat: 55.7410, lon: 37.5834 }] },
-            { name: 'Григорий', spec: 'Обучение стажёров, наставник', exp: 4, locations: [{ title: 'Школа / практика', address: 'Москва, ВДНХ, пр-т Мира, 119', lat: 55.8265, lon: 37.6377 }] },
-            { name: 'Филипп', spec: 'Мастер-международник, конкурсы', exp: 7, locations: [{ title: 'Студия', address: 'Москва, Саввинская наб., 9', lat: 55.7297, lon: 37.5626 }] },
-            { name: 'Даниил', spec: 'Лучший барбер года', exp: 5, locations: [{ title: 'Флагман', address: 'Москва, ул. Большая Полянка, 3/9с1', lat: 55.7376, lon: 37.6184 }] }
+            {
+                id: 1,
+                name: "Сако",
+                spec: "Обучался у таких гуру международного барберинга, как Baldy, Sid Sottung, Kevin Luchmun. Повышение квалификации в школе Simushka, в Академии \"Долорес\". Самый добрый мастер Аляски! Готов воплотить в жизнь все ваши пожелания по стрижке. А качественный сервис – его второе имя!",
+                exp: 12,
+                photo: "sako",  // имя файла в папке images/ (без .jpg)
+                yclients_link: "https://n678636.yclients.com/ru/company/123456/record/master/1",
+                locations: [
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717320, lon:  37.623007 },
+                    { title: "Адресс2", address: "Одинцово, мкр.Клубничное поле, 3", lat: 55.678397, lon: 37.234845 }
+                ],
+                reviews: [
+                    { author: "Михаил", rating: 5, text: "Сако - настоящий профессионал! Стрижка получилась идеальной." },
+                    { author: "Денис", rating: 5, text: "Отличный мастер, приятная атмосфера. Рекомендую!" },
+                    { author: "Артём", rating: 5, text: "Лучшая стрижка за последние годы. Спасибо!" },
+                    { author: "Роман", rating: 5, text: "Всегда доволен результатом. Аккуратно, стильно, быстро." },
+                    { author: "Игорь", rating: 5, text: "Профессионал высокого уровня. Буду ходить только к Сако." }
+                ]
+            },
+            {
+                id: 2,
+                name: "Ашот",
+                spec: "Обучался у гуру барберинга Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Если вы не знаете, у кого подстричь сына – доверьтесь Ашоту. Он с легкостью находит общий язык с детьми и знает, как сделать стильную стрижку, чтобы все мальчишки в школе обзавидовались! ",
+                exp: 20,
+                photo: "ashot",
+                yclients_link: "https://n678631.yclients.com/ru/company/123456/record/master/2",
+                locations: [
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717464, lon:  37.623014 }
+                ],
+                reviews: [
+                    { author: "Карен", rating: 5, text: "Ашот - лучший по бороде! Сделал форму идеальной." },
+                    { author: "Давид", rating: 5, text: "Внимательный мастер, дал отличные советы по уходу." },
+                    { author: "Сергей", rating: 5, text: "Прекрасное бритьё опасной бритвой. Очень рекомендую!" },
+                    { author: "Алексей", rating: 5, text: "Ашот делает шикарные фейды! Очень доволен." },
+                    { author: "Николай", rating: 5, text: "Отличный сервис и качество!" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Армен",
+                spec: "Обучался у таких гуру международного барберинга, как Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Если вы цените своё время, то Армен вам в этом поможет. Быстро, стильно и качественно выполнит любую стрижку!",
+                exp: 17,
+                photo: "armen",
+                yclients_link: "https://n678654.yclients.com/ru/company/123456/record/master/3",
+                locations: [
+                    { title: "Адресс1", address: "Москва, Новопесчаная д4, к1", lat: 55.801749, lon: 37.516808 }
+                ],
+                reviews: [
+                    { author: "Владимир", rating: 5, text: "Мастер своего дела, приду ещё раз." },
+                    { author: "Евгений", rating: 5, text: "Топ-мастер, всегда записываюсь только к нему." },
+                    { author: "Павел", rating: 5, text: "Креативный подход, результат превзошёл ожидания." },
+                    { author: "Антон", rating: 5, text: "Отличная работа, приятная беседа. Спасибо!" },
+                    { author: "Максим", rating: 5, text: "Рекомендую всем друзьям!" }
+                ]
+            },
+            {
+                id: 4,
+                name: "Эдуард",
+                spec: "Королевское бритьё, уход за бородой",
+                exp: 5,
+                photo: "eduard",
+                yclients_link: "https://n1048823.yclients.com/ru/company/123456/record/master/4",
+                locations: [
+                    { title: "Адресс1", address: "Москва, Новопесчаная д4, к1", lat: 55.801749, lon: 37.516808 }
+                ],
+                reviews: [
+                    { author: "Олег", rating: 5, text: "Эдуард - мастер с золотыми руками. Королевское бритьё - это что-то невероятное!" },
+                    { author: "Стас", rating: 5, text: "Очень аккуратно и внимательно. Обязательно приду снова." },
+                    { author: "Юрий", rating: 5, text: "Лучший барбер в этом районе. Советую!" },
+                    { author: "Вадим", rating: 5, text: "Профессионал высокого класса. Всё чётко и быстро." },
+                    { author: "Григорий", rating: 5, text: "Отличное обслуживание, приятная атмосфера." }
+                ]
+            },
+            {
+                id: 5,
+                name: "Сати",
+                spec: "Отучилась в Академии Аляска. Перспективная, схватывающая на лету Сати делает крутейшие стрижки. Жизнерадостная Сати зарядит позитивом на весь день!",
+                exp: 7,
+                photo: "sati",
+                yclients_link: "https://n678637.yclients.com/ru/company/123456/record/master/5",
+                locations: [
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717011, lon:  37.623690 }
+                ],
+                reviews: [
+                    { author: "Андрей", rating: 5, text: "Сати - отличный мастер по окрашиванию. Результат супер!" },
+                    { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" },
+                    { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сати. Рекомендую!" },
+                    { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." },
+                    { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }
+                ]
+            },
+            {
+                id: 6,
+                name: "Сергей",
+                spec: "Обучался у таких преподавателей международного барберинга, как Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Сергей - гуру мужских стрижек. Если вы хотите классическую стрижку - приходите к Сергею, он выполнит её безукоризненно. За словом в карман не полезет. Даже самый капризный гость будет в восторге от его стрижки!",
+                exp: 30,
+                photo: "sati",
+                yclients_link: "https://n678638.yclients.com/ru/company/123456/record/master/5",
+                locations: [
+                    { title: "Адресс1", address: "Москва, ул. Люсиновская, 55", lat: 55.717011, lon:  37.623690 }
+                ],
+                reviews: [
+                    { author: "Андрей", rating: 5, text: "Сергей - отличный мастер. Результат супер!" },
+                    { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" },
+                    { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сергею. Рекомендую!" },
+                    { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." },
+                    { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }
+                ]
+            },
         ];
 
+        // ============================================================
+        // КОНЕЦ РЕДАКТИРОВАНИЯ — ДАЛЬШЕ НИЧЕГО НЕ МЕНЯТЬ!
+        // ============================================================
+
         function mapCenterFromAllLocations() {
-            let sLat = 0;
-            let sLon = 0;
-            let n = 0;
-            MASTERS.forEach(function (m) {
-                m.locations.forEach(function (l) {
-                    sLat += l.lat;
-                    sLon += l.lon;
-                    n += 1;
-                });
+            let sLat = 0, sLon = 0, n = 0;
+            MASTERS.forEach(m => {
+                m.locations.forEach(l => { sLat += l.lat; sLon += l.lon; n++; });
             });
             if (!n) return { lat: 55.75, lon: 37.62 };
             return { lat: sLat / n, lon: sLon / n };
         }
 
-        function masterPhotoFile(master, index) {
-            if (master.photo) return master.photo;
-            if (master.name === 'Сергей' && index === 9) return 'сергей2';
-            return master.name.toLowerCase();
-        }
-
-        const allReviews = [
-            { author: 'Алексей', rating: 5, text: 'Отличный мастер! Всегда доволен результатом.' },
-            { author: 'Дмитрий', rating: 5, text: 'Профессионал своего дела. Рекомендую!' },
-            { author: 'Иван', rating: 5, text: 'Хороший подход к клиенту, приду ещё.' },
-            { author: 'Михаил', rating: 5, text: 'Очень аккуратно и быстро. Супер!' },
-            { author: 'Андрей', rating: 5, text: 'Лучший барбер в городе!' }
-        ];
-
         function yandexEmbedUrl(lon, lat, zoom) {
-            const z = zoom || 17;
-            const ll = encodeURIComponent(`${lon},${lat}`);
-            const pt = encodeURIComponent(`${lon},${lat},pm2rdm`);
-            return `https://yandex.ru/map-widget/v1/?ll=${ll}&z=${z}&l=map&pt=${pt}`;
+            return `https://yandex.ru/map-widget/v1/?ll=${lon},${lat}&z=${zoom || 16}&l=map&pt=${lon},${lat},pm2rdm`;
         }
 
         function yandexEmbedAllMastersUrl() {
             const pts = [];
-            MASTERS.forEach(function (m) {
-                m.locations.forEach(function (l) {
-                    pts.push(l.lon + ',' + l.lat + ',pm2rdm');
-                });
+            MASTERS.forEach(m => {
+                m.locations.forEach(l => { pts.push(l.lon + ',' + l.lat + ',pm2rdm'); });
             });
             const c = mapCenterFromAllLocations();
-            const pt = pts.join('~');
-            return 'https://yandex.ru/map-widget/v1/?ll=' + c.lon + '%2C' + c.lat + '&z=10&l=map&pt=' + encodeURIComponent(pt);
+            return `https://yandex.ru/map-widget/v1/?ll=${c.lon},${c.lat}&z=10&l=map&pt=${encodeURIComponent(pts.join('~'))}`;
         }
 
-        function calculateAverageRating() {
-            const sum = allReviews.reduce((s, r) => s + r.rating, 0);
-            return (sum / allReviews.length).toFixed(1);
-        }
-
-        function initSalonMap() {
-            const el = document.getElementById('mainYandexMap');
-            if (!el) return;
-
-            if (typeof ymaps === 'undefined') {
-                el.innerHTML = `<iframe src="${yandexEmbedAllMastersUrl()}" width="100%" height="100%" title="Карта мастеров"></iframe>`;
-                return;
-            }
-
-            ymaps.ready(function () {
-                try {
-                    const center = mapCenterFromAllLocations();
-                    const map = new ymaps.Map('mainYandexMap', {
-                        center: [center.lat, center.lon],
-                        zoom: 10,
-                        controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
-                    });
-
-                    MASTERS.forEach(function (m, mi) {
-                        m.locations.forEach(function (l, li) {
-                            const hint = l.title ? m.name + ' · ' + l.title : m.name;
-                            const placemark = new ymaps.Placemark([l.lat, l.lon], {
-                                hintContent: hint
-                            }, { hasBalloon: false });
-
-                            placemark.events.add('click', function () {
-                                openMaster(mi, li);
-                            });
-                            map.geoObjects.add(placemark);
-                        });
-                    });
-
-                    try {
-                        map.setBounds(map.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 36 });
-                    } catch (e1) { /* центр по умолчанию */ }
-                } catch (e2) {
-                    el.innerHTML = '<iframe src="' + yandexEmbedAllMastersUrl() + '" width="100%" height="100%" title="Карта мастеров"></iframe>';
-                }
-            });
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) stars += i < rating ? '★' : '☆';
+            return stars;
         }
 
         function generateMasters() {
             const carousel = document.getElementById('mastersCarousel');
             carousel.innerHTML = '';
+            document.getElementById('mastersCount').textContent = MASTERS.length;
 
-            MASTERS.forEach(function (master, i) {
+            MASTERS.forEach((master, idx) => {
                 const card = document.createElement('div');
                 card.className = 'master-card';
-                card.addEventListener('click', function () {
-                    openMaster(i, 0);
-                });
+                card.onclick = () => openMaster(idx);
                 const shortSpec = master.spec.length > 50 ? master.spec.slice(0, 50) + '…' : master.spec;
-                const first = master.locations[0];
+                const firstLoc = master.locations[0];
                 let locLine = '';
-                if (first) {
-                    locLine = (first.title ? first.title + ': ' : '📍 ') + first.address;
-                    if (master.locations.length > 1) {
-                        locLine += ' · +' + (master.locations.length - 1) + ' точ.';
-                    }
+                if (firstLoc) {
+                    locLine = (firstLoc.title ? firstLoc.title + ': ' : '📍 ') + firstLoc.address;
+                    if (master.locations.length > 1) locLine += ' · +' + (master.locations.length - 1) + ' точ.';
                     if (locLine.length > 56) locLine = locLine.slice(0, 56) + '…';
                 }
-                const imgFile = masterPhotoFile(master, i);
-                card.innerHTML =
-                    '<div class="master-card__photo">' +
-                    '<img src="images/' + imgFile + '.jpg" alt="' + master.name + '" onerror="this.src=\'images/logo.jpg\'">' +
-                    '</div>' +
-                    '<h3>' + master.name + '</h3>' +
-                    '<p>' + shortSpec + '</p>' +
-                    (locLine ? '<p class="master-card__loc">' + locLine + '</p>' : '');
+                card.innerHTML = `
+                    <div class="master-card__photo">
+                        <img src="images/${master.photo || master.name.toLowerCase()}.jpg" alt="${master.name}" onerror="this.src='images/logo.jpg'">
+                    </div>
+                    <h3>${master.name}</h3>
+                    <p>${shortSpec}</p>
+                    ${locLine ? `<p class="master-card__loc">${locLine}</p>` : ''}
+                `;
                 carousel.appendChild(card);
             });
         }
 
-        function openMaster(masterIndex, locationIndex) {
-            const modal = document.getElementById('masterModal');
-            const m = MASTERS[masterIndex];
-            if (!m || !m.locations || !m.locations.length) return;
-
-            let li = locationIndex == null ? 0 : locationIndex;
-            if (li < 0 || li >= m.locations.length) li = 0;
-            const loc = m.locations[li];
-
-            const imgElement = document.querySelector('#mastersCarousel .master-card:nth-child(' + (masterIndex + 1) + ') .master-card__photo img');
-            const imgSrc = imgElement ? imgElement.src : 'images/logo.jpg';
-
-            document.getElementById('modalAvatar').src = imgSrc;
-            document.getElementById('modalName').textContent = m.name;
-            document.getElementById('modalExp').textContent = '⏱ Стаж: ' + m.exp + ' лет';
-            document.getElementById('modalSpec').textContent = m.spec;
+        function openMaster(index) {
+            const master = MASTERS[index];
+            if (!master || !master.locations?.length) return;
+            const loc = master.locations[0];
+            
+            document.getElementById('modalAvatar').src = document.querySelector(`#mastersCarousel .master-card:nth-child(${index + 1}) .master-card__photo img`)?.src || 'images/logo.jpg';
+            document.getElementById('modalName').textContent = master.name;
+            document.getElementById('modalExp').textContent = `⏱ Стаж: ${master.exp} лет`;
+            document.getElementById('modalSpec').textContent = master.spec;
             document.getElementById('modalAddress').textContent = (loc.title ? loc.title + ' — ' : '') + loc.address;
-            document.getElementById('ratingValue').textContent = calculateAverageRating();
-
+            
+            const avgRating = master.reviews.reduce((s, r) => s + r.rating, 0) / master.reviews.length;
+            document.getElementById('ratingValue').textContent = avgRating.toFixed(1);
+            document.getElementById('ratingStars').innerHTML = renderStars(Math.round(avgRating));
+            
             let reviewsHtml = '';
-            allReviews.forEach(function (review) {
-                let stars = '';
-                for (let s = 0; s < 5; s++) {
-                    stars += s < review.rating ? '★' : '☆';
-                }
-                reviewsHtml +=
-                    '<div class="review">' +
-                    '<div class="review-top">' +
-                    '<span class="review-author">' + review.author + '</span>' +
-                    '<span class="review-stars">' + stars + '</span>' +
-                    '</div>' +
-                    '<p class="review-text">' + review.text + '</p>' +
-                    '</div>';
+            master.reviews.forEach(r => {
+                reviewsHtml += `
+                    <div class="review">
+                        <div class="review-top">
+                            <span class="review-author">${r.author}</span>
+                            <span class="review-stars">${renderStars(r.rating)}</span>
+                        </div>
+                        <p class="review-text">${r.text}</p>
+                    </div>
+                `;
             });
             document.getElementById('modalReviews').innerHTML = reviewsHtml;
-
+            
             const locWrap = document.getElementById('modalLocations');
             locWrap.innerHTML = '';
-            if (m.locations.length > 1) {
+            if (master.locations.length > 1) {
                 locWrap.classList.add('has-multiple');
-                m.locations.forEach(function (l, idx) {
+                master.locations.forEach((l, idx) => {
                     const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'modal-location-btn' + (idx === li ? ' is-active' : '');
+                    btn.className = 'modal-location-btn' + (idx === 0 ? ' is-active' : '');
                     btn.textContent = (l.title || 'Точка ' + (idx + 1)) + ': ' + l.address;
-                    btn.addEventListener('click', function () {
-                        openMaster(masterIndex, idx);
-                    });
+                    btn.onclick = () => {
+                        document.getElementById('modalAddress').textContent = (l.title ? l.title + ' — ' : '') + l.address;
+                        document.getElementById('modalMap').src = yandexEmbedUrl(l.lon, l.lat, 16) + '&_=' + Date.now();
+                        document.querySelectorAll('.modal-location-btn').forEach(b => b.classList.remove('is-active'));
+                        btn.classList.add('is-active');
+                    };
                     locWrap.appendChild(btn);
                 });
             } else {
                 locWrap.classList.remove('has-multiple');
             }
-
-            const modalIframe = document.getElementById('modalMap');
-            modalIframe.src = yandexEmbedUrl(loc.lon, loc.lat, 16) + '&_=' + Date.now();
-
+            
+            document.getElementById('modalMap').src = yandexEmbedUrl(loc.lon, loc.lat, 16);
             const cta = document.getElementById('modalCta');
-            cta.href = 'https://n1048823.yclients.com';
-            cta.textContent = 'Записаться к ' + m.name;
-
-            modal.classList.add('open');
+            cta.href = master.yclients_link || 'https://n1048823.yclients.com';
+            cta.textContent = `✂️ Записаться к ${master.name}`;
+            
+            document.getElementById('masterModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
@@ -1632,21 +1607,47 @@
             document.body.style.overflow = '';
         }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeMaster();
-        });
+        function initSalonMap() {
+            const el = document.getElementById('mainYandexMap');
+            if (!el) return;
+            if (typeof ymaps === 'undefined') {
+                el.innerHTML = `<iframe src="${yandexEmbedAllMastersUrl()}" width="100%" height="100%"></iframe>`;
+                return;
+            }
+            ymaps.ready(() => {
+                try {
+                    const center = mapCenterFromAllLocations();
+                    const map = new ymaps.Map('mainYandexMap', {
+                        center: [center.lat, center.lon],
+                        zoom: 10,
+                        controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
+                    });
+                    MASTERS.forEach((master, mi) => {
+                        master.locations.forEach((loc, li) => {
+                            const placemark = new ymaps.Placemark([loc.lat, loc.lon], {
+                                hintContent: master.name + (loc.title ? ' · ' + loc.title : '')
+                            }, { hasBalloon: false });
+                            placemark.events.add('click', () => openMaster(mi));
+                            map.geoObjects.add(placemark);
+                        });
+                    });
+                    try { map.setBounds(map.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 36 }); } catch(e) {}
+                } catch(e) {
+                    el.innerHTML = `<iframe src="${yandexEmbedAllMastersUrl()}" width="100%" height="100%"></iframe>`;
+                }
+            });
+        }
 
-        // Бургер-меню
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMaster(); });
+        
         const burger = document.querySelector('.burger');
         const nav = document.querySelector('.nav');
-        
         if (burger && nav) {
             burger.addEventListener('click', () => {
                 burger.classList.toggle('active');
                 nav.classList.toggle('active');
                 document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
             });
-
             nav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     burger.classList.remove('active');
@@ -1656,36 +1657,28 @@
             });
         }
 
-        // Для мобильных: галерея before/after по клику
         if (window.innerWidth <= 768) {
-            const beforeAfterItems = document.querySelectorAll('.before-after');
-            beforeAfterItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                });
+            document.querySelectorAll('.before-after').forEach(item => {
+                item.addEventListener('click', () => item.classList.toggle('active'));
             });
         }
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                burger?.classList.remove('active');
-                nav?.classList.remove('active');
+            if (window.innerWidth > 768 && burger) {
+                burger.classList.remove('active');
+                nav.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
 
-        // Слайдер
         const slider = document.querySelector('.slides');
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
         const dotsContainer = document.querySelector('.dots');
-        let currentSlide = 0;
-        let slidesCount = 0;
-        let dots = [];
+        let currentSlide = 0, slidesCount = 0, dots = [];
 
         if (slider && prevBtn && nextBtn && dotsContainer) {
             slidesCount = slider.children.length;
-            
             for (let i = 0; i < slidesCount; i++) {
                 const dot = document.createElement('div');
                 dot.classList.add('dot');
@@ -1694,68 +1687,30 @@
                 dotsContainer.appendChild(dot);
                 dots.push(dot);
             }
-
             function updateSlider() {
                 slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentSlide);
-                });
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
             }
-
-            function goToSlide(index) {
-                currentSlide = index;
-                updateSlider();
-            }
-
-            prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slidesCount;
-                updateSlider();
-            });
-
-            let startX = 0;
-            let isDragging = false;
-            
-            slider.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-            });
-
-            slider.addEventListener('touchend', (e) => {
+            function goToSlide(index) { currentSlide = index; updateSlider(); }
+            prevBtn.addEventListener('click', () => { currentSlide = (currentSlide - 1 + slidesCount) % slidesCount; updateSlider(); });
+            nextBtn.addEventListener('click', () => { currentSlide = (currentSlide + 1) % slidesCount; updateSlider(); });
+            let startX = 0, isDragging = false;
+            slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
+            slider.addEventListener('touchend', e => {
                 if (!isDragging) return;
-                const endX = e.changedTouches[0].clientX;
-                const diff = endX - startX;
-
+                const diff = e.changedTouches[0].clientX - startX;
                 if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        currentSlide = (currentSlide - 1 + slidesCount) % slidesCount;
-                    } else {
-                        currentSlide = (currentSlide + 1) % slidesCount;
-                    }
+                    currentSlide = diff > 0 ? (currentSlide - 1 + slidesCount) % slidesCount : (currentSlide + 1) % slidesCount;
                     updateSlider();
                 }
                 isDragging = false;
             });
         }
 
-        document.querySelectorAll('.nav a').forEach(function (link) {
+        document.querySelectorAll('.nav a').forEach(link => {
             const href = link.getAttribute('href');
-            if (href === '#contacts') {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
-                });
-            }
-            if (href === '#mastersMap') {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.getElementById('mastersMap').scrollIntoView({ behavior: 'smooth' });
-                });
-            }
+            if (href === '#contacts') link.addEventListener('click', e => { e.preventDefault(); document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' }); });
+            if (href === '#mastersMap') link.addEventListener('click', e => { e.preventDefault(); document.getElementById('mastersMap').scrollIntoView({ behavior: 'smooth' }); });
         });
 
         generateMasters();
