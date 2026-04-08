@@ -288,25 +288,24 @@
                 card.addEventListener('click', function () {
                     openMaster(i, 0);
                 });
-                const shortSpec = master.spec.length > 50 ? master.spec.slice(0, 50) + '…' : master.spec;
-                const first = master.locations[0];
-                let locLine = '';
-                if (first) {
-                    locLine = (first.title ? first.title + ': ' : '📍 ') + first.address;
-                    if (master.locations.length > 1) {
-                        locLine += ' · +' + (master.locations.length - 1) + ' точ.';
-                    }
-                    if (locLine.length > 56) locLine = locLine.slice(0, 56) + '…';
-                }
+                const rating = calculateAverageRating(master.reviews);
+                const locationsHtml = (master.locations || [])
+                    .map(function (location) {
+                        return '<span class="master-card__loc-line">' + location.address + '</span>';
+                    })
+                    .join('');
                 const imgFile = masterPhotoFile(master, i);
                 card.innerHTML =
                     '<div class="master-card__photo">' +
                     '<img src="images/' + imgFile + '.jpg" alt="' + master.name + '" onerror="this.src=\'images/logo.jpg\'">' +
                     '</div>' +
                     '<h3>' + master.name + '</h3>' +
-                    '<p>' + shortSpec + '</p>' +
-                    (locLine ? '<p class="master-card__loc">' + locLine + '</p>' : '') +
-                    '</div>';
+                    '<p class="master-card__rating">' +
+                    '<span class="master-card__rating-star">★</span>' +
+                    '<span class="master-card__rating-value">' + rating + '</span>' +
+                    '<span class="master-card__rating-count">· ' + (master.reviews?.length || 0) + ' отзывов</span>' +
+                    '</p>' +
+                    (locationsHtml ? '<div class="master-card__loc">' + locationsHtml + '</div>' : '');
                 carousel.appendChild(card);
             });
         }
