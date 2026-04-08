@@ -1134,6 +1134,10 @@
             flex-direction: column;
             gap: 0;
             box-shadow: var(--surface-shadow);
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
         }
 
         .contacts__map iframe {
@@ -1147,6 +1151,7 @@
             height: 340px;
             min-height: 300px;
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            min-width: 0;
         }
 
         .modal-locations {
@@ -1630,7 +1635,7 @@
                 order: 2;
             }
             .hero__text {
-                font-size: 13px;
+                font-size: 14px;
                 line-height: 1.34;
                 margin-bottom: 12px;
                 order: 3;
@@ -1665,12 +1670,12 @@
                 border-radius: 10px;
             }
             .hero__feature strong {
-                font-size: 14px;
+                font-size: 15px;
                 margin-bottom: 2px;
             }
             .hero__feature span {
-                font-size: 9px;
-                line-height: 1.22;
+                font-size: 10px;
+                line-height: 1.24;
             }
             .hero__buttons {
                 display: grid;
@@ -1686,7 +1691,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 13px;
+                font-size: 14px;
             }
             .services, .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
             .section-title { font-size: 32px; margin-bottom: 40px; }
@@ -1728,38 +1733,53 @@
             .about__image::before {
                 inset: 0;
             }
-            .contacts__inner { grid-template-columns: 1fr; gap: 40px; }
+            .contacts__inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                min-width: 0;
+            }
             .contacts__info p {
-                font-size: 13px;
+                font-size: 14px;
                 white-space: nowrap;
                 margin-bottom: 10px;
             }
             .contacts__social { justify-content: center; }
-            .contacts__map { padding: 0; gap: 0; }
+            .contacts__map {
+                padding: 0;
+                gap: 0;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 18px;
+            }
             #mainYandexMap { height: 260px; min-height: 240px; }
             .master-search {
                 margin: 0;
                 padding: 10px;
                 border-radius: 0;
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
             }
             .master-search__row {
                 display: grid;
                 grid-template-columns: minmax(0, 1fr) auto;
                 gap: 8px;
                 align-items: stretch;
+                min-width: 0;
             }
             .master-search__input {
                 min-width: 0;
-                font-size: 13px;
-                padding: 9px 10px;
+                font-size: 14px;
+                padding: 10px 11px;
             }
             .master-search__clear {
                 min-width: 72px;
-                font-size: 12px;
+                font-size: 13px;
                 padding: 0 10px;
             }
             .master-search__meta {
-                font-size: 12px;
+                font-size: 13px;
                 line-height: 1.3;
             }
             .footer__inner {
@@ -1866,12 +1886,12 @@
             .gallery-btn { width: 32px; height: 32px; font-size: 15px; }
             .hero__eyebrow {
                 margin-bottom: 7px;
-                font-size: 9px;
-                padding: 4px 8px;
+                font-size: 10px;
+                padding: 5px 9px;
             }
             .hero__text {
-                font-size: 12px;
-                line-height: 1.32;
+                font-size: 13px;
+                line-height: 1.36;
                 margin-bottom: 10px;
             }
             .hero__image {
@@ -1890,18 +1910,18 @@
                 padding: 8px 7px;
             }
             .hero__feature strong {
-                font-size: 13px;
+                font-size: 14px;
             }
             .hero__feature span {
-                font-size: 8px;
-                line-height: 1.16;
+                font-size: 9px;
+                line-height: 1.18;
             }
             .hero__buttons {
                 gap: 6px;
             }
             .hero__buttons .btn {
                 padding: 10px 8px;
-                font-size: 12px;
+                font-size: 13px;
             }
             .gallery__grid {
                 gap: 12px;
@@ -1932,25 +1952,26 @@
                 font-size: 22px;
             }
             .master-card__loc {
-                font-size: 11px;
+                font-size: 12px;
             }
             .master-search {
                 padding: 8px;
+                border-radius: 0;
             }
             .master-search__row {
                 grid-template-columns: minmax(0, 1fr) 68px;
                 gap: 6px;
             }
             .master-search__input {
-                font-size: 12px;
-                padding: 8px 9px;
+                font-size: 13px;
+                padding: 9px 10px;
             }
             .master-search__clear {
-                font-size: 11px;
+                font-size: 12px;
                 min-width: 68px;
             }
             .master-search__meta {
-                font-size: 11px;
+                font-size: 12px;
             }
             #mainYandexMap {
                 height: 230px;
