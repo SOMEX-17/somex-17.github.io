@@ -535,16 +535,19 @@
         }
 
         .master-card {
-            flex: 0 0 280px;
-            background: var(--card);
-            border-radius: var(--radius-md);
-            padding: 25px;
+            flex: 0 0 320px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
+                var(--card);
+            border-radius: 22px;
+            padding: 30px 24px 24px;
             text-align: center;
-            border: 1px solid rgba(200, 170, 110, 0.1);
-            transition: all 0.3s;
+            border: 1px solid rgba(200, 170, 110, 0.14);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 22px 42px rgba(0,0,0,0.22);
         }
 
         .master-card::before {
@@ -559,8 +562,8 @@
 
         .master-card:hover {
             border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(200, 170, 110, 0.12);
+            transform: translateY(-7px);
+            box-shadow: 0 18px 34px rgba(200, 170, 110, 0.14);
         }
 
         .master-card:hover::before {
@@ -568,18 +571,19 @@
         }
 
         .master-card__photo {
-            width: 160px;
-            height: 160px;
+            width: 192px;
+            height: 192px;
             border-radius: 50%;
-            margin: 0 auto 15px;
+            margin: 0 auto 18px;
             overflow: hidden;
             border: 3px solid var(--gold);
             transition: all 0.3s;
+            box-shadow: 0 18px 32px rgba(0,0,0,0.22);
         }
 
         .master-card:hover .master-card__photo {
             border-color: var(--gold-light);
-            box-shadow: 0 0 10px rgba(200, 170, 110, 0.12);
+            box-shadow: 0 0 0 6px rgba(200, 170, 110, 0.08), 0 18px 32px rgba(0,0,0,0.28);
         }
 
         .master-card__photo img {
@@ -589,32 +593,56 @@
         }
 
         .master-card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+            font-size: 24px;
+            margin-bottom: 10px;
             color: var(--gold);
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+            line-height: 1.1;
         }
 
         .master-card p {
             color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.4;
+            font-size: 14px;
+            line-height: 1.55;
         }
 
         .master-card__loc {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-top: 8px;
-            line-height: 1.35;
+            margin-top: 12px;
+            line-height: 1.45;
             opacity: 0.9;
-            padding-top: 10px;
+            padding-top: 12px;
             border-top: 1px solid rgba(200, 170, 110, 0.12);
         }
 
         @media (max-width: 768px) {
             .masters-carousel {
                 padding: 10px 20px;
+                gap: 18px;
+            }
+            .master-card {
+                flex: 0 0 300px;
+                padding: 24px 18px 20px;
+                border-radius: 20px;
+            }
+            .master-card__photo {
+                width: 170px;
+                height: 170px;
+                margin-bottom: 16px;
+            }
+            .master-card h3 {
+                font-size: 22px;
+            }
+            .master-card p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+            .master-card__loc {
+                font-size: 11px;
+                margin-top: 10px;
+                padding-top: 10px;
             }
         }
 
@@ -1569,60 +1597,75 @@
             }
             .hero__content {
                 max-width: 100%;
+                display: contents;
             }
             .hero__eyebrow {
                 margin-bottom: 8px;
                 font-size: 10px;
                 padding: 5px 9px;
                 letter-spacing: 0.1em;
+                order: 1;
             }
             .hero__title {
                 font-size: 31px;
                 line-height: 0.96;
                 margin-bottom: 8px;
+                order: 2;
             }
             .hero__text {
                 font-size: 13px;
-                line-height: 1.36;
-                margin-bottom: 10px;
+                line-height: 1.34;
+                margin-bottom: 12px;
+                order: 3;
+            }
+            .hero__eyebrow,
+            .hero__title,
+            .hero__text,
+            .hero__features,
+            .hero__buttons,
+            .hero__image {
+                width: 100%;
             }
             .hero__image {
                 display: block;
                 max-width: 100%;
-                height: 210px;
+                height: 235px;
                 border-radius: 16px;
+                order: 5;
             }
             .hero__features {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 5px;
-                margin-bottom: 8px;
+                gap: 8px;
+                margin-bottom: 12px;
+                order: 4;
             }
             .hero__feature {
-                padding: 6px 5px;
+                padding: 9px 8px;
                 border-radius: 10px;
             }
             .hero__feature strong {
-                font-size: 12px;
-                margin-bottom: 1px;
+                font-size: 14px;
+                margin-bottom: 2px;
             }
             .hero__feature span {
-                font-size: 8px;
-                line-height: 1.15;
+                font-size: 9px;
+                line-height: 1.22;
             }
             .hero__buttons {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
+                order: 6;
             }
             .hero__buttons .btn {
                 width: 100%;
                 text-align: center;
                 min-width: 0;
-                padding: 10px 10px;
+                padding: 11px 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 12px;
+                font-size: 13px;
             }
             .services, .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
             .section-title { font-size: 32px; margin-bottom: 40px; }
@@ -1786,32 +1829,38 @@
             .hero__text {
                 font-size: 12px;
                 line-height: 1.32;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
             }
             .hero__image {
-                height: 190px;
+                height: 210px;
                 border-radius: 14px;
             }
             .hero__features {
-                gap: 4px;
-                margin-bottom: 7px;
+                gap: 6px;
+                margin-bottom: 10px;
             }
             .hero__feature {
-                padding: 5px 4px;
+                padding: 8px 7px;
             }
             .hero__feature strong {
-                font-size: 11px;
+                font-size: 13px;
             }
             .hero__feature span {
-                font-size: 7px;
-                line-height: 1.1;
+                font-size: 8px;
+                line-height: 1.16;
             }
             .hero__buttons {
                 gap: 6px;
             }
             .hero__buttons .btn {
-                padding: 9px 8px;
-                font-size: 11px;
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+            .master-card {
+                flex: 0 0 86vw;
+            }
+            .master-card__photo {
+                height: 300px;
             }
             .about__stats { grid-template-columns: 1fr; text-align: center; gap: 20px; }
             .stat {
