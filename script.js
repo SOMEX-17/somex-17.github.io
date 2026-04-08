@@ -305,7 +305,8 @@
                     '</div>' +
                     '<h3>' + master.name + '</h3>' +
                     '<p>' + shortSpec + '</p>' +
-                    (locLine ? '<p class="master-card__loc">' + locLine + '</p>' : '');
+                    (locLine ? '<p class="master-card__loc">' + locLine + '</p>' : '') +
+                    '</div>';
                 carousel.appendChild(card);
             });
         }
