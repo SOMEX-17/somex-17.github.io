@@ -70,10 +70,15 @@
     </section>
 
     <!-- Услуги -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Наши услуги</h2>
-            <div class="services__grid">
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services__container">
+            <div class="services-nav">
+                <button class="services-btn prev" id="servicesPrev" type="button" aria-label="Прокрутить услуги влево">❮</button>
+                <button class="services-btn next" id="servicesNext" type="button" aria-label="Прокрутить услуги вправо">❯</button>
+            </div>
+            <div class="services__grid" id="servicesGrid">
                 <div class="service-card">
                     <div class="service-card__icon" aria-hidden="true">
                         <img src="images/barber.png" alt="" loading="lazy" decoding="async" onerror="this.src='images/logo.jpg'">
@@ -108,7 +113,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Мастера -->
     <section class="masters" id="masters">
