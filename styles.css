@@ -562,7 +562,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Чёрный скрулбар для карусели мастеров */
         .masters-carousel-container::-webkit-scrollbar {
             height: 6px;
         }
@@ -703,13 +702,7 @@
             letter-spacing: -0.01em;
         }
 
-        @media (max-width: 768px) {
-            .masters-carousel {
-                padding: 10px 20px;
-            }
-        }
-
-        /* ========== ГАЛЕРЕЯ (горизонтальная прокрутка на мобильных) ========== */
+        /* ========== ГАЛЕРЕЯ ========== */
         .gallery {
             padding: 100px 0;
             background: #0F0F0F;
@@ -802,22 +795,6 @@
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: 0 18px 38px rgba(0,0,0,0.55);
-        }
-
-        @media (max-width: 768px) {
-            .gallery__grid {
-                gap: 16px;
-                padding: 10px 16px 0;
-                scroll-snap-type: x mandatory;
-            }
-            .gallery-item {
-                flex: 0 0 calc(100vw - 48px);
-                max-width: calc(100vw - 48px);
-            }
-            .gallery-nav::before,
-            .gallery-nav::after {
-                width: 0;
-            }
         }
 
         .before-after {
@@ -1450,7 +1427,6 @@
             line-height: 1.5;
         }
 
-        /* Специализация: компактно + внутренний скролл */
         #modalSpec {
             max-height: 108px;
             overflow-y: auto;
@@ -1476,7 +1452,6 @@
             border-radius: 10px;
         }
 
-        /* Заголовок отзывов с рейтингом */
         .reviews-header {
             display: flex;
             justify-content: space-between;
@@ -1509,14 +1484,12 @@
             font-size: 12px;
         }
 
-        /* Блок с отзывами и вертикальным скрулбаром */
         .reviews-container {
             max-height: 62px;
             overflow-y: auto;
             padding-right: 8px;
         }
 
-        /* Чёрный скрулбар для отзывов с золотым ползунком */
         .reviews-container::-webkit-scrollbar {
             width: 6px;
         }
@@ -1568,7 +1541,6 @@
             line-height: 1.35;
         }
 
-        /* Карта в модалке (уменьшена на 30%) */
         .modal-map {
             flex: 1 1 auto;
             min-height: 150px;
@@ -1635,7 +1607,7 @@
                 backdrop-filter: blur(2px);
                 z-index: 98;
             }
-            .container { padding: 0 20px; }
+            .container { padding: 0 16px; }
             .header {
                 position: fixed;
                 top: 0;
@@ -1659,93 +1631,62 @@
             .nav a { font-size: 18px; padding: 10px 0; white-space: normal; }
             .header .btn--small { display: none; }
             
-            /* HERO секция на мобильных - КОМПАКТНАЯ ВЕРСИЯ */
+            /* HERO секция на мобильных - ПОЛНОСТЬЮ ЗАПОЛНЯЕТ ЭКРАН */
             .hero {
                 min-height: auto;
-                padding: 16px 0 24px;
-                display: flex;
-                align-items: center;
+                padding: 20px 0 32px;
             }
             .hero__inner {
-                gap: 12px;
-                justify-content: center;
+                gap: 16px;
             }
             .hero__content {
                 max-width: 100%;
-                display: contents;
             }
             .hero__eyebrow {
-                margin-bottom: 6px;
+                margin-bottom: 8px;
                 font-size: 10px;
                 padding: 4px 10px;
-                letter-spacing: 0.1em;
-                order: 1;
             }
             .hero__title {
-                font-size: 28px;
-                line-height: 1.05;
-                margin-bottom: 6px;
-                order: 2;
+                font-size: 32px;
+                line-height: 1.08;
+                margin-bottom: 8px;
             }
             .hero__text {
                 font-size: 14px;
-                line-height: 1.35;
-                margin-bottom: 10px;
-                order: 3;
-            }
-            .hero__eyebrow,
-            .hero__title,
-            .hero__text,
-            .hero__features,
-            .hero__buttons,
-            .hero__image {
-                width: 100%;
+                line-height: 1.45;
+                margin-bottom: 16px;
             }
             .hero__image {
-                display: block;
                 max-width: 100%;
-                height: 200px;
-                border-radius: 14px;
-                order: 5;
-                margin-top: 4px;
+                height: auto;
+                min-height: 200px;
+                margin-top: 8px;
             }
             .hero__image img {
                 object-fit: cover;
-                object-position: center center;
+                object-position: center 20%;
+                min-height: 200px;
             }
             .hero__features {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 8px;
-                margin-bottom: 12px;
-                order: 4;
+                margin-bottom: 16px;
             }
             .hero__feature {
-                padding: 8px 6px;
-                border-radius: 10px;
+                padding: 10px 6px;
             }
             .hero__feature strong {
                 font-size: 14px;
-                margin-bottom: 2px;
             }
             .hero__feature span {
                 font-size: 9px;
                 line-height: 1.25;
             }
             .hero__buttons {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-                order: 6;
-                margin-bottom: 4px;
+                gap: 10px;
             }
             .hero__buttons .btn {
-                width: 100%;
-                text-align: center;
-                min-width: 0;
-                padding: 10px 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                padding: 10px 12px;
                 font-size: 13px;
             }
             
@@ -1754,14 +1695,12 @@
                 padding: 60px 0;
             }
             .services__grid {
-                padding: 10px 20px;
-                gap: 20px;
+                padding: 10px 16px;
+                gap: 16px;
             }
             .service-card {
-                flex: 0 0 calc(100vw - 60px);
+                flex: 0 0 calc(100vw - 48px);
                 padding: 24px 20px;
-                text-align: center;
-                border-radius: 16px;
             }
             .service-card__icon { width: 44px; height: 44px; margin: 0 auto 16px; }
             .service-card h3 { font-size: 20px; }
@@ -1772,21 +1711,58 @@
                 height: 32px;
                 font-size: 15px;
             }
-            .services-btn.prev { left: 8px; }
-            .services-btn.next { right: 8px; }
+            .services-btn.prev { left: 4px; }
+            .services-btn.next { right: 4px; }
+            
+            /* Мастера на мобильных */
+            .masters-carousel {
+                padding: 10px 16px;
+                gap: 16px;
+            }
+            .master-card {
+                flex: 0 0 calc(100vw - 48px);
+                padding: 20px;
+            }
+            .master-card__photo {
+                width: 140px;
+                height: 140px;
+            }
+            .master-card h3 {
+                font-size: 20px;
+            }
+            
+            /* Галерея на мобильных */
+            .gallery__grid {
+                gap: 16px;
+                padding: 10px 16px;
+            }
+            .gallery-item {
+                flex: 0 0 calc(100vw - 48px);
+            }
+            .gallery-nav::before,
+            .gallery-nav::after {
+                width: 0;
+            }
+            .gallery-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 15px;
+            }
+            .gallery-btn.prev { left: 8px; }
+            .gallery-btn.next { right: 8px; }
             
             /* Остальные секции */
             .masters, .gallery, .slider-section, .about, .contacts { padding: 60px 0; }
-            .section-title { font-size: 32px; margin-bottom: 40px; }
+            .section-title { font-size: 28px; margin-bottom: 32px; }
             
             .before-after .after { opacity: 0; }
             .before-after.active .after { opacity: 1; }
             .before-after.active .before { opacity: 0; }
             .badge { font-size: 12px; padding: 6px 12px; bottom: 12px; left: 12px; }
             .slider-container { padding: 0 10px; }
-            .slider-btn { width: 36px; height: 36px; font-size: 16px; }
-            .prev { left: 10px; }
-            .next { right: 10px; }
+            .slider-btn { width: 32px; height: 32px; font-size: 14px; }
+            .prev { left: 8px; }
+            .next { right: 8px; }
             .dots { bottom: 12px; }
             .dot { width: 8px; height: 8px; }
             
@@ -1796,7 +1772,7 @@
                 font-size: 11px;
                 letter-spacing: 0.14em;
             }
-            .about__stats { grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+            .about__stats { grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
             .stat {
                 padding: 16px 12px;
                 border-radius: 14px;
@@ -1804,37 +1780,33 @@
             .stat__number { font-size: 28px; }
             .stat__text { font-size: 12px; }
             .about__image {
-                height: 300px;
+                height: 280px;
                 border-radius: 20px;
             }
             
             .contacts__inner {
                 grid-template-columns: 1fr;
                 gap: 30px;
-                min-width: 0;
             }
             .contacts__info p {
                 font-size: 14px;
                 word-break: break-word;
                 margin-bottom: 12px;
             }
-            .contacts__social { justify-content: center; }
+            .contacts__social { justify-content: center; flex-wrap: wrap; gap: 12px; }
+            .contacts__social a { font-size: 13px; padding: 6px 14px; }
             .contacts__map {
                 padding: 0;
                 gap: 0;
                 width: 100%;
-                max-width: 100%;
                 border-radius: 18px;
             }
-            #mainYandexMap { height: 280px; min-height: 260px; }
+            #mainYandexMap { height: 260px; min-height: 240px; }
             .master-search {
                 margin: 0;
                 padding: 10px;
                 border-radius: 12px 12px 0 0;
                 width: 100%;
-                max-width: 100%;
-                min-width: 0;
-                box-sizing: border-box;
             }
             .master-search__row {
                 display: flex;
@@ -1842,19 +1814,16 @@
                 gap: 8px;
             }
             .master-search__input {
-                min-width: 0;
                 font-size: 14px;
-                padding: 10px 11px;
+                padding: 10px 12px;
                 flex: 1;
             }
             .master-search__clear {
-                min-width: 70px;
                 font-size: 13px;
                 padding: 0 12px;
             }
             .master-search__meta {
                 font-size: 13px;
-                line-height: 1.3;
             }
             
             .footer__inner {
@@ -1878,10 +1847,10 @@
                 gap: 14px;
             }
             .modal-avatar {
-                width: 62px;
-                height: 62px;
+                width: 60px;
+                height: 60px;
             }
-            .modal-name { font-size: 22px; }
+            .modal-name { font-size: 20px; }
             .modal-exp { font-size: 12px; }
             .modal-section { padding: 0 16px 14px; }
             .modal-section--map { padding-bottom: 0; }
@@ -1948,58 +1917,39 @@
         @media (max-width: 480px) {
             .container { padding: 0 16px; }
             .hero {
-                padding: 12px 0 20px;
+                padding: 16px 0 24px;
             }
             .hero__title {
-                font-size: 26px;
-                margin-bottom: 4px;
+                font-size: 28px;
+                margin-bottom: 6px;
             }
             .hero__text {
                 font-size: 13px;
-                line-height: 1.35;
-                margin-bottom: 8px;
-            }
-            .section-title { font-size: 28px; }
-            .logo { font-size: 18px; }
-            .burger { width: 28px; height: 22px; padding: 4px; }
-            .nav { width: 85%; padding: 30px 20px; }
-            .nav a { font-size: 16px; }
-            
-            .hero__eyebrow {
-                margin-bottom: 5px;
-                font-size: 9px;
-                padding: 3px 8px;
+                line-height: 1.4;
+                margin-bottom: 14px;
             }
             .hero__image {
-                height: 180px;
-                border-radius: 12px;
+                min-height: 180px;
             }
-            .hero__features {
-                gap: 6px;
-                margin-bottom: 10px;
-            }
-            .hero__feature {
-                padding: 6px 5px;
+            .hero__image img {
+                min-height: 180px;
             }
             .hero__feature strong {
                 font-size: 13px;
             }
             .hero__feature span {
-                font-size: 8.5px;
-                line-height: 1.2;
-            }
-            .hero__buttons {
-                gap: 6px;
+                font-size: 8px;
             }
             .hero__buttons .btn {
-                padding: 8px 6px;
+                padding: 8px 10px;
                 font-size: 12px;
             }
             
-            /* Услуги */
+            .section-title { font-size: 24px; margin-bottom: 28px; }
+            
             .services__grid {
-                gap: 16px;
                 padding: 10px 16px;
+                gap: 12px;
             }
             .service-card {
                 flex: 0 0 calc(100vw - 48px);
@@ -2009,77 +1959,42 @@
             .service-card p { font-size: 12px; }
             .service-card__price { font-size: 20px; }
             
-            .services-btn {
-                width: 30px;
-                height: 30px;
-                font-size: 14px;
+            .master-card {
+                flex: 0 0 calc(100vw - 48px);
+                padding: 18px;
             }
-            .services-btn.prev { left: 6px; }
-            .services-btn.next { right: 6px; }
+            .master-card__photo {
+                width: 120px;
+                height: 120px;
+            }
+            .master-card h3 { font-size: 18px; }
             
-            .gallery__grid {
-                gap: 12px;
-                padding: 8px 14px 0;
-            }
             .gallery-item {
-                flex: 0 0 calc(100vw - 40px);
-                max-width: calc(100vw - 40px);
+                flex: 0 0 calc(100vw - 48px);
             }
             .gallery-item::after {
                 top: 12px;
                 right: 12px;
-                padding: 5px 9px;
-                font-size: 10px;
-            }
-            .gallery-btn.prev { left: 8px; }
-            .gallery-btn.next { right: 8px; }
-            
-            .master-card {
-                flex: 0 0 calc(100vw - 52px);
-                max-width: calc(100vw - 52px);
-                padding: 22px 16px 18px;
-            }
-            .master-card__photo {
-                width: 158px;
-                height: 158px;
-            }
-            .master-card h3 {
-                font-size: 22px;
-            }
-            .master-card__loc {
-                font-size: 12px;
+                padding: 4px 8px;
+                font-size: 9px;
             }
             
-            .master-search {
-                padding: 8px;
-                border-radius: 10px 10px 0 0;
-            }
+            .about__stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .stat { padding: 12px 8px; }
+            .stat__number { font-size: 22px; }
+            .stat__text { font-size: 10px; }
+            
             .master-search__row {
-                flex-wrap: wrap;
-            }
-            .master-search__input {
-                font-size: 13px;
-                padding: 9px 10px;
+                flex-direction: column;
             }
             .master-search__clear {
-                font-size: 12px;
-                min-width: 65px;
-            }
-            .master-search__meta {
-                font-size: 12px;
-            }
-            #mainYandexMap {
-                height: 240px;
-                min-height: 220px;
+                width: 100%;
+                padding: 10px;
             }
             
-            .about__stats { grid-template-columns: 1fr; text-align: center; gap: 20px; }
-            .stat {
-                padding: 16px 14px;
-                border-radius: 16px;
+            .footer__inner {
+                padding: 16px;
             }
-            .stat__number { font-size: 32px; }
-            .btn { padding: 10px 20px; font-size: 14px; }
             
             .master-modal-overlay { padding: 8px; }
             .master-modal {
@@ -2092,10 +2007,10 @@
                 gap: 12px;
             }
             .modal-avatar {
-                width: 58px;
-                height: 58px;
+                width: 54px;
+                height: 54px;
             }
-            .modal-name { font-size: 20px; }
+            .modal-name { font-size: 18px; }
             .modal-exp { font-size: 11px; }
             .modal-section { padding: 0 14px 12px; }
             .modal-section--map { padding-bottom: 0; }
