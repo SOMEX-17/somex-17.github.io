@@ -406,6 +406,74 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
+        /* ========== ФИЛЬТРЫ ========== */
+        .filters-panel {
+            background: linear-gradient(180deg, #171717 0%, #101010 100%);
+            border: 1px solid rgba(200, 170, 110, 0.25);
+            border-radius: 20px;
+            padding: 24px 30px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(200, 170, 110, 0.08);
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 160px;
+        }
+        .filter-group label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0E0E0E;
+            border: 1px solid rgba(200, 170, 110, 0.3);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(200, 170, 110, 0.2);
+        }
+        .filter-group select option {
+            background: #1a1a1a;
+        }
+        .filter-reset {
+            background: rgba(200, 170, 110, 0.1);
+            border: 1px solid rgba(200, 170, 110, 0.3);
+            color: var(--gold);
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .filter-reset:hover {
+            background: rgba(200, 170, 110, 0.2);
+            border-color: var(--gold);
+        }
+        .filter-stats {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            text-align: center;
+        }
+
         /* ========== УСЛУГИ ========== */
         .services {
             padding: 100px 0;
@@ -1023,7 +1091,7 @@
         .footer__policy a:hover { color: var(--gold); }
 
         /* ========== МОДАЛЬНЫЕ ОКНА ========== */
-        .master-modal-overlay, .feedback-modal-overlay {
+        .master-modal-overlay, .feedback-modal-overlay, .booking-modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
@@ -1035,7 +1103,7 @@
             padding: 20px;
             overflow-y: auto;
         }
-        .master-modal-overlay.open, .feedback-modal-overlay.open { display: flex; }
+        .master-modal-overlay.open, .feedback-modal-overlay.open, .booking-modal-overlay.open { display: flex; }
         .master-modal {
             background: var(--card);
             border: 1px solid var(--border);
@@ -1048,7 +1116,7 @@
             position: relative;
             overflow: hidden;
         }
-        .feedback-modal {
+        .feedback-modal, .booking-modal {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 20px;
@@ -1057,14 +1125,14 @@
             padding: 30px;
             position: relative;
         }
-        .feedback-modal h3 {
+        .feedback-modal h3, .booking-modal h3 {
             color: #C8AA6E;
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             margin-bottom: 20px;
             text-align: center;
         }
-        .feedback-form input, .feedback-form textarea {
+        .feedback-form input, .feedback-form textarea, .booking-form input, .booking-form select {
             width: 100%;
             padding: 14px 16px;
             margin-bottom: 16px;
@@ -1076,12 +1144,13 @@
             font-size: 14px;
             transition: border-color 0.3s;
         }
-        .feedback-form input:focus, .feedback-form textarea:focus {
+        .feedback-form input:focus, .feedback-form textarea:focus,
+        .booking-form input:focus, .booking-form select:focus {
             outline: none;
             border-color: #C8AA6E;
         }
         .feedback-form textarea { resize: vertical; min-height: 100px; }
-        .feedback-form button {
+        .feedback-form button, .booking-form button {
             width: 100%;
             padding: 14px;
             background: linear-gradient(180deg, #d8bc84 0%, #c8aa6e 100%);
@@ -1092,11 +1161,11 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .feedback-form button:hover {
+        .feedback-form button:hover, .booking-form button:hover {
             background: linear-gradient(180deg, #e2c691 0%, #d4b484 100%);
             transform: translateY(-2px);
         }
-        .feedback-close {
+        .feedback-close, .booking-close {
             position: absolute;
             top: 16px;
             right: 20px;
@@ -1107,8 +1176,8 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        .feedback-close:hover { color: #C8AA6E; }
-        .feedback-success {
+        .feedback-close:hover, .booking-close:hover { color: #C8AA6E; }
+        .feedback-success, .booking-success {
             text-align: center;
             color: #C8AA6E;
             padding: 20px;
@@ -1318,6 +1387,8 @@
             .hero__inner { flex-direction: column; }
             .hero__image { max-width: 100%; height: 400px; }
             .container { padding: 0 40px; }
+            .filters-panel { flex-direction: column; align-items: stretch; }
+            .filter-reset { align-self: stretch; text-align: center; }
         }
         @media (max-width: 768px) {
             body { padding-top: 70px; }
@@ -1413,8 +1484,8 @@
             
             .feedback-fab { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 24px; }
             
-            .master-modal-overlay, .feedback-modal-overlay { padding: 12px; }
-            .master-modal, .feedback-modal { width: min(500px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); border-radius: 14px; }
+            .master-modal-overlay, .feedback-modal-overlay, .booking-modal-overlay { padding: 12px; }
+            .master-modal, .feedback-modal, .booking-modal { width: min(500px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); border-radius: 14px; }
             .modal-header { padding: 16px 16px 12px; gap: 14px; }
             .modal-avatar { width: 60px; height: 60px; }
             .modal-name { font-size: 20px; }
@@ -1530,10 +1601,52 @@
         </div>
     </section>
 
-    <!-- Мастера -->
+    <!-- Мастера с фильтрами -->
     <section class="masters fade-up" id="masters">
         <div class="container">
             <h2 class="section-title">Наши мастера</h2>
+            
+            <!-- ФИЛЬТРЫ -->
+            <div class="filters-panel">
+                <div class="filter-group">
+                    <label>🏷️ Специализация</label>
+                    <select id="filterSpecialization">
+                        <option value="">Все мастера</option>
+                        <option value="стрижка">Мужские стрижки</option>
+                        <option value="борода">Стрижка бороды</option>
+                        <option value="бритьё">Королевское бритьё</option>
+                        <option value="детский">Детские стрижки</option>
+                        <option value="окрашивание">Окрашивание</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>⭐ Рейтинг</label>
+                    <select id="filterRating">
+                        <option value="0">Любой</option>
+                        <option value="4">4+ звезды</option>
+                        <option value="4.5">4.5+ звезды</option>
+                        <option value="4.8">4.8+ звезды</option>
+                        <option value="5">5 звезд</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>📍 Район / метро</label>
+                    <input type="text" id="filterDistrict" placeholder="Например: Люсиновская, Одинцово, Новопесчаная" autocomplete="off">
+                </div>
+                <div class="filter-group">
+                    <label>👨‍🎓 Опыт</label>
+                    <select id="filterExperience">
+                        <option value="0">Любой</option>
+                        <option value="5">От 5 лет</option>
+                        <option value="10">От 10 лет</option>
+                        <option value="15">От 15 лет</option>
+                        <option value="20">От 20 лет</option>
+                    </select>
+                </div>
+                <button class="filter-reset" id="filterResetBtn">Сбросить фильтры</button>
+            </div>
+            <div class="filter-stats" id="filterStats"></div>
+            
             <div class="masters-carousel-container">
                 <button class="masters-btn prev" id="mastersPrev" type="button">❮</button>
                 <button class="masters-btn next" id="mastersNext" type="button">❯</button>
@@ -1670,37 +1783,71 @@
         </div>
     </div>
 
+    <!-- Модалка онлайн-записи -->
+    <div class="booking-modal-overlay" id="bookingModal">
+        <div class="booking-modal">
+            <button class="booking-close" id="bookingClose">&times;</button>
+            <h3>Запись онлайн</h3>
+            <div class="booking-form" id="bookingForm">
+                <input type="text" id="bookingName" placeholder="Ваше имя" required>
+                <input type="tel" id="bookingPhone" placeholder="Телефон" required>
+                <input type="email" id="bookingEmail" placeholder="Email (необязательно)">
+                <select id="bookingMaster">
+                    <option value="">Выберите мастера</option>
+                </select>
+                <select id="bookingService">
+                    <option value="Мужская стрижка">Мужская стрижка — от 2800 ₽</option>
+                    <option value="Стрижка бороды">Стрижка бороды — от 1700 ₽</option>
+                    <option value="Королевское бритьё">Королевское бритьё — от 2200 ₽</option>
+                    <option value="Стрижка + борода">Стрижка + борода — от 4500 ₽</option>
+                </select>
+                <input type="datetime-local" id="bookingDatetime" required>
+                <button id="bookingSubmit">Записаться</button>
+            </div>
+            <div class="booking-success" id="bookingSuccess"><p>✅ Заявка отправлена! Мастер свяжется с вами для подтверждения.</p></div>
+        </div>
+    </div>
+
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script>
-        // Данные мастеров
+        // Данные мастеров (расширенные)
         const MASTERS = [
             { id: 1, name: "Сако", spec: "Обучался у таких гуру международного барберинга, как Baldy, Sid Sottung, Kevin Luchmun. Повышение квалификации в школе Simushka, в Академии \"Долорес\". Самый добрый мастер Аляски! Готов воплотить в жизнь все ваши пожелания по стрижке. А качественный сервис - его второе имя!", exp: 12, photo: "sako", yclients_link: "https://n678636.yclients.com/ru/company/123456/record/master/1",
               locations: [{ title: "Адрес 1", address: "Москва, ул. Люсиновская, 55", lat: 55.717300, lon: 37.623037 }, { title: "Адрес 2", address: "Одинцово, мкр.Клубничное поле, 3", lat: 55.678397, lon: 37.234845 }],
-              reviews: [{ author: "Михаил", rating: 5, text: "Сако - настоящий профессионал! Стрижка получилась идеальной." }, { author: "Денис", rating: 5, text: "Отличный мастер, приятная атмосфера. Рекомендую!" }, { author: "Артём", rating: 5, text: "Лучшая стрижка за последние годы. Спасибо!" }, { author: "Роман", rating: 5, text: "Всегда доволен результатом. Аккуратно, стильно, быстро." }, { author: "Игорь", rating: 5, text: "Профессионал высокого уровня. Буду ходить только к Сако." }] },
+              reviews: [{ author: "Михаил", rating: 5, text: "Сако - настоящий профессионал! Стрижка получилась идеальной." }, { author: "Денис", rating: 5, text: "Отличный мастер, приятная атмосфера. Рекомендую!" }, { author: "Артём", rating: 5, text: "Лучшая стрижка за последние годы. Спасибо!" }, { author: "Роман", rating: 5, text: "Всегда доволен результатом. Аккуратно, стильно, быстро." }, { author: "Игорь", rating: 5, text: "Профессионал высокого уровня. Буду ходить только к Сако." }],
+              tags: ["стрижка", "борода", "детский"] },
             { id: 2, name: "Ашот", spec: "Обучался у гуру барберинга Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Если вы не знаете, у кого подстричь сына - доверьтесь Ашоту. Он с легкостью находит общий язык с детьми и знает, как сделать стильную стрижку, чтобы все мальчишки в школе обзавидовались!", exp: 20, photo: "ashot", yclients_link: "https://n678631.yclients.com/ru/company/123456/record/master/2",
               locations: [{ title: "Адрес 1", address: "Москва, ул. Люсиновская, 55", lat: 55.717315, lon: 37.623002 }],
-              reviews: [{ author: "Карен", rating: 5, text: "Ашот - лучший по бороде! Сделал форму идеальной." }, { author: "Давид", rating: 5, text: "Внимательный мастер, дал отличные советы по уходу." }, { author: "Сергей", rating: 5, text: "Прекрасное бритьё опасной бритвой. Очень рекомендую!" }, { author: "Алексей", rating: 5, text: "Ашот делает шикарные фейды! Очень доволен." }, { author: "Николай", rating: 5, text: "Отличный сервис и качество!" }] },
+              reviews: [{ author: "Карен", rating: 5, text: "Ашот - лучший по бороде! Сделал форму идеальной." }, { author: "Давид", rating: 5, text: "Внимательный мастер, дал отличные советы по уходу." }, { author: "Сергей", rating: 5, text: "Прекрасное бритьё опасной бритвой. Очень рекомендую!" }, { author: "Алексей", rating: 5, text: "Ашот делает шикарные фейды! Очень доволен." }, { author: "Николай", rating: 5, text: "Отличный сервис и качество!" }],
+              tags: ["стрижка", "борода", "детский", "бритьё"] },
             { id: 3, name: "Армен", spec: "Обучался у таких гуру международного барберинга, как Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Если вы цените своё время, то Армен вам в этом поможет. Быстро, стильно и качественно выполнит любую стрижку!", exp: 17, photo: "armen", yclients_link: "https://n678654.yclients.com/ru/company/123456/record/master/3",
               locations: [{ title: "Адрес 1", address: "Москва, Новопесчаная д4, к1", lat: 55.801749, lon: 37.516808 }],
-              reviews: [{ author: "Владимир", rating: 5, text: "Мастер своего дела, приду ещё раз." }, { author: "Евгений", rating: 5, text: "Топ-мастер, всегда записываюсь только к нему." }, { author: "Павел", rating: 5, text: "Креативный подход, результат превзошёл ожидания." }, { author: "Антон", rating: 5, text: "Отличная работа, приятная беседа. Спасибо!" }, { author: "Максим", rating: 5, text: "Рекомендую всем друзьям!" }] },
+              reviews: [{ author: "Владимир", rating: 5, text: "Мастер своего дела, приду ещё раз." }, { author: "Евгений", rating: 5, text: "Топ-мастер, всегда записываюсь только к нему." }, { author: "Павел", rating: 5, text: "Креативный подход, результат превзошёл ожидания." }, { author: "Антон", rating: 5, text: "Отличная работа, приятная беседа. Спасибо!" }, { author: "Максим", rating: 5, text: "Рекомендую всем друзьям!" }],
+              tags: ["стрижка", "борода"] },
             { id: 4, name: "Эдуард", spec: "Королевское бритьё, уход за бородой", exp: 5, photo: "eduard", yclients_link: "https://n1048823.yclients.com/ru/company/123456/record/master/4",
               locations: [{ title: "Адрес 1", address: "Москва, Новопесчаная д4, к1", lat: 55.801779, lon: 37.516808 }],
-              reviews: [{ author: "Олег", rating: 5, text: "Эдуард - мастер с золотыми руками. Королевское бритьё - это что-то невероятное!" }, { author: "Стас", rating: 5, text: "Очень аккуратно и внимательно. Обязательно приду снова." }, { author: "Юрий", rating: 5, text: "Лучший барбер в этом районе. Советую!" }, { author: "Вадим", rating: 5, text: "Профессионал высокого класса. Всё чётко и быстро." }, { author: "Григорий", rating: 5, text: "Отличное обслуживание, приятная атмосфера." }] },
+              reviews: [{ author: "Олег", rating: 5, text: "Эдуард - мастер с золотыми руками. Королевское бритьё - это что-то невероятное!" }, { author: "Стас", rating: 5, text: "Очень аккуратно и внимательно. Обязательно приду снова." }, { author: "Юрий", rating: 5, text: "Лучший барбер в этом районе. Советую!" }, { author: "Вадим", rating: 5, text: "Профессионал высокого класса. Всё чётко и быстро." }, { author: "Григорий", rating: 5, text: "Отличное обслуживание, приятная атмосфера." }],
+              tags: ["бритьё", "борода"] },
             { id: 5, name: "Сати", spec: "Отучилась в Академии Аляска. Перспективная, схватывающая на лету Сати делает крутейшие стрижки. Жизнерадостная Сати зарядит позитивом на весь день!", exp: 7, photo: "sati", yclients_link: "https://n678637.yclients.com/ru/company/123456/record/master/5",
               locations: [{ title: "Адрес 1", address: "Москва, ул. Люсиновская, 55", lat: 55.717333, lon: 37.6230010 }],
-              reviews: [{ author: "Андрей", rating: 5, text: "Сати - отличный мастер по окрашиванию. Результат супер!" }, { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" }, { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сати. Рекомендую!" }, { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." }, { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }] },
+              reviews: [{ author: "Андрей", rating: 5, text: "Сати - отличный мастер по окрашиванию. Результат супер!" }, { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" }, { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сати. Рекомендую!" }, { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." }, { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }],
+              tags: ["стрижка", "окрашивание"] },
             { id: 6, name: "Сергей", spec: "Обучался у таких преподавателей международного барберинга, как Jerome Kantner, Baldy, Sid Sottung, Kevin Luchmun. Сергей - гуру мужских стрижек. Если вы хотите классическую стрижку - приходите к Сергею, он выполнит её безукоризненно. За словом в карман не полезет. Даже самый капризный гость будет в восторге от его стрижки!", exp: 30, photo: "sergei", yclients_link: "https://n678638.yclients.com/ru/company/123456/record/master/5",
               locations: [{ title: "Адрес 1", address: "Москва, ул. Люсиновская, 55", lat: 55.717325, lon: 37.6230013 }],
-              reviews: [{ author: "Андрей", rating: 5, text: "Сергей - отличный мастер. Результат супер!" }, { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" }, { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сергею. Рекомендую!" }, { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." }, { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }] }
+              reviews: [{ author: "Андрей", rating: 5, text: "Сергей - отличный мастер. Результат супер!" }, { author: "Егор", rating: 5, text: "Очень стильная стрижка, спасибо!" }, { author: "Никита", rating: 5, text: "Всегда записываюсь только к Сергею. Рекомендую!" }, { author: "Илья", rating: 5, text: "Профессионал своего дела, очень доволен." }, { author: "Роман", rating: 5, text: "Отличный подход к клиенту, учёл все пожелания." }],
+              tags: ["стрижка", "борода"] }
         ];
 
+        // Обновление счётчиков
         document.getElementById('heroMastersCount').textContent = MASTERS.length;
         document.getElementById('mastersCount').textContent = MASTERS.length;
 
         let barbersMap = null;
         let useIframeFallbackMap = false;
         let currentFilteredMasterIndices = MASTERS.map((_, i) => i);
+        let currentMasterForBooking = null;
 
+        // Вспомогательные функции
         function calculateAverageRating(reviews) {
             if (!reviews?.length) return "0.0";
             return (reviews.reduce((s, r) => s + (r.rating || 0), 0) / reviews.length).toFixed(1);
@@ -1716,12 +1863,21 @@
 
         function yandexEmbedUrl(lon, lat, zoom) { return `https://yandex.ru/map-widget/v1/?ll=${encodeURIComponent(lon + ',' + lat)}&z=${zoom || 16}&l=map&pt=${encodeURIComponent(lon + ',' + lat + ',pm2rdm')}`; }
 
+        // Генерация списка мастеров с фильтрацией
         function generateMasters(masterIndices) {
             const carousel = document.getElementById('mastersCarousel');
             carousel.innerHTML = '';
             const meta = document.getElementById('masterSearchMeta');
+            const filterStats = document.getElementById('filterStats');
+            
             if (meta) meta.textContent = 'Показано мастеров: ' + masterIndices.length + ' из ' + MASTERS.length;
-            if (!masterIndices.length) { carousel.innerHTML = '<p class="section-subtitle">По вашему запросу мастера не найдены.</p>'; return; }
+            if (filterStats) filterStats.textContent = masterIndices.length === MASTERS.length ? '' : `Найдено: ${masterIndices.length} мастеров`;
+            
+            if (!masterIndices.length) { 
+                carousel.innerHTML = '<div style="text-align:center; padding:40px; width:100%;"><p>😔 По вашему запросу мастера не найдены.</p><p>Попробуйте изменить параметры фильтрации.</p></div>'; 
+                return; 
+            }
+            
             masterIndices.forEach(i => {
                 const m = MASTERS[i];
                 const card = document.createElement('div');
@@ -1729,11 +1885,81 @@
                 card.addEventListener('click', () => openMaster(i, 0));
                 const rating = calculateAverageRating(m.reviews);
                 const locationsHtml = (m.locations || []).map(l => '<span class="master-card__loc-line">' + l.address + '</span>').join('');
-                card.innerHTML = `<div class="master-card__photo"><img src="images/${masterPhotoFile(m)}.jpg" alt="${m.name}" onerror="this.src='images/logo.jpg'"></div><h3>${m.name}</h3><p class="master-card__rating"><span class="master-card__rating-star">★</span><span class="master-card__rating-value">${rating}</span><span class="master-card__rating-count">· ${m.reviews?.length || 0} отзывов</span></p>${locationsHtml ? '<div class="master-card__loc">' + locationsHtml + '</div>' : ''}`;
+                card.innerHTML = `<div class="master-card__photo"><img src="images/${masterPhotoFile(m)}.jpg" alt="${m.name}" onerror="this.src='images/logo.jpg'"></div><h3>${m.name}</h3><p class="master-card__rating"><span class="master-card__rating-star">★</span><span class="master-card__rating-value">${rating}</span><span class="master-card__rating-count">· ${m.reviews?.length || 0} отзывов</span></p><div class="master-card__exp">⭐ Стаж ${m.exp} лет</div>${locationsHtml ? '<div class="master-card__loc">' + locationsHtml + '</div>' : ''}`;
                 carousel.appendChild(card);
             });
         }
 
+        // Применение всех фильтров
+        function applyAllFilters() {
+            const specializationFilter = document.getElementById('filterSpecialization')?.value || '';
+            const ratingFilter = parseFloat(document.getElementById('filterRating')?.value || '0');
+            const districtFilter = document.getElementById('filterDistrict')?.value.toLowerCase().trim() || '';
+            const experienceFilter = parseInt(document.getElementById('filterExperience')?.value || '0');
+            const searchQuery = document.getElementById('masterSearch')?.value.toLowerCase().trim() || '';
+
+            currentFilteredMasterIndices = MASTERS
+                .map((m, idx) => ({ m, idx }))
+                .filter(({ m }) => {
+                    // Фильтр по специализации
+                    if (specializationFilter && !m.tags.includes(specializationFilter)) return false;
+                    
+                    // Фильтр по рейтингу
+                    if (ratingFilter > 0) {
+                        const rating = parseFloat(calculateAverageRating(m.reviews));
+                        if (rating < ratingFilter) return false;
+                    }
+                    
+                    // Фильтр по району/адресу
+                    if (districtFilter) {
+                        const addresses = m.locations.map(l => l.address.toLowerCase()).join(' ');
+                        if (!addresses.includes(districtFilter)) return false;
+                    }
+                    
+                    // Фильтр по опыту
+                    if (experienceFilter > 0 && m.exp < experienceFilter) return false;
+                    
+                    // Поиск по имени, специализации, адресам
+                    if (searchQuery) {
+                        const searchable = [
+                            m.name.toLowerCase(),
+                            m.spec.toLowerCase(),
+                            ...m.locations.map(l => l.address.toLowerCase()),
+                            ...m.tags
+                        ].join(' ');
+                        if (!searchable.includes(searchQuery)) return false;
+                    }
+                    
+                    return true;
+                })
+                .map(({ idx }) => idx);
+            
+            generateMasters(currentFilteredMasterIndices);
+            renderMapMarkers(currentFilteredMasterIndices);
+            updateBookingMasterSelect();
+        }
+
+        // Сброс фильтров
+        function resetFilters() {
+            const selects = ['filterSpecialization', 'filterRating', 'filterExperience'];
+            selects.forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = ''; });
+            if(document.getElementById('filterDistrict')) document.getElementById('filterDistrict').value = '';
+            if(document.getElementById('masterSearch')) document.getElementById('masterSearch').value = '';
+            applyAllFilters();
+        }
+
+        // Обновление селекта мастера в модалке записи
+        function updateBookingMasterSelect() {
+            const select = document.getElementById('bookingMaster');
+            if (!select) return;
+            select.innerHTML = '<option value="">Выберите мастера</option>';
+            currentFilteredMasterIndices.forEach(i => {
+                const m = MASTERS[i];
+                select.innerHTML += `<option value="${m.id}">${m.name} (стаж ${m.exp} лет)</option>`;
+            });
+        }
+
+        // Рендер меток на карте
         function renderMapMarkers(masterIndices) {
             if (useIframeFallbackMap || !barbersMap || typeof ymaps === 'undefined') return;
             barbersMap.geoObjects.removeAll();
@@ -1746,9 +1972,14 @@
                     barbersMap.geoObjects.add(placemark);
                 });
             });
-            try { barbersMap.setBounds(barbersMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 36 }); } catch(e) {}
+            try { 
+                if(barbersMap.geoObjects.getBounds()) {
+                    barbersMap.setBounds(barbersMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 36 });
+                }
+            } catch(e) {}
         }
 
+        // Инициализация Яндекс.Карты
         function initSalonMap() {
             const el = document.getElementById('mainYandexMap');
             if (!el) return;
@@ -1765,6 +1996,7 @@
             });
         }
 
+        // Открытие модалки мастера
         function openMaster(masterIndex, locationIndex) {
             const modal = document.getElementById('masterModal');
             const m = MASTERS[masterIndex];
@@ -1779,7 +2011,8 @@
             document.getElementById('modalAddress').textContent = (loc.title ? loc.title + ' — ' : '') + loc.address;
             const rating = calculateAverageRating(m.reviews);
             document.getElementById('ratingValue').textContent = rating;
-            document.getElementById('ratingStars').innerHTML = "★".repeat(Math.round(parseFloat(rating)));
+            const fullStars = Math.round(parseFloat(rating));
+            document.getElementById('ratingStars').innerHTML = "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
             let reviewsHtml = '';
             (m.reviews || []).forEach(r => {
                 let stars = '';
@@ -1816,7 +2049,7 @@
             document.body.style.overflow = '';
         }
 
-        // Карусели со стрелками
+        // Карусели
         function setupServicesCarousel() {
             const grid = document.getElementById('servicesGrid');
             const prev = document.getElementById('servicesPrev');
@@ -1888,6 +2121,7 @@
             });
         }
 
+        // Обратная связь
         function setupFeedback() {
             const fab = document.getElementById('feedbackFab');
             const modal = document.getElementById('feedbackModal');
@@ -1904,10 +2138,60 @@
                 if (!name || !phone) { alert('Пожалуйста, заполните имя и телефон'); return; }
                 formDiv.style.display = 'none';
                 successDiv.style.display = 'block';
-                setTimeout(() => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; document.getElementById('fbName').value = ''; document.getElementById('fbPhone').value = ''; document.getElementById('fbEmail').value = ''; document.getElementById('fbMessage').value = ''; }, 2000);
+                setTimeout(() => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; 
+                    document.getElementById('fbName').value = ''; document.getElementById('fbPhone').value = ''; 
+                    document.getElementById('fbEmail').value = ''; document.getElementById('fbMessage').value = ''; }, 2000);
             });
         }
 
+        // Онлайн-запись
+        function setupBooking() {
+            const bookBtns = [document.getElementById('headerBookBtn'), document.getElementById('heroBookBtn')];
+            const modal = document.getElementById('bookingModal');
+            const close = document.getElementById('bookingClose');
+            const submit = document.getElementById('bookingSubmit');
+            const formDiv = document.getElementById('bookingForm');
+            const successDiv = document.getElementById('bookingSuccess');
+
+            bookBtns.forEach(btn => btn?.addEventListener('click', () => {
+                updateBookingMasterSelect();
+                modal.classList.add('open');
+            }));
+
+            close.addEventListener('click', () => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; });
+            modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; } });
+
+            submit.addEventListener('click', () => {
+                const name = document.getElementById('bookingName').value.trim();
+                const phone = document.getElementById('bookingPhone').value.trim();
+                const masterId = document.getElementById('bookingMaster').value;
+                const service = document.getElementById('bookingService').value;
+                const datetime = document.getElementById('bookingDatetime').value;
+
+                if (!name || !phone) { alert('Пожалуйста, заполните имя и телефон'); return; }
+                if (!masterId) { alert('Выберите мастера'); return; }
+                if (!datetime) { alert('Выберите дату и время'); return; }
+
+                // Здесь можно отправить данные на сервер
+                console.log('Запись:', { name, phone, masterId, service, datetime });
+                
+                formDiv.style.display = 'none';
+                successDiv.style.display = 'block';
+                setTimeout(() => { 
+                    modal.classList.remove('open'); 
+                    formDiv.style.display = 'block'; 
+                    successDiv.style.display = 'none';
+                    document.getElementById('bookingName').value = '';
+                    document.getElementById('bookingPhone').value = '';
+                    document.getElementById('bookingEmail').value = '';
+                    document.getElementById('bookingMaster').value = '';
+                    document.getElementById('bookingService').value = 'Мужская стрижка';
+                    document.getElementById('bookingDatetime').value = '';
+                }, 2000);
+            });
+        }
+
+        // Навигация и анимации
         function setupScrollAnimations() {
             const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
@@ -1921,7 +2205,6 @@
                 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { burger.classList.remove('active'); nav.classList.remove('active'); document.body.classList.remove('menu-open'); }));
             }
             document.getElementById('logoLink')?.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-            [document.getElementById('headerBookBtn'), document.getElementById('heroBookBtn')].forEach(btn => btn?.addEventListener('click', () => document.getElementById('masters').scrollIntoView({ behavior: 'smooth' })));
             document.querySelectorAll('.nav a').forEach(link => {
                 const href = link.getAttribute('href');
                 if (href === '#contacts') link.addEventListener('click', e => { e.preventDefault(); document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' }); });
@@ -1931,36 +2214,15 @@
             document.getElementById('modalCloseBtn')?.addEventListener('click', closeMaster);
             document.getElementById('masterModal')?.addEventListener('click', e => { if (e.target === document.getElementById('masterModal')) closeMaster(); });
             document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMaster(); });
-        }
-
-        // Поиск
-        function applyMasterFilter(query) {
-            const q = query.toLowerCase().trim();
-            if (!q) { currentFilteredMasterIndices = MASTERS.map((_, i) => i); }
-            else {
-                currentFilteredMasterIndices = MASTERS
-                    .map((m, idx) => ({ m, idx }))
-                    .filter(({ m }) => {
-                        const searchable = [
-                            m.name,
-                            m.spec,
-                            ...(m.locations || []).map(l => l.address),
-                            ...(m.locations || []).map(l => l.title)
-                        ].join(' ').toLowerCase();
-                        return searchable.includes(q);
-                    })
-                    .map(({ idx }) => idx);
-            }
-            generateMasters(currentFilteredMasterIndices);
-            renderMapMarkers(currentFilteredMasterIndices);
-        }
-        function setupMasterSearch() {
-            const input = document.getElementById('masterSearch');
-            const clear = document.getElementById('masterSearchClear');
-            if (!input || !clear) return;
-            let timeout;
-            input.addEventListener('input', () => { clearTimeout(timeout); timeout = setTimeout(() => applyMasterFilter(input.value), 300); });
-            clear.addEventListener('click', () => { input.value = ''; applyMasterFilter(''); input.focus(); });
+            document.getElementById('filterResetBtn')?.addEventListener('click', resetFilters);
+            
+            // Добавляем слушатели на фильтры
+            const filterElements = ['filterSpecialization', 'filterRating', 'filterDistrict', 'filterExperience', 'masterSearch'];
+            filterElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', () => applyAllFilters());
+                if (el && el.tagName === 'SELECT') el.addEventListener('change', () => applyAllFilters());
+            });
         }
 
         // Инициализация
@@ -1969,11 +2231,12 @@
         setupMastersCarousel();
         setupGalleryCarousel();
         setupSlider();
-        setupMasterSearch();
         setupFeedback();
+        setupBooking();
         setupScrollAnimations();
         setupNavigation();
         initSalonMap();
+        updateBookingMasterSelect();
     </script>
 </body>
 </html>
