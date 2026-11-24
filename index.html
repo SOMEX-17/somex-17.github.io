@@ -1752,23 +1752,7 @@
     </footer>
 
     <!-- Кнопка обратной связи -->
-    <button class="feedback-fab" id="feedbackFab" type="button">✉</button>
-
-    <!-- Модалка обратной связи -->
-    <div class="feedback-modal-overlay" id="feedbackModal">
-        <div class="feedback-modal">
-            <button class="feedback-close" id="feedbackClose">&times;</button>
-            <h3>Есть вопрос?</h3>
-            <div class="feedback-form" id="feedbackForm">
-                <input type="text" id="fbName" placeholder="Ваше имя" required>
-                <input type="tel" id="fbPhone" placeholder="Телефон" required>
-                <input type="email" id="fbEmail" placeholder="Email">
-                <textarea id="fbMessage" placeholder="Ваш вопрос..."></textarea>
-                <button id="fbSubmit">Отправить</button>
-            </div>
-            <div class="feedback-success" id="feedbackSuccess"><p>✅ Спасибо! Мы свяжемся с вами в ближайшее время.</p></div>
-        </div>
-    </div>
+    <button class="feedback-fab" id="feedbackFab" type="button" hidden style="display:none">✉</button>
 
     <!-- Модалка мастера -->
     <div class="master-modal-overlay" id="masterModal" role="dialog" aria-modal="true">
@@ -1781,31 +1765,6 @@
                 <div class="modal-section modal-section--map"><h4>Локации мастера</h4><div class="modal-locations" id="modalLocations"></div><p class="modal-address-active" id="modalAddress"></p><div class="modal-map"><iframe id="modalMap" title="Карта" frameborder="0" loading="lazy"></iframe></div></div>
             </div>
             <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="noopener">Записаться</a>
-        </div>
-    </div>
-
-    <!-- Модалка онлайн-записи -->
-    <div class="booking-modal-overlay" id="bookingModal">
-        <div class="booking-modal">
-            <button class="booking-close" id="bookingClose">&times;</button>
-            <h3>Запись онлайн</h3>
-            <div class="booking-form" id="bookingForm">
-                <input type="text" id="bookingName" placeholder="Ваше имя" required>
-                <input type="tel" id="bookingPhone" placeholder="Телефон" required>
-                <input type="email" id="bookingEmail" placeholder="Email (необязательно)">
-                <select id="bookingMaster">
-                    <option value="">Выберите мастера</option>
-                </select>
-                <select id="bookingService">
-                    <option value="Мужская стрижка">Мужская стрижка — от 2800 ₽</option>
-                    <option value="Стрижка бороды">Стрижка бороды — от 1700 ₽</option>
-                    <option value="Королевское бритьё">Королевское бритьё — от 2200 ₽</option>
-                    <option value="Стрижка + борода">Стрижка + борода — от 4500 ₽</option>
-                </select>
-                <input type="datetime-local" id="bookingDatetime" required>
-                <button id="bookingSubmit">Записаться</button>
-            </div>
-            <div class="booking-success" id="bookingSuccess"><p>✅ Заявка отправлена! Мастер свяжется с вами для подтверждения.</p></div>
         </div>
     </div>
 
@@ -1864,6 +1823,37 @@
 
         function yandexEmbedUrl(lon, lat, zoom) { return `https://yandex.ru/map-widget/v1/?ll=${encodeURIComponent(lon + ',' + lat)}&z=${zoom || 16}&l=map&pt=${encodeURIComponent(lon + ',' + lat + ',pm2rdm')}`; }
 
+        // Координаты посетителя используются только локально в браузере.
+        let visitorPosition = null;
+        function distanceKm(lat1, lon1, lat2, lon2) {
+            const rad = Math.PI / 180, dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+            const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
+            return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+        function nearestDistance(m) {
+            if (!visitorPosition || !m.locations?.length) return Infinity;
+            return Math.min(...m.locations.map(l => distanceKm(visitorPosition.lat, visitorPosition.lon, l.lat, l.lon)));
+        }
+        function locateNearestMasters() {
+            const btn = document.getElementById('geoLocateBtn');
+            if (!navigator.geolocation) { alert('Ваш браузер не поддерживает геолокацию. Используйте поиск по адресу.'); return; }
+            btn.disabled = true;
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    visitorPosition = { lat: position.coords.latitude, lon: position.coords.longitude };
+                    btn.disabled = false;
+                    btn.title = 'Мастера отсортированы по расстоянию от вас';
+                    applyAllFilters();
+                    document.getElementById('masters')?.scrollIntoView({ behavior: 'smooth' });
+                },
+                error => {
+                    btn.disabled = false;
+                    alert(error.code === 1 ? 'Доступ к геолокации не предоставлен. Вы можете искать мастеров по адресу.' : 'Не удалось определить местоположение. Попробуйте позже или используйте поиск по адресу.');
+                },
+                { enableHighAccuracy: false, timeout: 12000, maximumAge: 60000 }
+            );
+        }
+
         // Генерация списка мастеров с фильтрацией
         function generateMasters(masterIndices) {
             const carousel = document.getElementById('mastersCarousel');
@@ -1883,10 +1873,11 @@
                 const m = MASTERS[i];
                 const card = document.createElement('div');
                 card.className = 'master-card';
-                card.addEventListener('click', () => openMaster(i, 0));
+                card.addEventListener('click', () => openMaster(i, visitorPosition ? m.locations.reduce((best, loc, idx) => distanceKm(visitorPosition.lat, visitorPosition.lon, loc.lat, loc.lon) < distanceKm(visitorPosition.lat, visitorPosition.lon, m.locations[best].lat, m.locations[best].lon) ? idx : best, 0) : 0));
                 const rating = calculateAverageRating(m.reviews);
                 const locationsHtml = (m.locations || []).map(l => '<span class="master-card__loc-line">' + l.address + '</span>').join('');
                 card.innerHTML = `<div class="master-card__photo"><img src="images/${masterPhotoFile(m)}.jpg" alt="${m.name}" onerror="this.src='images/logo.jpg'"></div><h3>${m.name}</h3><p class="master-card__rating"><span class="master-card__rating-star">★</span><span class="master-card__rating-value">${rating}</span><span class="master-card__rating-count">· ${m.reviews?.length || 0} отзывов</span></p><div class="master-card__exp">⭐ Стаж ${m.exp} лет</div>${locationsHtml ? '<div class="master-card__loc">' + locationsHtml + '</div>' : ''}`;
+                if (visitorPosition) card.title = `Ближайшая локация: ${nearestDistance(m).toFixed(1)} км по прямой`;
                 carousel.appendChild(card);
             });
         }
@@ -1934,10 +1925,10 @@
                     return true;
                 })
                 .map(({ idx }) => idx);
+            if (visitorPosition) currentFilteredMasterIndices.sort((a, b) => nearestDistance(MASTERS[a]) - nearestDistance(MASTERS[b]));
             
             generateMasters(currentFilteredMasterIndices);
             renderMapMarkers(currentFilteredMasterIndices);
-            updateBookingMasterSelect();
         }
 
         // Сброс фильтров
@@ -1949,17 +1940,6 @@
             applyAllFilters();
         }
 
-        // Обновление селекта мастера в модалке записи
-        function updateBookingMasterSelect() {
-            const select = document.getElementById('bookingMaster');
-            if (!select) return;
-            select.innerHTML = '<option value="">Выберите мастера</option>';
-            currentFilteredMasterIndices.forEach(i => {
-                const m = MASTERS[i];
-                select.innerHTML += `<option value="${m.id}">${m.name} (стаж ${m.exp} лет)</option>`;
-            });
-        }
-
         // Рендер меток на карте
         function renderMapMarkers(masterIndices) {
             if (useIframeFallbackMap || !barbersMap || typeof ymaps === 'undefined') return;
@@ -1969,7 +1949,7 @@
                 if (!m) return;
                 m.locations.forEach(l => {
                     const placemark = new ymaps.Placemark([l.lat, l.lon], { hintContent: m.name }, { hasBalloon: false });
-                    placemark.events.add('click', () => openMaster(mi, 0));
+                    placemark.events.add('click', () => openMaster(mi, m.locations.indexOf(l)));
                     barbersMap.geoObjects.add(placemark);
                 });
             });
@@ -2122,76 +2102,6 @@
             });
         }
 
-        // Обратная связь
-        function setupFeedback() {
-            const fab = document.getElementById('feedbackFab');
-            const modal = document.getElementById('feedbackModal');
-            const close = document.getElementById('feedbackClose');
-            const submit = document.getElementById('fbSubmit');
-            const formDiv = document.getElementById('feedbackForm');
-            const successDiv = document.getElementById('feedbackSuccess');
-            fab.addEventListener('click', () => modal.classList.add('open'));
-            close.addEventListener('click', () => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; });
-            modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; } });
-            submit.addEventListener('click', () => {
-                const name = document.getElementById('fbName').value.trim();
-                const phone = document.getElementById('fbPhone').value.trim();
-                if (!name || !phone) { alert('Пожалуйста, заполните имя и телефон'); return; }
-                formDiv.style.display = 'none';
-                successDiv.style.display = 'block';
-                setTimeout(() => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; 
-                    document.getElementById('fbName').value = ''; document.getElementById('fbPhone').value = ''; 
-                    document.getElementById('fbEmail').value = ''; document.getElementById('fbMessage').value = ''; }, 2000);
-            });
-        }
-
-        // Онлайн-запись
-        function setupBooking() {
-            const bookBtns = [document.getElementById('headerBookBtn'), document.getElementById('heroBookBtn')];
-            const modal = document.getElementById('bookingModal');
-            const close = document.getElementById('bookingClose');
-            const submit = document.getElementById('bookingSubmit');
-            const formDiv = document.getElementById('bookingForm');
-            const successDiv = document.getElementById('bookingSuccess');
-
-            bookBtns.forEach(btn => btn?.addEventListener('click', () => {
-                updateBookingMasterSelect();
-                modal.classList.add('open');
-            }));
-
-            close.addEventListener('click', () => { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; });
-            modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('open'); formDiv.style.display = 'block'; successDiv.style.display = 'none'; } });
-
-            submit.addEventListener('click', () => {
-                const name = document.getElementById('bookingName').value.trim();
-                const phone = document.getElementById('bookingPhone').value.trim();
-                const masterId = document.getElementById('bookingMaster').value;
-                const service = document.getElementById('bookingService').value;
-                const datetime = document.getElementById('bookingDatetime').value;
-
-                if (!name || !phone) { alert('Пожалуйста, заполните имя и телефон'); return; }
-                if (!masterId) { alert('Выберите мастера'); return; }
-                if (!datetime) { alert('Выберите дату и время'); return; }
-
-                // Здесь можно отправить данные на сервер
-                console.log('Запись:', { name, phone, masterId, service, datetime });
-                
-                formDiv.style.display = 'none';
-                successDiv.style.display = 'block';
-                setTimeout(() => { 
-                    modal.classList.remove('open'); 
-                    formDiv.style.display = 'block'; 
-                    successDiv.style.display = 'none';
-                    document.getElementById('bookingName').value = '';
-                    document.getElementById('bookingPhone').value = '';
-                    document.getElementById('bookingEmail').value = '';
-                    document.getElementById('bookingMaster').value = '';
-                    document.getElementById('bookingService').value = 'Мужская стрижка';
-                    document.getElementById('bookingDatetime').value = '';
-                }, 2000);
-            });
-        }
-
         // Навигация и анимации
         function setupScrollAnimations() {
             const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
@@ -2199,6 +2109,8 @@
         }
 
         function setupNavigation() {
+            ['headerBookBtn', 'heroBookBtn'].forEach(id => document.getElementById(id)?.addEventListener('click', () => document.getElementById('masters')?.scrollIntoView({ behavior: 'smooth' })));
+
             const burger = document.querySelector('.burger');
             const nav = document.querySelector('.nav');
             if (burger && nav) {
@@ -2211,7 +2123,7 @@
                 if (href === '#contacts') link.addEventListener('click', e => { e.preventDefault(); document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' }); });
                 if (href === '#mastersMap') link.addEventListener('click', e => { e.preventDefault(); document.getElementById('mastersMap').scrollIntoView({ behavior: 'smooth' }); });
             });
-            document.getElementById('geoLocateBtn')?.addEventListener('click', () => { alert('Геолокация: показаны все мастера'); });
+            document.getElementById('geoLocateBtn')?.addEventListener('click', locateNearestMasters);
             document.getElementById('modalCloseBtn')?.addEventListener('click', closeMaster);
             document.getElementById('masterModal')?.addEventListener('click', e => { if (e.target === document.getElementById('masterModal')) closeMaster(); });
             document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMaster(); });
@@ -2232,12 +2144,9 @@
         setupMastersCarousel();
         setupGalleryCarousel();
         setupSlider();
-        setupFeedback();
-        setupBooking();
         setupScrollAnimations();
         setupNavigation();
         initSalonMap();
-        updateBookingMasterSelect();
     </script>
 </body>
 </html>
